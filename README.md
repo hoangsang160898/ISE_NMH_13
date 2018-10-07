@@ -1,6 +1,6 @@
-## Nhóm N.G.U - Nhập môn Công nghệ phần mềm lớp CQ2016/32
-#### Giảng viên LT: Nguyễn Minh Huy
-#### Giảng viên TH: Nguyễn Đức Huy
+## Nhóm N.G.U - Nhập môn Công nghệ phần mềm lớp CQ2016/32 
+### Giảng viên LT: Nguyễn Minh Huy
+### Giảng viên TH: Nguyễn Đức Huy
 ### Project: Quản lí học sinh
 #### Thành viên nhóm:
 | MSSV | Họ và tên | Email | Số điện thoại |
