@@ -43,5 +43,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{c4f30d11-4d16-4dca-9111-fb5167a21546}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
