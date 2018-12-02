@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class ClassDTO
+   public class ClassDTO
     {
         private string name;
         private string schoolYear;

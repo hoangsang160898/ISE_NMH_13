@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class AdminDTO:StudentDTO
+    public class AdminDTO:PeopleDTO
     {
         public AdminDTO()
         {

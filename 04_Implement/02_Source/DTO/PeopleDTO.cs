@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class PeopleDTO
+    public class PeopleDTO
     {
         private string id;
         private string password;
@@ -28,7 +28,7 @@ namespace DTO
 
         public PeopleDTO()
         {
-            Id = Password = Type = Name = DateofBith = Gender = Email = Phone = "";
+            Id = Password = Type = Name  = Gender = Email = Phone = "";
         }
     }
 }

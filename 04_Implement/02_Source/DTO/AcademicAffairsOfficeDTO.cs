@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class AcademicAffairsOffficeDTO:StudentDTO
+   public class AcademicAffairsOfficeDTO:PeopleDTO
     {
-        public AcademicAffairsOffficeDTO()
+        public AcademicAffairsOfficeDTO()
         {
 
         }
