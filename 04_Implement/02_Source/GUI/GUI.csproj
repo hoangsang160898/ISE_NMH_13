@@ -61,6 +61,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorities.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,6 +99,31 @@
       <Project>{c4f30d11-4d16-4dca-9111-fb5167a21546}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\logo_app.png" />
+    <Resource Include="img\icons\logo_icon.png" />
+    <Resource Include="img\icons\pass_icon.png" />
+    <Resource Include="img\icons\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\logo_app_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\admin_icon_white.png" />
+    <Resource Include="img\icons\student_icon_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\teacher_icon_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\logo_app_desktop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
