@@ -10,11 +10,11 @@
         Title="Log In" Height="768" Width="992" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Window.Resources>
         <DataTemplate x:Key="AuthoritiesList" DataType="Authorities">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Background="#00a7ee">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Background="#00a7ee" Width="120">
                 <Image Name="image" Source="{Binding AuthorIcon}" VerticalAlignment="Center" Width="26" Margin="0" Panel.ZIndex="1"/>
                 <StackPanel>
                     <Border Panel.ZIndex="2">
-                        <TextBlock Text="{Binding AuthorName}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Margin="0,0,0,0"/>
+                        <TextBlock Text="{Binding AuthorName}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" Margin="0,0,0,0"/>
                     </Border>
                 </StackPanel>
             </StackPanel>
@@ -23,17 +23,17 @@
     <Border Background="#00a7ee" CornerRadius="0" BorderBrush="#00a7ee" BorderThickness="1.5">
         <Grid>
             <Border x:Name="TitleBar" Height="40" Background="White" CornerRadius="0" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,1,0">
-                <Label Content="Welcome to Student Management System"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="989" FontFamily="Arial" FontSize="15" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Foreground="Black" Margin="0,-93,-11,0"/>
+                <Label Content="Welcome to Student Management System"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="989" FontFamily="Arial" FontSize="15" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Foreground="Black" Margin="0,0,-1,0"/>
             </Border>
             <Rectangle HorizontalAlignment="Center" Height="576" Margin="0,50,0,0" VerticalAlignment="Center" Width="414" Fill="#FFFBFBFB" RadiusX="15" RadiusY="15"/>
-            <Image HorizontalAlignment="Center" Height="130" Margin="329,181,326,0" VerticalAlignment="top" Width="130" Source="img/icons/logo_app.png"/>
-            <Border BorderBrush="#00a7ee" BorderThickness="3" SnapsToDevicePixels="True" Padding="0" Margin="322,364,317,0" Width="350" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="15" Background="White">
+            <Image HorizontalAlignment="Center" Height="140" Margin="426,181,423,0" VerticalAlignment="top" Width="140" Source="img/icons/logo_app.png"/>
+            <Border BorderBrush="#00a7ee" BorderThickness="3" SnapsToDevicePixels="True" Padding="0" Margin="322,375,317,0" Width="350" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="15" Background="White">
                 <TextBox MaxLength="31"  Opacity="0.7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="center" Height="25" Margin="8.791,1,8.833,0" Text="" VerticalAlignment="Top" Width="326.376"  TextChanged="TextBox_TextChanged" Name="txtbUsername" BorderThickness="0" FontFamily="Arial" HorizontalScrollBarVisibility="Disabled" UseLayoutRounding="False" SnapsToDevicePixels="True" BorderBrush="{x:Null}"/>
             </Border>
             <Border BorderBrush="#00a7ee" BorderThickness="3" SnapsToDevicePixels="True" Padding="0" Margin="322,472,317,0" Width="350" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="15" Background="White">
                 <PasswordBox MaxLength="31" Opacity="0.7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="9,1,9,0" VerticalAlignment="Top" Width="326" Name="passbPassword" Height="25" BorderBrush="{x:Null}" FontFamily="Arial" BorderThickness="0"/>
             </Border>
-            <Button Cursor="Hand" Foreground="White" IsDefault="True" Content="LOG IN" HorizontalAlignment="Center" Margin="268,651,267,0" VerticalAlignment="Top" Width="250" Click="LogIn_Click" Name="btnLogIn" BorderThickness="0" SnapsToDevicePixels="True" BorderBrush="{x:Null}" Padding="0" FontFamily="Arial" FontWeight="Bold" FontSize="14" Height="33">
+            <Button Cursor="Hand" Foreground="White" IsDefault="True" Content="LOG IN" HorizontalAlignment="Center" Margin="371,614,368,0" VerticalAlignment="Top" Width="250" Click="LogIn_Click" Name="btnLogIn" BorderThickness="0" SnapsToDevicePixels="True" BorderBrush="{x:Null}" Padding="0" FontFamily="Arial" FontWeight="Bold" FontSize="14" Height="33">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="Orange"/>
@@ -54,10 +54,10 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Label Foreground="Black" Target="{Binding ElementName=txtbUsername}" Content="_USERNAME" HorizontalAlignment="Left" Margin="353,339,0,0" VerticalAlignment="Top" Name="lblUsername" Width="70" Padding="0" FontWeight="Bold" FontFamily="Arial"/>
+            <Label Foreground="Black" Target="{Binding ElementName=txtbUsername}" Content="_USERNAME" HorizontalAlignment="Left" Margin="353,350,0,0" VerticalAlignment="Top" Name="lblUsername" Width="70" Padding="0" FontWeight="Bold" FontFamily="Arial"/>
             <Label Foreground="Black" Target="{Binding ElementName=passbPassword}" Content="_PASSWORD" HorizontalAlignment="Left" Margin="353,447,0,0" VerticalAlignment="Top" Name="lblPassword" Width="70" Padding="0" FontWeight="Bold" FontFamily="Arial"/>
 
-            <Label Name="uiErrorSp_1" Content="" HorizontalAlignment="Left" Height="34" Margin="684,353,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Visible">
+            <Label Name="uiErrorSp_1" Content="" HorizontalAlignment="Left" Height="34" Margin="684,375,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -68,7 +68,7 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Label Name="uiErrorSp_2" Content="" HorizontalAlignment="Left" Height="34" Margin="684,462,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Visible">
+            <Label Name="uiErrorSp_2" Content="" HorizontalAlignment="Left" Height="34" Margin="684,471,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -90,13 +90,13 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,345,93,0" VerticalAlignment="Top" Name="lblErrorMessage_1" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Visible"/>
-            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,455,93,0" VerticalAlignment="Top" Name="lblErrorMessage_2" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Visible"/>
+            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,367,93,0" VerticalAlignment="Top" Name="lblErrorMessage_1" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed"/>
+            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,464,93,0" VerticalAlignment="Top" Name="lblErrorMessage_2" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed"/>
 
             <Border Name="borderTip" CornerRadius="10" Width="150" Height="50" BorderBrush="Black" HorizontalAlignment="Right" Background="#FFFBFBFB" Margin="0,64,213,651"/>
             <Label Foreground="Black"  Content="Hi!!!&#xA;Have a good day :)" HorizontalAlignment="Center" Margin="626,64,213,0" VerticalAlignment="Top" Name="lblTip" Width="150" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontFamily="Arial" />
 
-            <Image Source="img/icons/user_icon.png" HorizontalAlignment="Left" Height="26" Margin="323,333,0,0" VerticalAlignment="Top" Width="26"/>
+            <Image Source="img/icons/user_icon.png" HorizontalAlignment="Left" Height="26" Margin="323,344,0,0" VerticalAlignment="Top" Width="26"/>
             <Image Source="img/icons/pass_icon.png" HorizontalAlignment="Left" Height="26" Margin="323,441,0,0" VerticalAlignment="Top" Width="26"/>
             <Button Name="btnClose" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="X" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="40" FontFamily="Arial" FontSize="15" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Click="btnClose_Click" Margin="0,0,1,0">
                 <Button.Style>
@@ -176,12 +176,12 @@
                     <RadioButton Content="img/icons/logo_app.png" Style="{StaticResource Flag}"  Width="40" Height="40" Checked="RadioButton_Checked"/>
                     <RadioButton Content="../Resources/radio.png" Style="{StaticResource Flag}"  Width="40" Height="40" Checked="RadioButton_Checked"/>
                     <RadioButton Content="../Resources/radio.png" Style="{StaticResource Flag}" Width="40" Height="40" Checked="RadioButton_Checked_1" Margin="5,0"/>
-                </ItemsControl>
+                </ItemsControl> #00a7ee
             </StackPanel>-->
-            <ListView Name="test" ItemTemplate="{StaticResource AuthoritiesList}" BorderThickness="0" Background="#FFFBFBFB" Margin="322,524,317,158" SelectionChanged="test_SelectionChanged">
+            <ListView Name="test" ItemTemplate="{StaticResource AuthoritiesList}" Background="#FFFBFBFB" BorderThickness="0" Margin="322,546,317,185" SelectionChanged="test_SelectionChanged" Height="33" Width="350">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="3" Width="300"/>
+                        <UniformGrid Columns="3" Width="342" Height="31"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ListView>
