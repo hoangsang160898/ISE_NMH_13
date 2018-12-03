@@ -11,7 +11,7 @@
     <Border Background="#00a7ee" CornerRadius="0" BorderBrush="#00a7ee" BorderThickness="1.5">
         <Grid>
             <Border x:Name="TitleBar" Height="40" Background="White" CornerRadius="0" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,1,0">
-                <Label Content="Welcome to Student Management System"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="989" FontFamily="Arial" FontSize="15" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Foreground="Black" Margin="0,0,-1,0"/>
+                <Label Content="Welcome to Student Management System"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="989" FontFamily="Arial" FontSize="17" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Foreground="Black" Margin="0,0,-1,0"/>
             </Border>
             <Rectangle HorizontalAlignment="Center" Height="512" Margin="284,98,291,59" VerticalAlignment="Center" Width="414" Fill="#FFFBFBFB" RadiusX="15" RadiusY="15"/>
             <Image HorizontalAlignment="Center" Height="140" Margin="421,118,428,0" VerticalAlignment="top" Width="140" Source="img/icons/logo_app.png"/>
@@ -45,7 +45,7 @@
             <Label Foreground="Black" Target="{Binding ElementName=txtbUsername}" Content="_USERNAME" HorizontalAlignment="Left" Margin="371,283,0,0" VerticalAlignment="Top" Name="lblUsername" Width="86" Padding="0" FontWeight="Bold" FontFamily="Arial" FontSize="15"/>
             <Label Foreground="Black" Target="{Binding ElementName=passbPassword}" Content="_PASSWORD" HorizontalAlignment="Left" Margin="373,384,0,0" VerticalAlignment="Top" Name="lblPassword" Width="90" Padding="0" FontWeight="Bold" FontFamily="Arial" FontSize="15"/>
 
-            <Label Name="uiErrorSp_1" Content="" HorizontalAlignment="Left" Height="34" Margin="685,371,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
+            <Label Name="uiErrorSp_1" Content="" HorizontalAlignment="Left" Height="34" Margin="681,313,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -56,7 +56,7 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Label Name="uiErrorSp_2" Content="" HorizontalAlignment="Left" Height="34" Margin="685,467,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
+            <Label Name="uiErrorSp_2" Content="" HorizontalAlignment="Left" Height="34" Margin="681,412,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -67,7 +67,7 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Label Name="uiErrorSp_3" Content="" HorizontalAlignment="Left" Height="34" Margin="685,534,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
+            <Label Name="uiErrorSp_3" Content="" HorizontalAlignment="Left" Height="34" Margin="677,481,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Background="Red" Visibility="Collapsed">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -90,9 +90,9 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,362,93,0" VerticalAlignment="Top" Name="lblErrorMessage_1" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" FontSize="13"/>
-            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,459,93,0" VerticalAlignment="Top" Name="lblErrorMessage_2" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" FontSize="13"/>
-            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="684,526,93,0" VerticalAlignment="Top" Name="lblErrorMessage_3" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" FontSize="13"/>
+            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="681,305,96,0" VerticalAlignment="Top" Name="lblErrorMessage_1" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" FontSize="13"/>
+            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="681,404,96,0" VerticalAlignment="Top" Name="lblErrorMessage_2" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" FontSize="13"/>
+            <Label Foreground="White" Background="red"  Content="" HorizontalAlignment="Center" Margin="677,473,100,0" VerticalAlignment="Top" Name="lblErrorMessage_3" Width="212" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" FontSize="13"/>
 
             <Border Name="borderTip" CornerRadius="10" Width="150" Height="50" BorderBrush="Black" HorizontalAlignment="Right" Background="#FFFBFBFB" Margin="0,98,133,521"/>
             <Label Foreground="Black"  Content="Hello!!!&#xA;Have a good day :)" HorizontalAlignment="Center" Margin="706,98,133,0" VerticalAlignment="Top" Name="lblTip" Width="150" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontFamily="Arial" FontWeight="Bold" FontStyle="Italic" />
