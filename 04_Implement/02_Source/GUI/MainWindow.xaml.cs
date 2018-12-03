@@ -20,12 +20,12 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        string userAdmin = "admin";
+        string userAdmin = "admin"; //test UI/UX
         string passAdmin = "123";
         string userLogIn, passLogIn = "";
         private DispatcherTimer dispatcherTimer;
         private DispatcherTimer dispatcherTimerForTip;
-        private List<Authorities> list_authorities;
+       
         public MainWindow()
         {
             //Thời gian báo lỗi khi nhập user hoặc pass
@@ -39,7 +39,6 @@ namespace GUI
             dispatcherTimerForTip.Interval = new TimeSpan(0, 0, 4);
             dispatcherTimerForTip.Start();
 
-            list_authorities = AuthoritiesManager.GetAuthorities();
             InitializeComponent();
         }
 
@@ -65,6 +64,7 @@ namespace GUI
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
+
             passLogIn = passbPassword.Password;
             if (userLogIn == null || userLogIn != userAdmin)
             {
@@ -79,44 +79,54 @@ namespace GUI
                 lblErrorMessage_2.Content = "The password that you've entered" + "\n" + "is incorrect.";
                 lblErrorMessage_2.Visibility = Visibility.Visible;
                 uiErrorSp_2.Visibility = Visibility.Visible;
-        
                 dispatcherTimer.Start();
 
+            }else if (rb_tc.IsChecked==false&&rb_st.IsChecked==false&&rb_ad.IsChecked==false)
+            {
+                lblErrorMessage_3.Content = "You must choose a authorities.";
+                lblErrorMessage_3.Visibility = Visibility.Visible;
+                uiErrorSp_3.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
             }
             else if (userLogIn == userAdmin & passLogIn == passAdmin)
             {
                 this.Close();
             }
 
+
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             lblErrorMessage_1.Visibility = Visibility.Collapsed;
-            uiErrorSp_1.Visibility = Visibility.Collapsed;
-     
+            uiErrorSp_1.Visibility = Visibility.Collapsed;   
             lblErrorMessage_2.Visibility = Visibility.Collapsed;
             uiErrorSp_2.Visibility = Visibility.Collapsed;
-          
+            lblErrorMessage_3.Visibility = Visibility.Collapsed;
+            uiErrorSp_3.Visibility = Visibility.Collapsed;
             dispatcherTimer.IsEnabled = false;
         }
-        
+
+        private void rb_Checked_tc(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rb_Checked_st(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rb_Checked_ad(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
         private void dispatcherTimerForTip_Tick(object sender, EventArgs e)
         {
             lblTip.Visibility = Visibility.Collapsed;
             uiTipSp.Visibility = Visibility.Collapsed;
             borderTip.Visibility = Visibility.Collapsed;
-        }
-
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            var items = list_authorities;
-            test.ItemsSource = items;
-        }
-        private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
