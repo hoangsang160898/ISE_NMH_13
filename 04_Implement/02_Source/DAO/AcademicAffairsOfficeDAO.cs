@@ -15,7 +15,7 @@ namespace DAO
 
         public static List<StudentDTO> LoadStudent(string className, string SchoolYear)
         {
-            string sTruyVan = @"Select IDStudent, Name, Gender,Email, Phone, BirthDay from Student where nameClass = '" + className + @"' and ClassSchoolYear = '" + SchoolYear+"'";
+            string sTruyVan = @"Select * from Student where nameClass = '" + className + @"' and ClassSchoolYear = '" + SchoolYear+"'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if (dt.Rows.Count == 0)
@@ -32,6 +32,8 @@ namespace DAO
                 student.Email = dt.Rows[i]["Email"].ToString();
                 student.Phone = dt.Rows[i]["Phone"].ToString();
                 student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                student.NameClass = dt.Rows[i]["nameClass"].ToString();
+                student.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
                 result.Add(student);
             }
             DataProvider.CloseConnection(con);
@@ -145,6 +147,25 @@ namespace DAO
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             DataProvider.CloseConnection(con);
             return dt;
+        }
+
+        // Thêm học sinh mới
+        public static bool AddNewStudent(StudentDTO student)
+        {
+            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord,nameClass,schoolYear) value ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",student.Id,student.Name,student.Gender,student.Email,student.Phone,student.DateofBith,student.Password,student.NameClass,student.SchoolYear);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+           
         }
     }
 }
