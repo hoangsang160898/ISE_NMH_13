@@ -39,7 +39,7 @@ namespace DAO
         // Xem điểm của học sinh
         public static DataTable LoadMark(string id)
         {
-            string sTruyVan = @"select a.NameSubject, b.Semester, b.FirstFifteenMinutes, b.SecondFifteenMinutes, b.ThirdFifteenMinutes, b.FirstFortyFiveMinutes, b.SecondFortyFiveMinutes, b.ThirdFortyFiveMinutes, b.SemesterMark, b.nameClass, b.schoolYear from Mark b join Subject a where b.IDStudent='" + id + "'";
+            string sTruyVan = @"select a.NameSubject, b.Semester, b.FirstFifteenMinutes, b.SecondFifteenMinutes, b.ThirdFifteenMinutes, b.FirstFortyFiveMinutes, b.SecondFortyFiveMinutes, b.ThirdFortyFiveMinutes, b.SemesterMark, b.nameClass, b.schoolYear from Mark b join Subject a on b.IDSubject = a.IDSubject where b.IDStudent='" + id + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             DataProvider.CloseConnection(con);
