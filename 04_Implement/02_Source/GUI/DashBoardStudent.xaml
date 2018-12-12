@@ -58,7 +58,7 @@
                 </Button.Style>
             </Button>
             <Image HorizontalAlignment="Left" Height="36" Width="36" VerticalAlignment="Top" Source="img/icons/logo_icon_white.png" Margin="2,2,0,0"/>
-
+            <TextBlock HorizontalAlignment="Left" Margin="474,168,0,0" TextWrapping="Wrap" Text="Student" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </Window>

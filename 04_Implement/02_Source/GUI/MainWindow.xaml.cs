@@ -93,7 +93,18 @@ namespace GUI
                 var window = new DashboardStudent();
                 window.Show();
                 this.Close();
-
+            }
+            else if (userLogIn == userAdmin & passLogIn == passAdmin & rb_tc.IsChecked == true)
+            {
+                var window = new DashboardTeacher();
+                window.Show();
+                this.Close();
+            }
+            else if (userLogIn == userAdmin & passLogIn == passAdmin & rb_ad.IsChecked == true)
+            {
+                var window = new DashboardAdmin();
+                window.Show();
+                this.Close();
             }
 
         }

@@ -5,8 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="DashboardAdmin" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+                Icon="img/icons/logo_app_desktop.png"
+        Title="Dashboard Admin" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+    <Border Background="#fff" CornerRadius="0" BorderBrush="#00a7ee" BorderThickness="1.5">
+        <Grid>
+            <Border x:Name="TitleBar" Height="40" Background="#00a7ee" CornerRadius="0" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Margin="0,0,1,0">
+            </Border>
+            <Button Name="btnClose" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="X" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="40" FontFamily="Arial" FontSize="15" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Click="btnClose_Click" Margin="0,0,1,0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#00a7ee"/>
+                        <Setter Property="Foreground" Value="#fff"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Name="btnMini" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="_" HorizontalAlignment="Right" Margin="0,0,41,0" Padding="0" VerticalAlignment="Top" Width="40" FontFamily="Arial" FontSize="15" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Click="btnMini_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#00a7ee"/>
+                        <Setter Property="Foreground" Value="#fff"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Orange"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="36" Width="36" VerticalAlignment="Top" Source="img/icons/logo_icon_white.png" Margin="2,2,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Margin="474,168,0,0" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Top"/>
+        </Grid>
+    </Border>
 </Window>
