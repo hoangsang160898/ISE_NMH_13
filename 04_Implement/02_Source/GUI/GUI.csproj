@@ -61,6 +61,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashboardAdmin.xaml.cs">
+      <DependentUpon>DashboardAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardStudent.xaml.cs">
+      <DependentUpon>DashboardStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardTeacher.xaml.cs">
+      <DependentUpon>DashboardTeacher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -100,19 +109,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="DashboardAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DashboardStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DashboardTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\icons\logo_app.png" />
     <Resource Include="img\icons\logo_icon.png" />
     <Resource Include="img\icons\pass_icon.png" />
     <Resource Include="img\icons\user_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\icons\logo_app_white.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\admin_icon_white.png" />
@@ -123,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\logo_app_desktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\logo_icon_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

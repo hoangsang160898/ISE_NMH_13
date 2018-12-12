@@ -14,7 +14,7 @@
                 <Label Content="Welcome to Student Management System"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Padding="0" VerticalAlignment="Top" Width="989" FontFamily="Arial" FontSize="17" FontWeight="Bold" BorderBrush="{x:Null}" Height="40" Foreground="Black" Margin="0,0,-1,0"/>
             </Border>
             <Rectangle HorizontalAlignment="Center" Height="512" Margin="284,98,291,59" VerticalAlignment="Center" Width="414" Fill="#FFFBFBFB" RadiusX="15" RadiusY="15"/>
-            <Image HorizontalAlignment="Center" Height="140" Margin="421,118,428,0" VerticalAlignment="top" Width="140" Source="img/icons/logo_app.png"/>
+            <Image HorizontalAlignment="Center" Height="140" Margin="421,118,428,0" VerticalAlignment="top" Width="140" Source="img/icons/logo_icon.png"/>
             <Border BorderBrush="#00a7ee" BorderThickness="3" SnapsToDevicePixels="True" Padding="0" Margin="319,310,320,0" Width="350" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="20" Background="White">
                 <TextBox MaxLength="38"  Opacity="0.7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="center" Height="30" Margin="10,1.979,10.417,0" Text="" VerticalAlignment="Top" Width="323.583"  TextChanged="TextBox_TextChanged" Name="txtbUsername" BorderThickness="0" FontFamily="Arial" HorizontalScrollBarVisibility="Disabled" UseLayoutRounding="False" SnapsToDevicePixels="True" BorderBrush="{x:Null}" FontSize="15"/>
             </Border>
@@ -169,7 +169,7 @@
                         </Setter>
                     </Style>
                 </StackPanel.Resources>
-                <ItemsControl Margin="318,440,321,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <ItemsControl Margin="0,440,323,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <UniformGrid Columns="3" Margin="0,0,-4,0" HorizontalAlignment="Right" Width="351">
                         <RadioButton Content="img/icons/teacher_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_tc"  Width="100" Height="34" Checked="rb_Checked_tc" Margin="0,0,0,0"/>
                         <RadioButton Content="img/icons/student_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_st" Width="100" Height="34" Checked="rb_Checked_st" Margin="0,0,0,0"/>

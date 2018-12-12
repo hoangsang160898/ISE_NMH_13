@@ -88,11 +88,13 @@ namespace GUI
                 uiErrorSp_3.Visibility = Visibility.Visible;
                 dispatcherTimer.Start();
             }
-            else if (userLogIn == userAdmin & passLogIn == passAdmin)
+            else if (userLogIn == userAdmin & passLogIn == passAdmin & rb_st.IsChecked==true)
             {
+                var window = new DashboardStudent();
+                window.Show();
                 this.Close();
-            }
 
+            }
 
         }
 
