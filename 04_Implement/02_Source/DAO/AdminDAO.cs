@@ -83,11 +83,11 @@ namespace DAO
                 DataProvider.CloseConnection(con);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 DataProvider.CloseConnection(con);
                 return false;
-            }          
+            }
         }
 
         //reset mật khẩu
@@ -96,7 +96,7 @@ namespace DAO
             PeopleDTO Object = new PeopleDTO();
             string type = Object.GetType().ToString();
             con = DataProvider.OpenConnection();
-            if(type == "Student")
+            if (type == "Student")
             {
                 try
                 {
@@ -105,7 +105,7 @@ namespace DAO
                     DataProvider.CloseConnection(con);
                     return true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     DataProvider.CloseConnection(con);
                     return false;
@@ -132,4 +132,5 @@ namespace DAO
 
 
 
+    }
 }
