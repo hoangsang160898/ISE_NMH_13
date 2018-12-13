@@ -24,5 +24,30 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void fullname_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void bob_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void email_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void gender_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void phone_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

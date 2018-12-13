@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
+        
            Icon="img/icons/logo_app_desktop.png"
         Title="Dashboard Student" Height="768" Width="1366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
     <Border Background="#fff" CornerRadius="0" BorderBrush="#00a7ee" BorderThickness="1.5">
@@ -57,7 +58,7 @@
                 </Button.Style>
             </Button>
             <Image HorizontalAlignment="Left" Height="36" Width="36" VerticalAlignment="Top" Source="img/icons/logo_icon_white.png" Margin="2,2,0,0"/>
-            <Frame x:Name="GridPrincipal" Margin="305,144,30,30" NavigationUIVisibility="Hidden" Background="#fff">
+            <Frame x:Name="GridPrincipal" Margin="305,144,30,30" NavigationUIVisibility="Hidden" Background="#fff" Width="1028" Height="591">
                 
             </Frame>
 
@@ -78,9 +79,9 @@
                 </ListView>
                 <Image Source="img/icons/student_avatar.png" Margin="10,19,205,571" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
 
-                <Label Name="fullname_title" FontSize="15" Foreground="#fff" Content="Leo Nguyen" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175"/>
+                <Label  BorderThickness="0" Name="fullname_title" FontSize="15" Foreground="#fff" Content="Leo Nguyen" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
 
-                <Label Name="class_title" FontSize="15" Foreground="#fff" Content="K16" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175"/>
+                <Label  BorderThickness="0" Name="class_title" FontSize="15" Foreground="#fff" Content="K16" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
             </Grid>
             <Rectangle Fill="#fff" HorizontalAlignment="Left" Height="75" Margin="275,40,0,0" VerticalAlignment="Top" Width="1088"/>
             <Button Padding="0" Name="logout"  HorizontalAlignment="Center" Margin="1310,60,9,669" Background="#E74C3C" Click="btnLogout_Click" BorderBrush="{x:Null}" Width="44" Height="35">

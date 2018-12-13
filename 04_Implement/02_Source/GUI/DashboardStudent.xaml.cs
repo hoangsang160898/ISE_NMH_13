@@ -12,17 +12,58 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.ComponentModel;
 
 namespace GUI
 {
     /// <summary>
     /// Interaction logic for DashBoardStudent.xaml
     /// </summary>
-    public partial class DashboardStudent : Window
+    public partial class DashboardStudent : Window, INotifyPropertyChanged
     {
+
+        //private student_test _test;
+
+        //public student_test test
+        //{
+        //    get { return _test; }
+        //    set
+        //    {
+        //        _test = value;
+        //        OnPropertyChanged("test");
+        //    }
+        //}
+
+        //private string _teststring;
+        //public string teststring
+        //{
+        //    get
+        //    { return _teststring; }
+        //    set
+        //    {
+        //        _teststring = value;
+        //        OnPropertyChanged(nameof(teststring));
+        //    }
+        //} 
+
         public DashboardStudent()
-        {
+        {     
             InitializeComponent();
+            //this.DataContext = this;
+            //test = new student_test();
+           
+            //test.getTest();
+            //MessageBox.Show($"{test.name} {test.nameClass}");
+
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
         }
 
         private void btnMini_Click(object sender, RoutedEventArgs e)

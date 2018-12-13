@@ -71,6 +71,7 @@
     <Compile Include="StudentScore.xaml.cs">
       <DependentUpon>StudentScore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="student_test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashboardAdmin.xaml.cs">
