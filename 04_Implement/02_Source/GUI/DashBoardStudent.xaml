@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
-        mc:Ignorable="d"
-        
-           Icon="img/icons/logo_app_desktop.png"
-        Title="Dashboard Student" Height="768" Width="1366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+    
+        mc:Ignorable="d"    
+        Icon="img/icons/logo_app_desktop.png"
+        Title="Dashboard Student" Height="768" Width="1366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded_Title">
     <Border Background="#fff" CornerRadius="0" BorderBrush="#00a7ee" BorderThickness="1.5">
         <Grid Background="LightGray">
             <Border x:Name="TitleBar" Height="40" Background="#00a7ee" CornerRadius="0" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"/>
@@ -58,9 +58,7 @@
                 </Button.Style>
             </Button>
             <Image HorizontalAlignment="Left" Height="36" Width="36" VerticalAlignment="Top" Source="img/icons/logo_icon_white.png" Margin="2,2,0,0"/>
-            <Frame x:Name="GridPrincipal" Margin="305,144,30,30" NavigationUIVisibility="Hidden" Background="#fff" Width="1028" Height="591">
-                
-            </Frame>
+            <Frame x:Name="GridPrincipal" Margin="305,144,30,30" NavigationUIVisibility="Hidden" Background="#fff" Width="1028" Height="591"/>
 
             <Grid Width="275" HorizontalAlignment="Left" Background="#FF222222" Margin="0,115,0,0">
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" Foreground="#fff" Content="STUDENT" Background="#039866" HorizontalAlignment="Left" Height="75" Margin="0,-75,0,0" VerticalAlignment="Top" Width="275" FontWeight="Bold"/>
@@ -79,7 +77,8 @@
                 </ListView>
                 <Image Source="img/icons/student_avatar.png" Margin="10,19,205,571" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
 
-                <Label  BorderThickness="0" Name="fullname_title" FontSize="15" Foreground="#fff" Content="Leo Nguyen" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
+                <Label  BorderThickness="0" Name="fullname_title" FontSize="15" Foreground="#fff" Content="Leo Nguyen" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175">
+                </Label>
 
                 <Label  BorderThickness="0" Name="class_title" FontSize="15" Foreground="#fff" Content="K16" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
             </Grid>

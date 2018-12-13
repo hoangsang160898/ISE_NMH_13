@@ -25,29 +25,24 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void fullname_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnEdit_click(object sender, RoutedEventArgs e)
         {
-
+            phone_st_infor.IsReadOnly = false;
+            email_st_infor.IsReadOnly = false;
+            bob_st_infor.IsReadOnly = false;
+            gender_st_infor.IsReadOnly = false;
+            btnEdit.Visibility = Visibility.Collapsed;
+            btnDoneOfEdit.Visibility = Visibility.Visible;
         }
 
-        private void bob_st_infor_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void email_st_infor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void gender_st_infor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void phone_st_infor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            phone_st_infor.IsReadOnly = true;
+            email_st_infor.IsReadOnly = true;
+            bob_st_infor.IsReadOnly = true;
+            gender_st_infor.IsReadOnly = true;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnEdit.Visibility = Visibility.Visible;
         }
     }
 }

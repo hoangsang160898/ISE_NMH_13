@@ -3,23 +3,27 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:GUI"
       mc:Ignorable="d" 
       d:DesignHeight="591" d:DesignWidth="1028"
       Title="test1">
-
-    <Grid>
-        <Image Source="img/icons/student_avatar.png" Margin="455,65,455,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="120" Width="118"/>
-        <Label Content="Full name:"  HorizontalAlignment="Left" Margin="292,246,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="129" Height="34"/>
-        <Label Content="Date of birth:"  HorizontalAlignment="Left" Margin="292,285,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Gender:"  HorizontalAlignment="Left" Margin="292,369,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Email:"  HorizontalAlignment="Left" Margin="292,327,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Phone Number:"  HorizontalAlignment="Left" Margin="292,411,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" Text="Leo Nguyen" Name="fullname_st_infor" HorizontalAlignment="Left" Margin="477,246,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" TextChanged="fullname_st_infor_TextChanged" Width="343"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" Text="16.08.1998" Name="bob_st_infor"  HorizontalAlignment="Left" Margin="477,285,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="343" TextChanged="bob_st_infor_TextChanged"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" Text="1612556@student.hcmus.edu.vn" Name="email_st_infor"  HorizontalAlignment="Left" Margin="477,327,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="343" TextChanged="email_st_infor_TextChanged"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" Text="Male"  HorizontalAlignment="Left" Name="gender_st_infor" Margin="477,369,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="343" TextChanged="gender_st_infor_TextChanged"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" Text="0399029922"  HorizontalAlignment="Left" Name="phone_st_infor" Margin="477,411,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="343" TextChanged="phone_st_infor_TextChanged"/>
-        <Rectangle Fill="orange" HorizontalAlignment="Left" Height="55" Margin="0,536,0,0" VerticalAlignment="Top" Width="1028"/>
+    <!--<materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom, Duration=0:0:0.8}">-->
+        <Grid>
+            <Image Source="img/icons/student_avatar.png" Margin="439,58,439,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="150" Width="150"/>
+            <Label Content="Full name:"  HorizontalAlignment="Left" Margin="254,262,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="129" Height="34"/>
+            <Label Content="Date of birth:"  HorizontalAlignment="Left" Margin="254,301,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label Content="Gender:"  HorizontalAlignment="Left" Margin="254,385,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label Content="Email:"  HorizontalAlignment="Left" Margin="254,343,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label Content="Phone Number:"  HorizontalAlignment="Left" Margin="254,427,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <TextBox CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True" Text="LEO NGUYEN" Name="fullname_st_infor" HorizontalAlignment="Left" Margin="439,262,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <TextBox BorderThickness="0" IsReadOnly="True" Text="16.08.1998" Name="bob_st_infor"  HorizontalAlignment="Left" Margin="439,301,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <TextBox BorderThickness="0" IsReadOnly="True" Text="1612556@student.hcmus.edu.vn" Name="email_st_infor"  HorizontalAlignment="Left" Margin="439,343,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <TextBox BorderThickness="0" IsReadOnly="True" Text="MALE"  HorizontalAlignment="Left" Name="gender_st_infor" Margin="439,385,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
+            <TextBox BorderThickness="0" IsReadOnly="True" Text="0399029922"  HorizontalAlignment="Left" Name="phone_st_infor" Margin="439,427,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Rectangle Fill="orange" HorizontalAlignment="Left" Height="55" Margin="0,536,0,0" VerticalAlignment="Top" Width="1028"/>
+        <Button Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="943,549,0,0" VerticalAlignment="Top" Width="75" Click="btnEdit_click"/>
+        <Button Name="btnDoneOfEdit" Content="Done" HorizontalAlignment="Left" Margin="943,549,0,0" VerticalAlignment="Top" Width="75" Click="btnDoneofEdit_click" Visibility="Collapsed"/>
     </Grid>
+    <!--</materialDesign:TransitioningContent>-->
 </Page>
