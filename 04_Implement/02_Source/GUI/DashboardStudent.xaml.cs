@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace GUI
 {
@@ -37,6 +38,34 @@ namespace GUI
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListViewMenu.SelectedIndex;
+            MoveCursorMenu(index);
+
+            switch (index)
+            {
+                case 0:
+                    GridPrincipal.Content = new StudentInformation();
+                    break;
+                case 1:
+                    GridPrincipal.Content = new StudentScore();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MoveCursorMenu(int index)
+        {
+            GridCursor.Margin = new Thickness(0, (100+(60 * index)), 0, 0);
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

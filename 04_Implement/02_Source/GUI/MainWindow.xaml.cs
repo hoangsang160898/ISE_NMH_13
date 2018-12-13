@@ -21,7 +21,7 @@ namespace GUI
     public partial class MainWindow : Window
     {
         string userAdmin = "admin"; //test UI/UX
-        string passAdmin = "123";
+        string passAdmin = "";
         string userLogIn, passLogIn = "";
         private DispatcherTimer dispatcherTimer;
         private DispatcherTimer dispatcherTimerForTip;

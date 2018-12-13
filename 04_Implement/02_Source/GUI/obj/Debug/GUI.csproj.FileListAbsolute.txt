@@ -24,3 +24,12 @@ D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\GUI.exe
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\GUI.pdb
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\App.baml
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\bin\Debug\MaterialDesignColors.dll
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\StudentInformation.g.cs
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\StudentScore.g.cs
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\StudentInformation.baml
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\StudentScore.baml
