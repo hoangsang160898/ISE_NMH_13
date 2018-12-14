@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using DTO;
 
 namespace GUI
 {
@@ -20,10 +21,9 @@ namespace GUI
     /// </summary>
     public partial class DashboardStudent : Window
     {
-        private student_test test = new student_test();
+        private StudentDTO test = new StudentDTO { Name="Leo Nguyen test", NameClass="K16 test"};
         public DashboardStudent()
-        {
-            test.getTest();
+        {         
             InitializeComponent();
         }
 
@@ -75,8 +75,8 @@ namespace GUI
         private void Window_Loaded_Title(object sender, RoutedEventArgs e)
         {
             var student = test;
-            fullname_title.Content = test.name;
-            class_title.Content = test.nameClass;
+            fullname_title.Content = test.Name;
+            class_title.Content = test.NameClass;
         }
     }
 }

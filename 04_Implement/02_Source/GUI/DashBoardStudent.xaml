@@ -83,12 +83,11 @@
                 <Label  BorderThickness="0" Name="class_title" FontSize="15" Foreground="#fff" Content="K16" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
             </Grid>
             <Rectangle Fill="#fff" HorizontalAlignment="Left" Height="75" Margin="275,40,0,0" VerticalAlignment="Top" Width="1088"/>
-            <Button Padding="0" Name="logout"  HorizontalAlignment="Center" Margin="1310,60,9,669" Background="#E74C3C" Click="btnLogout_Click" BorderBrush="{x:Null}" Width="44" Height="35">
-                <Button.Content>
-                    <StackPanel>
-                        <Image Source="img/icons/logout_btn.png" Height="27" Width="40" Margin="0" RenderTransformOrigin="0.84,0.525" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button.Content>
+            <Button Padding="0" Name="logout"  HorizontalAlignment="Center" Margin="1262,60,9,669" Background="#E74C3C" Click="btnLogout_Click" BorderBrush="{x:Null}" Width="92" Height="35">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Height="20" Margin="3,0,0,0">Log out</TextBlock>
+                    <Image Source="img/icons/logout_btn.png" Height="27" Width="40" Margin="-10,0,0,0"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Label Content="Management Dashboard" HorizontalAlignment="Left" Margin="305,60,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
         </Grid>

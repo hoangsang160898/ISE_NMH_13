@@ -71,7 +71,6 @@
     <Compile Include="StudentScore.xaml.cs">
       <DependentUpon>StudentScore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="student_test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashboardAdmin.xaml.cs">
@@ -171,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\logout_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\edit_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\done_btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
