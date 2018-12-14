@@ -6,21 +6,21 @@
       xmlns:local="clr-namespace:GUI"
       mc:Ignorable="d" 
       xmlns:data="namespace:GUI"
-      d:DesignHeight="590" d:DesignWidth="1025"
+      d:DesignHeight="591" d:DesignWidth="1028"
       Title="Student Score" Loaded="Window_Loaded_Score">
 
     <Page.Resources>
         <DataTemplate x:Key="ScoreTemplate" DataType="MarkDTO">
-            <StackPanel Background="#fbfbfb"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="140" Foreground="black" Content="{Binding IdSubject}" FontSize="14" FontWeight="Bold"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding FirstFifteenMinutesMark}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding SecondFifteenMinutesMark}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding ThirdFifteenMinutesMark}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding FirstFortyFiveMinutesMark}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding SecondFortyFiveMinutesMark}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding ThirdFortyFiveMinutesMark}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding SemesterScore}" FontSize="14"/>
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="106.5" Foreground="black" Content="{Binding AverageMark}" FontSize="14"/>
+            <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="170" Foreground="#305066" Content="{Binding IdSubject}" FontSize="14" FontWeight="Bold"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Height="35" Width="105" Foreground="#305066" Content="{Binding FirstFifteenMinutesMark}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding SecondFifteenMinutesMark}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="105" Foreground="#305066" Content="{Binding ThirdFifteenMinutesMark}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Height="35" Width="105" Foreground="#305066" Content="{Binding FirstFortyFiveMinutesMark}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding SecondFortyFiveMinutesMark}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="105" Foreground="#305066" Content="{Binding ThirdFortyFiveMinutesMark}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding SemesterScore}" FontSize="14"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding AverageMark}" FontSize="14"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
@@ -28,7 +28,7 @@
     <Grid>
         <StackPanel Margin="0,25,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
             <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold">Subject: </Label>
-            <ComboBox Width="150" Name="chooseSubject" FontSize="14">
+            <ComboBox Width="170" Name="chooseSubject" FontSize="14">
                 <ComboBoxItem IsSelected="True" FontSize="14">All</ComboBoxItem>
                 <ComboBoxItem FontSize="14">English</ComboBoxItem>
                 <ComboBoxItem FontSize="14">Technology</ComboBoxItem>
@@ -40,9 +40,11 @@
                 <ComboBoxItem FontSize="14">Civic Education</ComboBoxItem>
                 <ComboBoxItem FontSize="14">Defense Education</ComboBoxItem>
             </ComboBox>
-            <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Year:</Label>
+            <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Grade:</Label>
             <ComboBox Width="70" Name="chooseYear" FontSize="14">
-                <ComboBoxItem Content=""></ComboBoxItem>
+                <ComboBoxItem FontSize="14" IsSelected="True">10</ComboBoxItem>
+                <ComboBoxItem FontSize="14">11</ComboBoxItem>
+                <ComboBoxItem FontSize="14">12</ComboBoxItem>
             </ComboBox>
             <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
             <ComboBox Width="40" Name="chooseSemester" FontSize="14">
@@ -52,14 +54,14 @@
         </StackPanel>
         <TextBlock  Margin="0,80,0,0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                 <Border  Margin="26,0,0,0" CornerRadius="20" Height="40" Background="Orange">
-                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="105" FontSize="14">Subject</Label>
+                 <Border  Margin="35,0,0,0" CornerRadius="20" Height="40" Background="Orange">
+                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="115" FontSize="14">Subject</Label>
                  </Border>
-                 <Border  Margin="47,0,0,0" CornerRadius="20" Background="Orange">
-                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="266" FontSize="14">15 minutes</Label>
+                 <Border  Margin="55,0,0,0" CornerRadius="20" Background="Orange">
+                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="260" FontSize="14">15 minutes</Label>
                  </Border>
-                 <Border  Margin="50,0,0,0" CornerRadius="20" Background="Orange">
-                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="265" FontSize="14">45 minutes</Label>
+                 <Border  Margin="53,0,0,0" CornerRadius="20" Background="Orange">
+                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="260" FontSize="14">45 minutes</Label>
                  </Border>
                  <Border  Margin="45,0,0,0" CornerRadius="20" Background="Orange">
                     <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="75" FontSize="14">Semester</Label>
