@@ -21,7 +21,7 @@ namespace GUI
     /// </summary>
     public partial class StudentInformation : Page
     {
-        private StudentDTO test = new StudentDTO { Name = "Leo Nguyen test", NameClass = "K16 test", Gender="Female test", Email="testing@gmail.com", DateofBith="01.01.1998 test", Phone="0123456789", Id="leonguyentest"};
+        private StudentDTO test = new StudentDTO { Name = "Leo Nguyen Student test", NameClass = "K16 Student test", Gender="Female test", Email="testing@gmail.com", DateofBith="01.01.1998 test", Phone="0123456789", Id="leonguyenstudenttest"};
         public StudentInformation()
         {
             InitializeComponent();
