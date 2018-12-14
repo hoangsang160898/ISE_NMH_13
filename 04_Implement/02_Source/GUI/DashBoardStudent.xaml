@@ -7,7 +7,7 @@
     
         mc:Ignorable="d"    
         Icon="img/icons/logo_app_desktop.png"
-        Title="Dashboard Student" Height="768" Width="1366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded_Title">
+        Title="Dashboard Student" Height="768" Width="1366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"  AllowsTransparency="True" Background="Transparent"  Loaded="Window_Loaded_TitleStudent">
     <Border Background="#fff" CornerRadius="0" BorderBrush="#00a7ee" BorderThickness="1.5">
         <Grid Background="LightGray">
             <Border x:Name="TitleBar" Height="40" Background="#00a7ee" CornerRadius="0" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"/>
@@ -77,10 +77,10 @@
                 </ListView>
                 <Image Source="img/icons/student_avatar.png" Margin="10,19,205,571" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
 
-                <Label  BorderThickness="0" Name="fullname_title" FontSize="15" Foreground="#fff" Content="Leo Nguyen" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175">
+                <Label  BorderThickness="0" Name="fullname_title" FontSize="15" Foreground="#fff" Content="Leo Nguyen Student" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175">
                 </Label>
 
-                <Label  BorderThickness="0" Name="class_title" FontSize="15" Foreground="#fff" Content="K16" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
+                <Label  BorderThickness="0" Name="class_title" FontSize="15" Foreground="#fff" Content="K16 Student" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="175" />
             </Grid>
             <Rectangle Fill="#fff" HorizontalAlignment="Left" Height="75" Margin="275,40,0,0" VerticalAlignment="Top" Width="1088"/>
             <Button Padding="0" Name="logout"  HorizontalAlignment="Center" Margin="1262,60,9,669" Background="#E74C3C" Click="btnLogout_Click" BorderBrush="{x:Null}" Width="92" Height="35">

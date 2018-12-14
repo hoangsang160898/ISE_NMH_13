@@ -177,5 +177,11 @@
   <ItemGroup>
     <Resource Include="img\icons\done_btn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\teacher_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\admin_avatar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

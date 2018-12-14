@@ -72,7 +72,7 @@ namespace GUI
             this.Close();
         }
 
-        private void Window_Loaded_Title(object sender, RoutedEventArgs e)
+        private void Window_Loaded_TitleStudent(object sender, RoutedEventArgs e)
         {
             var student = test;
             fullname_title.Content = test.Name;

@@ -37,5 +37,35 @@ namespace GUI
         {
             this.DragMove();
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new MainWindow();
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListViewMenu.SelectedIndex;
+            MoveCursorMenu(index);
+
+            switch (index)
+            {
+                case 0:
+                    GridPrincipal.Content = new StudentInformation();
+                    break;
+                case 1:
+                    GridPrincipal.Content = new StudentScore();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MoveCursorMenu(int index)
+        {
+            GridCursor.Margin = new Thickness(0, (100 + (60 * index)), 0, 0);
+        }
     }
 }

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:GUI"
       mc:Ignorable="d" 
       xmlns:data="namespace:GUI"
@@ -11,6 +12,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="ScoreTemplate" DataType="MarkDTO">
+            <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}">
             <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="170" Foreground="#305066" Content="{Binding IdSubject}" FontSize="14" FontWeight="Bold"/>
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Height="35" Width="105" Foreground="#305066" Content="{Binding FirstFifteenMinutesMark}" FontSize="14"/>
@@ -22,37 +24,38 @@
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding SemesterScore}" FontSize="14"/>
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding AverageMark}" FontSize="14"/>
             </StackPanel>
+            </materialDesign:TransitioningContent>
         </DataTemplate>
     </Page.Resources>
-
-    <Grid>
-        <StackPanel Margin="0,25,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
-            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold">Subject: </Label>
-            <ComboBox Width="170" Name="chooseSubject" FontSize="14">
-                <ComboBoxItem IsSelected="True" FontSize="14">All</ComboBoxItem>
-                <ComboBoxItem FontSize="14">English</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Technology</ComboBoxItem>
-                <ComboBoxItem FontSize="14">History</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Math</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Literature</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Biology</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Information Technology</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Civic Education</ComboBoxItem>
-                <ComboBoxItem FontSize="14">Defense Education</ComboBoxItem>
-            </ComboBox>
-            <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Grade:</Label>
-            <ComboBox Width="70" Name="chooseYear" FontSize="14">
-                <ComboBoxItem FontSize="14" IsSelected="True">10</ComboBoxItem>
-                <ComboBoxItem FontSize="14">11</ComboBoxItem>
-                <ComboBoxItem FontSize="14">12</ComboBoxItem>
-            </ComboBox>
-            <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
-            <ComboBox Width="40" Name="chooseSemester" FontSize="14">
-                <ComboBoxItem FontSize="14" IsSelected="True">I</ComboBoxItem>
-                <ComboBoxItem FontSize="14">II</ComboBoxItem>
-            </ComboBox>
-        </StackPanel>
-        <TextBlock  Margin="0,80,0,0">
+    
+        <Grid>
+            <StackPanel Margin="0,25,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
+                <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold">Subject:</Label>
+                <ComboBox Width="170" Name="chooseSubject" FontSize="14">
+                    <ComboBoxItem IsSelected="True" FontSize="14">All</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">English</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Technology</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">History</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Math</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Literature</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Biology</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Information Technology</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Civic Education</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">Defense Education</ComboBoxItem>
+                </ComboBox>
+                <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Grade:</Label>
+                <ComboBox Width="70" Name="chooseYear" FontSize="14">
+                    <ComboBoxItem FontSize="14" IsSelected="True">10</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">11</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">12</ComboBoxItem>
+                </ComboBox>
+                <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
+                <ComboBox Width="40" Name="chooseSemester" FontSize="14">
+                    <ComboBoxItem FontSize="14" IsSelected="True">I</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">II</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <TextBlock  Margin="0,80,0,0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
                  <Border  Margin="35,0,0,0" CornerRadius="20" Height="40" Background="Orange">
                     <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="115" FontSize="14">Subject</Label>
@@ -70,8 +73,9 @@
                     <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="75" FontSize="14">Average</Label>
                  </Border>
             </StackPanel>
-        </TextBlock>
-        <ListView Margin="0,130,0,0" Name="test" ItemTemplate="{StaticResource ScoreTemplate}">
-        </ListView>
-    </Grid>
+            </TextBlock>
+            <ListView Margin="0,130,0,0" Name="test" ItemTemplate="{StaticResource ScoreTemplate}">
+            </ListView>
+        </Grid>
+    
 </Page>
