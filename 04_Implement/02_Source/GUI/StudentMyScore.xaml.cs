@@ -18,10 +18,10 @@ namespace GUI
     /// <summary>
     /// Interaction logic for test2.xaml
     /// </summary>
-    public partial class StudentScore : Page
+    public partial class StudentMyScore : Page
     {
         List<MarkDTO> marks = new List<MarkDTO>();
-        public StudentScore()
+        public StudentMyScore()
         {
             marks.Add(new MarkDTO { FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "Information Technology" });
             marks.Add(new MarkDTO { FirstFifteenMinutesMark = 2, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "A" });

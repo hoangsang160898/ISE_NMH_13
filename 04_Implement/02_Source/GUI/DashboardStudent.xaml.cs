@@ -50,10 +50,10 @@ namespace GUI
             switch (index)
             {
                 case 0:
-                    GridPrincipal.Content = new StudentInformation();
+                    GridPrincipal.Content = new StudentMyInformation();
                     break;
                 case 1:
-                    GridPrincipal.Content = new StudentScore();
+                    GridPrincipal.Content = new StudentMyScore();
                     break;
                 default:
                     break;

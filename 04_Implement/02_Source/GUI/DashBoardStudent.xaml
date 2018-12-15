@@ -66,12 +66,14 @@
                 <ListView x:Name="ListViewMenu" BorderThickness="0" Margin="0,100,0,0" Foreground="LightGray" FontFamily="Arial" FontSize="18" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}">
                     <ListViewItem Height="60" FontWeight="Bold">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="My Information" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                            <Image Source="img/icons/myinformation.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="My Information" Margin="5,0,0,0" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" FontWeight="Bold">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="My Score" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                            <Image Source="img/icons/myscore.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock Text="My Score" FontSize="17" VerticalAlignment="Center" Margin="5,0,0,0"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

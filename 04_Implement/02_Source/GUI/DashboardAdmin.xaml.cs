@@ -26,12 +26,12 @@ namespace GUI
 
         private void btnMini_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+           this.WindowState = WindowState.Minimized;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            this.Close();
         }
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -53,10 +53,10 @@ namespace GUI
             switch (index)
             {
                 case 0:
-                    GridPrincipal.Content = new StudentInformation();
+                    GridPrincipal.Content = new AdminMyInformation();
                     break;
                 case 1:
-                    GridPrincipal.Content = new StudentScore();
+                    GridPrincipal.Content = new AdminCreateUser();
                     break;
                 default:
                     break;

@@ -61,15 +61,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminCreateUser.xaml.cs">
+      <DependentUpon>AdminCreateUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="StudentInformation.xaml.cs">
-      <DependentUpon>StudentInformation.xaml</DependentUpon>
+    <Compile Include="AdminMyInformation.xaml.cs">
+      <DependentUpon>AdminMyInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentScore.xaml.cs">
-      <DependentUpon>StudentScore.xaml</DependentUpon>
+    <Compile Include="StudentMyInformation.xaml.cs">
+      <DependentUpon>StudentMyInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentMyScore.xaml.cs">
+      <DependentUpon>StudentMyScore.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +128,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AdminCreateUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DashboardAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,11 +148,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentInformation.xaml">
+    <Page Include="AdminMyInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StudentMyInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentScore.xaml">
+    <Page Include="StudentMyScore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,6 +196,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\admin_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\myinformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\myscore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\adduser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\adduser_avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

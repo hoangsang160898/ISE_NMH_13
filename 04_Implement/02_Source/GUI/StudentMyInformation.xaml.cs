@@ -19,10 +19,10 @@ namespace GUI
     /// <summary>
     /// Interaction logic for test1.xaml
     /// </summary>
-    public partial class StudentInformation : Page
+    public partial class StudentMyInformation : Page
     {
-        private StudentDTO test = new StudentDTO { Name = "Leo Nguyen Student test", NameClass = "K16 Student test", Gender="Female test", Email="testing@gmail.com", DateofBith="01.01.1998 test", Phone="0123456789", Id="leonguyenstudenttest"};
-        public StudentInformation()
+        private StudentDTO test = new StudentDTO { Name = "Leo Nguyen Student test", NameClass = "K16 Student test", Gender="Male test", Email="testing@gmail.com", DateofBith="01.01.1998 test", Phone="0123456789", Id="leonguyenstudenttest"};
+        public StudentMyInformation()
         {
             InitializeComponent();
         }
