@@ -33,6 +33,7 @@ namespace GUI
         {
             this.WindowState = WindowState.Minimized;
         }
+
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -53,10 +54,14 @@ namespace GUI
             switch (index)
             {
                 case 0:
-                    GridPrincipal.Content = new StudentMyInformation();
+                    GridPrincipal.Content = new TeacherMyInformation();
+                    
                     break;
                 case 1:
-                    GridPrincipal.Content = new StudentMyScore();
+                    GridPrincipal.Content = new TeacherSearchStudent();
+                    break;
+                case 2:
+                    GridPrincipal.Content = new TeacherUpdateScore();
                     break;
                 default:
                     break;

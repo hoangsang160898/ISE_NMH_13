@@ -26,13 +26,13 @@
         <Grid>
             <StackPanel Margin="0,80,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="Authories:"/>
-                <ComboBox Width="100" x:Name="chooseSubject" FontSize="14">
+                <ComboBox Width="100" x:Name="chooseAuthor" FontSize="14">
                     <ComboBoxItem IsSelected="True" FontSize="14" Content="All"/>
                     <ComboBoxItem FontSize="14" Content="Student"/>
                     <ComboBoxItem FontSize="14" Content="Teacher"/>
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Status:"/>
-                <ComboBox Width="70" x:Name="chooseYear" FontSize="14">
+                <ComboBox Width="70" x:Name="chooseStatus" FontSize="14">
                     <ComboBoxItem FontSize="14" IsSelected="True" Content="All"/>
                     <ComboBoxItem FontSize="14" Content="Active"/>
                     <ComboBoxItem FontSize="14" Content="Deactive"/>

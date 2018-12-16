@@ -64,6 +64,18 @@
     <Compile Include="AdminCreateUser.xaml.cs">
       <DependentUpon>AdminCreateUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUpdateScore.xaml.cs">
+      <DependentUpon>TeacherUpdateScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewStudentScore.xaml.cs">
+      <DependentUpon>ReviewStudentScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherSearchStudent.xaml.cs">
+      <DependentUpon>TeacherSearchStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherMyInformation.xaml.cs">
+      <DependentUpon>TeacherMyInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -132,6 +144,22 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="AdminCreateUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherUpdateScore.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReviewStudentScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeacherSearchStudent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherMyInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -224,6 +252,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\remove_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\searchstudent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\updatescore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\viewscore.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

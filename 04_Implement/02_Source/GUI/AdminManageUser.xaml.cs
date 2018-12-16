@@ -38,32 +38,27 @@ namespace GUI
 
         private void Window_Loaded_User(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = users;
-            
+            listviewUser.ItemsSource = users;    
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             btnDoneOfEdit.Visibility = Visibility.Visible;
-            btnDelete.Visibility = Visibility.Visible;
-            btnActive.Visibility = Visibility.Visible;
+
+            password_user_infor.IsEnabled = true;
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
-            btnDelete.Visibility = Visibility.Collapsed;
-            btnActive.Visibility = Visibility.Collapsed;
+            password_user_infor.IsEnabled = false;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            btnEdit.IsEnabled = false;
-            btnEdit.Visibility = Visibility.Visible;
-            btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnDelete.Visibility = Visibility.Collapsed;
-            btnActive.Visibility = Visibility.Collapsed;
+            btnActive.Visibility = Visibility.Visible;
         }
 
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,10 +68,7 @@ namespace GUI
 
         private void btnActive_Click(object sender, RoutedEventArgs e)
         {
-            btnEdit.IsEnabled = false;
-            btnEdit.Visibility = Visibility.Visible;
-            btnDoneOfEdit.Visibility = Visibility.Collapsed;
-            btnDelete.Visibility = Visibility.Collapsed;
+            btnDelete.Visibility = Visibility.Visible;
             btnActive.Visibility = Visibility.Collapsed;
         }
 

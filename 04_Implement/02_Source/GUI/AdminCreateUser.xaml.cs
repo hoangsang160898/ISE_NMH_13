@@ -61,6 +61,7 @@ namespace GUI
             combo.ItemsSource = classes;
             combo.SelectedIndex = 0;
         }
+
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
