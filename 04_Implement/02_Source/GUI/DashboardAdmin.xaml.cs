@@ -58,6 +58,9 @@ namespace GUI
                 case 1:
                     GridPrincipal.Content = new AdminCreateUser();
                     break;
+                case 2:
+                    GridPrincipal.Content = new AdminManageUser();
+                    break;
                 default:
                     break;
             }

@@ -16,6 +16,7 @@ namespace DTO
         private string gender;
         private string email;
         private string phone;
+        private string status;
 
         public string Id { get => id; set => id = value; }
         public string Password { get => password; set => password = value; }
@@ -25,6 +26,7 @@ namespace DTO
         public string Gender { get => gender; set => gender = value; }
         public string Email { get => email; set => email = value; }
         public string Phone { get => phone; set => phone = value; }
+        public string Status { get => status; set => status = value; }
 
         public PeopleDTO()
         {

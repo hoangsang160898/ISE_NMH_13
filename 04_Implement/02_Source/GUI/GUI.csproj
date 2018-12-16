@@ -74,6 +74,9 @@
     <Compile Include="StudentMyInformation.xaml.cs">
       <DependentUpon>StudentMyInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminManageUser.xaml.cs">
+      <DependentUpon>AdminManageUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentMyScore.xaml.cs">
       <DependentUpon>StudentMyScore.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminManageUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="StudentMyScore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +215,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\adduser_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\manageuser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\manageuser_avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
