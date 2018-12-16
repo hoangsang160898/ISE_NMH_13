@@ -43,12 +43,28 @@ namespace GUI
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            btnDoneOfEdit.Visibility = Visibility.Visible;
+            btnDelete.Visibility = Visibility.Visible;
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
+            btnEdit.Visibility = Visibility.Visible;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnDelete.Visibility = Visibility.Collapsed;
+        }
 
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            btnEdit.IsEnabled = false;
+            btnEdit.Visibility = Visibility.Visible;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnDelete.Visibility = Visibility.Collapsed;
+        }
+
+        private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnEdit.IsEnabled = true;
         }
     }
 }

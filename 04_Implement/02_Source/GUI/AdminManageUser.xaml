@@ -54,7 +54,7 @@
                  </Border>
             </StackPanel>
         </TextBlock>
-        <ListView Margin="0,182,445,0" Name="test" ItemTemplate="{StaticResource ScoreTemplate}">
+        <ListView Margin="0,182,445,0" Name="test" ItemTemplate="{StaticResource ScoreTemplate}" SelectionChanged="test_SelectionChanged">
         </ListView>
         
             <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="308,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" Name="searchUser"/>
@@ -64,22 +64,28 @@
         <Label Content="Gender:"  HorizontalAlignment="Left" Margin="596,381,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
         <Label Content="Email:"  HorizontalAlignment="Left" Margin="596,339,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
         <Label Content="Phone number:"  HorizontalAlignment="Left" Margin="596,423,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-        <TextBox CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="id_st_infor" HorizontalAlignment="Left" Margin="741,257,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-        <TextBox BorderThickness="0" IsReadOnly="True"  x:Name="birthofday_st_infor" HorizontalAlignment="Left" Margin="741,297,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" x:Name="email_st_infor"  HorizontalAlignment="Left" Margin="741,341,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-        <TextBox CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  HorizontalAlignment="Left" x:Name="gender_st_infor" Margin="741,383,0,0" VerticalAlignment="Top" FontSize="17" Width="255" />
-        <TextBox BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="phone_st_infor" Margin="741,425,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="id_st_infor" HorizontalAlignment="Left" Margin="741,257,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  x:Name="birthofday_st_infor" HorizontalAlignment="Left" Margin="741,297,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" x:Name="email_st_infor"  HorizontalAlignment="Left" Margin="741,341,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  HorizontalAlignment="Left" x:Name="gender_st_infor" Margin="741,383,0,0" VerticalAlignment="Top" FontSize="17" Width="255" />
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="phone_st_infor" Margin="741,425,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
         <Label Content="Authories:"  HorizontalAlignment="Left" Margin="596,467,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="author_ad_infor" Margin="741,469,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="author_ad_infor" Margin="741,469,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
         <Label Content="Status:"  HorizontalAlignment="Left" Margin="596,503,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-        <TextBox BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="stt_ad_infor" Margin="741,505,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-        <Button Padding="0" Name="btnEdit" HorizontalAlignment="Left" Margin="930,536,0,0" VerticalAlignment="Top" Width="70" Click="btnEdit_Click">
+        <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="stt_ad_infor" Margin="741,505,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+        <Button Padding="0" Name="btnEdit" HorizontalAlignment="Left" Margin="928,549,0,0" VerticalAlignment="Top" Width="90" Click="btnEdit_Click" IsEnabled="False">
             <StackPanel Orientation="Horizontal">
                 <Image Source="img/icons/edit_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
                 <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Edit"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button Padding="0" Name="btnDoneOfEdit" HorizontalAlignment="Left" Margin="926,549,0,0" VerticalAlignment="Top" Width="70" Click="btnDoneofEdit_click" Visibility="Collapsed">
+            <Button Padding="0" Name="btnDelete" HorizontalAlignment="Left" Margin="826,549,0,0" Background="#E74C3C" BorderThickness="0" VerticalAlignment="Top" Width="90" Click="btnDelete_Click" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="img/icons/remove_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
+                    <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Remove"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Padding="0" Name="btnDoneOfEdit" HorizontalAlignment="Left" Margin="928,549,0,0" VerticalAlignment="Top" Width="90" Click="btnDoneofEdit_click" Visibility="Collapsed">
             <StackPanel Orientation="Horizontal">
                 <Image Source="img/icons/done_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
                 <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Done"/></TextBlock>
