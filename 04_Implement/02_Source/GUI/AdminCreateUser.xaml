@@ -33,8 +33,8 @@
             <Label Content="Create user"  HorizontalAlignment="Left" Margin="365,80,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Width="198" Height="51"/>
             <Label Content="to continue to system" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"  HorizontalAlignment="Left" Margin="365,126,0,0" VerticalAlignment="Top" FontSize="18" Width="198" Height="35"/>
             <Label Content="Password"  HorizontalAlignment="Left" Margin="365,245,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <PasswordBox materialDesign:HintAssist.Hint="Enter password here" BorderThickness="0" x:Name="password_adduser" HorizontalAlignment="Left" Margin="577,245,0,0" VerticalAlignment="Top" FontSize="20" Width="185"/>
-            <PasswordBox materialDesign:HintAssist.Hint="Confirm" BorderThickness="0" x:Name="passwordconfirm_adduser" HorizontalAlignment="Left" Margin="797,242,0,0" VerticalAlignment="Top" FontSize="20" Width="186"/>
+            <PasswordBox materialDesign:HintAssist.Hint="Enter password here" BorderThickness="0" x:Name="password_adduser" HorizontalAlignment="Left" Margin="577,245,0,0" VerticalAlignment="Top" FontSize="20" Width="185" Height="37"/>
+            <PasswordBox materialDesign:HintAssist.Hint="Confirm" BorderThickness="0" x:Name="passwordconfirm_adduser" HorizontalAlignment="Left" Margin="797,245,0,0" VerticalAlignment="Top" FontSize="20" Width="186" Height="37"/>
             <Label Content="Class:" HorizontalAlignment="Left" Margin="365,166,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="98" Height="34"/>
             <ComboBox FontSize="15" VerticalContentAlignment="Center"  x:Name="chooseYear" Loaded="ComboBox_Years_Loaded" Margin="712,167,166,387" Height="33"/>
             <Label Content="Year:" HorizontalAlignment="Left" Margin="631,166,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="81" Height="34"/>
