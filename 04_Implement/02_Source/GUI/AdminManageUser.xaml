@@ -68,7 +68,11 @@
             <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="fullname_user_infor" HorizontalAlignment="Left" Margin="741,257,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
             <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  x:Name="birthofday_user_infor" HorizontalAlignment="Left" Margin="741,297,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
             <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" x:Name="email_user_infor"  HorizontalAlignment="Left" Margin="741,341,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-            <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  HorizontalAlignment="Left" x:Name="gender_user_infor" Margin="741,427,0,0" VerticalAlignment="Top" FontSize="17" Width="255" />
+            <ComboBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  HorizontalAlignment="Left" x:Name="gender_user_infor" Margin="741,427,0,0" VerticalAlignment="Top" FontSize="17" Width="255">
+                <ComboBoxItem IsSelected="True">(Empty)</ComboBoxItem>
+                <ComboBoxItem>Male</ComboBoxItem>
+                <ComboBoxItem>Female</ComboBoxItem>
+            </ComboBox>
             <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="phone_user_infor" Margin="741,469,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
             <Label Content="Authories:"  HorizontalAlignment="Left" Margin="596,505,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140" />
             <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="author_user_infor" Margin="741,505,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
@@ -97,7 +101,7 @@
                 </StackPanel>
             </Button>
             <Label Content="Password"  HorizontalAlignment="Left" Margin="596,382,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
-            <PasswordBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" x:Name="password_user_infor" HorizontalAlignment="Left" Margin="741,382,0,0" VerticalAlignment="Top" FontSize="17" Width="175"/>
+            <PasswordBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" x:Name="password_user_infor" HorizontalAlignment="Left" Margin="741,382,0,0" VerticalAlignment="Top" FontSize="17" Width="175"/>
         </Grid>
     </materialDesign:TransitioningContent>
 </Page>

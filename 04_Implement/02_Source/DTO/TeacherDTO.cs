@@ -8,9 +8,12 @@ namespace DTO
 {
     public class TeacherDTO:StudentDTO
     {
+        private string namePosition;
+        public string NamePosition { get => namePosition; set => namePosition = value; }
+
         public TeacherDTO()
         {
-
+            this.namePosition = "";
         }
     }
 }

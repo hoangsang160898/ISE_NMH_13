@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:GUI"
       mc:Ignorable="d" 
       d:DesignHeight="591" d:DesignWidth="1028"
-      Title="Student Information">
+      Title="Create User">
     <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect Fadein, Duration=0:0:0.5}">
         <Grid Margin="0,4,0,0">
             <Image Source="img/icons/adduser_avatar.png" Margin="60,150,718,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="250" Width="250"/>
@@ -20,7 +20,11 @@
             <TextBox materialDesign:HintAssist.Hint="Enter ID here" CharacterCasing="Upper" BorderThickness="0" Name="id_adduser" HorizontalAlignment="Left" Margin="577,205,0,0" VerticalAlignment="Top" FontSize="20" Width="285"/>
             <TextBox materialDesign:HintAssist.Hint="Enter BOD here" BorderThickness="0" Name="birthofday_adduser" HorizontalAlignment="Left" Margin="577,289,0,0" VerticalAlignment="Top" FontSize="20" Width="285"/>
             <TextBox materialDesign:HintAssist.Hint="Enter email here" BorderThickness="0" Name="email_adduser"  HorizontalAlignment="Left" Margin="577,331,0,0" VerticalAlignment="Top" FontSize="20" Width="285"/>
-            <TextBox materialDesign:HintAssist.Hint="Enter gender here" CharacterCasing="Upper" BorderThickness="0" HorizontalAlignment="Left" Name="gender_adduser" Margin="577,373,0,0" VerticalAlignment="Top" FontSize="20" Width="285"/>
+            <ComboBox materialDesign:HintAssist.Hint="Enter gender here" BorderThickness="0" HorizontalAlignment="Left" Name="gender_adduser" Margin="577,373,0,0" VerticalAlignment="Top" FontSize="20" Width="285">
+                <ComboBoxItem IsSelected="True">(Empty)</ComboBoxItem>
+                <ComboBoxItem>Male</ComboBoxItem>
+                <ComboBoxItem>Female</ComboBoxItem>
+            </ComboBox>
             <TextBox materialDesign:HintAssist.Hint="Enter phone number here" BorderThickness="0" HorizontalAlignment="Left" Name="phone_adduser" Margin="577,415,0,0" VerticalAlignment="Top" FontSize="20" Width="285"/>
             <Rectangle Fill="orange" HorizontalAlignment="Left" Height="55" Margin="0,536,0,0" VerticalAlignment="Top" Width="1028"/>
 

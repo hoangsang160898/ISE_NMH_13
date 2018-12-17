@@ -83,10 +83,35 @@
                     </ListViewItem>
                     <ListViewItem Height="60" FontWeight="Bold">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="img/icons/myinformation.png" Margin="10,0,0,0" Height="30" Width="30"/>
-                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="My Information" Margin="5,0,0,0" Height="19"/>
+                            <Image Source="img/icons/adduser.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Add Student" Margin="5,0,0,0" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Height="60" FontWeight="Bold">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="img/icons/manageclass.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Manage Classes" Margin="5,0,0,0" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" FontWeight="Bold">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="img/icons/managesutdent.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Manage Students" Margin="5,0,0,0" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" FontWeight="Bold">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="img/icons/manageteacher.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Manage Teachers" Margin="5,0,0,0" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" FontWeight="Bold">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="img/icons/report.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Report" Margin="5,0,0,0" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                   
                 </ListView>
                 <Image Source="img/icons/teacher_avatar.png" Margin="10,19,205,571" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="2.326,0.9"></Image>
 

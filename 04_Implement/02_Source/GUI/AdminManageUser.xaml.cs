@@ -79,15 +79,30 @@ namespace GUI
             birthofday_user_infor.Text = item.DateofBith;
             email_user_infor.Text = item.Email;
             password_user_infor.Password = item.Password;
-            gender_user_infor.Text = item.Gender;
+            if (item.Gender == "Male")
+            {
+                gender_user_infor.SelectedIndex = 1;
+            }
+            else if (item.Gender == "Female")
+            {
+                gender_user_infor.SelectedIndex = 2;
+            }
+            else
+            {
+                gender_user_infor.SelectedIndex = 0;
+            }
             phone_user_infor.Text = item.Phone;
             author_user_infor.Text = item.Type;
-            if (item.Status == "Active")
+            if (item.Type == "Student")
             {
-                btnDelete.Visibility = Visibility.Visible;
-            }else if (item.Status == "Deactive")
-            {
-                btnActive.Visibility = Visibility.Visible;
+                if (item.Status == "Active")
+                {
+                    btnDelete.Visibility = Visibility.Visible;
+                }
+                else if (item.Status == "Deactive")
+                {
+                    btnActive.Visibility = Visibility.Visible;
+                }
             }
         }
     }

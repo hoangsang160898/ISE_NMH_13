@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\App.xaml
-13447381211
+16-1783585354
 
-21538570052
+24-579377969
 171090940885
-AdminCreateUser.xaml;TeacherUpdateScore.xaml;ReviewStudentScore.xaml;TeacherSearchStudent.xaml;TeacherMyInformation.xaml;DashboardAdmin.xaml;DashboardStudent.xaml;DashboardTeacher.xaml;MainWindow.xaml;AdminMyInformation.xaml;StudentMyInformation.xaml;AdminManageUser.xaml;StudentMyScore.xaml;
+TeacherAddStudent.xaml;AdminCreateUser.xaml;TeacherManageTeacher.xaml;TeacherManageStudent.xaml;TeacherUpdateScore.xaml;ReviewStudentScore.xaml;TeacherSearchStudent.xaml;TeacherMyInformation.xaml;DashboardAdmin.xaml;DashboardStudent.xaml;DashboardTeacher.xaml;MainWindow.xaml;AdminMyInformation.xaml;StudentMyInformation.xaml;AdminManageUser.xaml;StudentMyScore.xaml;
 
 True
 

@@ -21,7 +21,7 @@ namespace GUI
     /// </summary>
     public partial class TeacherMyInformation : Page
     {
-        private TeacherDTO test = new TeacherDTO { Name = "Leo Nguyen Teacher test", Gender = "Male test", Email = "testing@gmail.com", DateofBith = "01.01.1998 test", Phone = "0123456789", Id = "leonguyeteachertest" };
+        private TeacherDTO test = new TeacherDTO { Name = "Leo Nguyen Teacher test", Gender = "Male", Email = "testing@gmail.com", DateofBith = "01.01.1998 test", Phone = "0123456789", Id = "leonguyeteachertest" };
         public TeacherMyInformation()
         {
             InitializeComponent();
@@ -33,12 +33,15 @@ namespace GUI
             email_tc_infor.IsReadOnly = false;
             birthofday_tc_infor.IsReadOnly = false;
             gender_tc_infor.IsReadOnly = false;
+            gender_tc_infor.IsEnabled = true;
+
             btnEdit.Visibility = Visibility.Collapsed;
             btnDoneOfEdit.Visibility = Visibility.Visible;
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
+            gender_tc_infor.IsEnabled = false;
             phone_tc_infor.IsReadOnly = true;
             email_tc_infor.IsReadOnly = true;
             birthofday_tc_infor.IsReadOnly = true;
@@ -53,7 +56,18 @@ namespace GUI
             birthofday_tc_infor.Text = test.DateofBith;
             phone_tc_infor.Text = test.Phone;
             email_tc_infor.Text = test.Email;
-            gender_tc_infor.Text = test.Gender;
+            if (test.Gender == "Male")
+            {
+                gender_tc_infor.SelectedIndex = 1;
+            }
+            else if (test.Gender == "Female")
+            {
+                gender_tc_infor.SelectedIndex = 2;
+            }
+            else
+            {
+                gender_tc_infor.SelectedIndex = 0;
+            }
         }
     }
 }

@@ -78,7 +78,7 @@
                     <ListViewItem Height="60" FontWeight="Bold">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/icons/manageuser.png" Margin="10,0,0,0" Height="30" Width="30"/>
-                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Manage User" Margin="5,0,0,0" Height="19"/>
+                            <TextBlock FontSize="17" VerticalAlignment="Center" Text="Manage Users" Margin="5,0,0,0" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

@@ -61,8 +61,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TeacherAddStudent.xaml.cs">
+      <DependentUpon>TeacherAddStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminCreateUser.xaml.cs">
       <DependentUpon>AdminCreateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManageTeacher.xaml.cs">
+      <DependentUpon>TeacherManageTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManageStudent.xaml.cs">
+      <DependentUpon>TeacherManageStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="TeacherUpdateScore.xaml.cs">
       <DependentUpon>TeacherUpdateScore.xaml</DependentUpon>
@@ -143,7 +152,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="TeacherAddStudent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AdminCreateUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherManageTeacher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherManageStudent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -261,6 +282,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\viewscore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\addstudent_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\manageteacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\managesutdent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\manageclass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\report.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

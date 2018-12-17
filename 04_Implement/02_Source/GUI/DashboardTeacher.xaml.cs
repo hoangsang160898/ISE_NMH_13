@@ -54,14 +54,28 @@ namespace GUI
             switch (index)
             {
                 case 0:
-                    GridPrincipal.Content = new TeacherMyInformation();
-                    
+                    GridPrincipal.Content = new TeacherMyInformation(); 
                     break;
                 case 1:
                     GridPrincipal.Content = new TeacherSearchStudent();
                     break;
                 case 2:
                     GridPrincipal.Content = new TeacherUpdateScore();
+                    break;
+                case 3:
+                    GridPrincipal.Content = new TeacherAddStudent();
+                    break;
+                case 4:
+                    GridPrincipal.Content = new TeacherManageStudent();//manage classes
+                    break;
+                case 5:
+                    GridPrincipal.Content = new TeacherManageStudent();//manage students
+                    break;
+                case 6:
+                    GridPrincipal.Content = new TeacherManageTeacher();//manage teachers
+                    break;
+                case 7:
+                    GridPrincipal.Content = new TeacherManageStudent();//report
                     break;
                 default:
                     break;
