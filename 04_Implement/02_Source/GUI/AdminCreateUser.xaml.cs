@@ -48,7 +48,7 @@ namespace GUI
             email_adduser.Text = "";
             birthofday_adduser.Text = "";
             phone_adduser.Text = "";
-            chooseClass.SelectedIndex = 0;
+           
             chooseYear.SelectedIndex = 0;
             gender_adduser.Text = "";
             password_adduser.Clear();

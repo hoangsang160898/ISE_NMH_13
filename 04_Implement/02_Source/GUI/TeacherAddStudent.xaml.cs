@@ -48,7 +48,7 @@ namespace GUI
             email_addstudent.Text = "";
             birthofday_addstudent.Text = "";
             phone_addstudent.Text = "";
-            chooseClass.SelectedIndex = 0;
+        
             chooseYear.SelectedIndex = 0;
             gender_addstudent.Text = "";
             password_addstudent.Clear();

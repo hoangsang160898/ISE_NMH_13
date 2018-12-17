@@ -15,9 +15,9 @@
             <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}">
                 <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="100" Foreground="#305066" Content="{Binding Id}" FontSize="14"/>
-                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="180" Foreground="#305066" Content="{Binding Name}" FontSize="14"/>
-                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="180" Foreground="#305066" Content="{Binding NameClass}" FontSize="14"/>
-                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="90" Foreground="#305066" Content="{Binding Status}" FontSize="14"/>
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="195" Foreground="#305066" Content="{Binding Name}" FontSize="14"/>
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="center" Height="35" Width="105" Foreground="#305066" Content="{Binding Gender}" FontSize="14"/>
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="175" Foreground="#305066" Content="{Binding NamePosition}" FontSize="14"/>
                 </StackPanel>
             </materialDesign:TransitioningContent>
         </DataTemplate>
@@ -41,34 +41,34 @@
                  <Border  Margin="30,0,0,0" CornerRadius="20" Background="Orange">
                     <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="170" FontSize="14">Full Name</Label>
                  </Border>
-                 <Border  Margin="35,0,0,0" CornerRadius="20" Background="Orange">
+                 <Border  Margin="15,0,0,0" CornerRadius="20" Background="Orange">
                     <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="100" FontSize="14">Gender</Label>
                  </Border>
-                 <Border  Margin="40,0,0,0" CornerRadius="20" Background="Orange">
-                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="85" FontSize="14">Position</Label>
+                 <Border  Margin="25,0,0,0" CornerRadius="20" Background="Orange">
+                    <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="120" FontSize="14">Position</Label>
                  </Border>
             </StackPanel>
             </TextBlock>
-            <ListView MouseUp="SelectItem" Margin="0,182,445,0" Name="listviewUser" ItemTemplate="{StaticResource InformationOfAdminTemplate}" SelectionChanged="test_SelectionChanged">
+            <ListView MouseUp="SelectItem" Margin="0,182,420,0" Name="listviewUser" ItemTemplate="{StaticResource InformationOfAdminTemplate}" SelectionChanged="test_SelectionChanged">
 
             </ListView>
 
             <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="308,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" Name="searchUser"/>
-            <Image Source="img/icons/manageuser_avatar.png" Width="100" Height="100" Margin="741,130,187,361"></Image>
-            <Label Content="Full name:"  HorizontalAlignment="Left" Margin="596,301,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140" Height="34"/>
-            <Label Content="Date of birth:"  HorizontalAlignment="Left" Margin="596,373,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-            <Label Content="Gender:"  HorizontalAlignment="Left" Margin="596,445,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-            <Label Content="Email:"  HorizontalAlignment="Left" Margin="596,407,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-            <Label Content="Phone number:"  HorizontalAlignment="Left" Margin="596,481,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
-            <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="fullname_tc_infor" HorizontalAlignment="Left" Margin="741,301,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-            <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  x:Name="birthofday_tc_infor" HorizontalAlignment="Left" Margin="741,373,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-            <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" x:Name="email_tc_infor"  HorizontalAlignment="Left" Margin="741,409,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-            <ComboBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  HorizontalAlignment="Left" x:Name="gender_tc_infor" Margin="741,447,0,0" VerticalAlignment="Top" FontSize="17" Width="255">
+            <Image Source="img/icons/manageuser_avatar.png" Height="100" Margin="773,130,167,361"/>
+            <Label Content="Full name:"  HorizontalAlignment="Left" Margin="620,301,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132" Height="34"/>
+            <Label Content="Date of birth:"  HorizontalAlignment="Left" Margin="620,373,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132"/>
+            <Label Content="Gender:"  HorizontalAlignment="Left" Margin="620,445,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132"/>
+            <Label Content="Email:"  HorizontalAlignment="Left" Margin="620,407,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132"/>
+            <Label Content="Phone number:"  HorizontalAlignment="Left" Margin="620,481,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132"/>
+            <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="fullname_tc_infor" HorizontalAlignment="Left" Margin="757,301,0,0" VerticalAlignment="Top" FontSize="17" Width="240"/>
+            <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  x:Name="birthofday_tc_infor" HorizontalAlignment="Left" Margin="757,373,0,0" VerticalAlignment="Top" FontSize="17" Width="240"/>
+            <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" x:Name="email_tc_infor"  HorizontalAlignment="Left" Margin="757,409,0,0" VerticalAlignment="Top" FontSize="17" Width="240"/>
+            <ComboBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  HorizontalAlignment="Left" x:Name="gender_tc_infor" Margin="757,447,0,0" VerticalAlignment="Top" FontSize="17" Width="240">
                 <ComboBoxItem IsSelected="True">(Empty)</ComboBoxItem>
                 <ComboBoxItem>Male</ComboBoxItem>
                 <ComboBoxItem>Female</ComboBoxItem>
             </ComboBox>
-            <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="phone_tc_infor" Margin="741,483,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
+            <TextBox materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="phone_tc_infor" Margin="757,483,0,0" VerticalAlignment="Top" FontSize="17" Width="240"/>
             <Button Padding="0" Name="btnEdit" HorizontalAlignment="Left" Margin="928,549,0,0" VerticalAlignment="Top" Width="90" Click="btnEdit_Click" IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="img/icons/edit_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
@@ -81,10 +81,10 @@
                     <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Done"/></TextBlock>
                 </StackPanel>
             </Button>
-            <Label Content="ID:"  HorizontalAlignment="Left" Margin="596,265,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140" Height="34"/>
-            <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="id_tc_infor" HorizontalAlignment="Left" Margin="741,265,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-            <Label Content="Position:"  HorizontalAlignment="Left" Margin="596,337,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140" Height="34"/>
-            <ComboBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  x:Name="position_tc_infor" HorizontalAlignment="Left" Margin="741,337,0,0" VerticalAlignment="Top" FontSize="17" Width="255">
+            <Label Content="ID:"  HorizontalAlignment="Left" Margin="620,265,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132" Height="34"/>
+            <TextBox materialDesign:HintAssist.Hint="Select user to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="id_tc_infor" HorizontalAlignment="Left" Margin="757,265,0,0" VerticalAlignment="Top" FontSize="17" Width="240"/>
+            <Label Content="Position:"  HorizontalAlignment="Left" Margin="620,337,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="132" Height="34"/>
+            <ComboBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" IsReadOnly="True"  x:Name="position_tc_infor" HorizontalAlignment="Left" Margin="757,337,0,0" VerticalAlignment="Top" FontSize="17" Width="240">
                 <ComboBoxItem FontSize="14" Content="Subject Teacher"/>
                 <ComboBoxItem FontSize="14" Content="Homeroom Teacher"/>
                 <ComboBoxItem FontSize="14" Content="Master"/>

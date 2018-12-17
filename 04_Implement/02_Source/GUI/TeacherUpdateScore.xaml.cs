@@ -20,6 +20,7 @@ namespace GUI
     /// </summary>
     public sealed partial class TeacherUpdateScore : Page
     {
+        List<string> subjects = new List<string>();
         List<MarkDTO> marks = new List<MarkDTO>();
         List<String> classes = new List<string>();
         public TeacherUpdateScore()
@@ -32,6 +33,12 @@ namespace GUI
             classes.Add("11C2");
             classes.Add("12C2");
             classes.Add("10C3");
+            subjects.Add("All");
+            subjects.Add("English");
+            subjects.Add("Technology");
+            subjects.Add("Math");
+            subjects.Add("Information Technology");
+            subjects.Add("Defense Education");
             marks.Add(new MarkDTO {Semester=4 ,NameClass="12C1",IDStudent="321312",FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "Information Technology" });
             marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "31312", FirstFifteenMinutesMark = 2, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "A" });
             marks.Add(new MarkDTO { NameClass = "12C3", IDStudent = "32312", FirstFifteenMinutesMark = 3, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "B" });
@@ -100,6 +107,13 @@ namespace GUI
         {
             var combo = sender as ComboBox;
             combo.ItemsSource = classes;
+            combo.SelectedIndex = 0;
+        }
+
+        private void Combobox_Loaded_Subject(object sender, RoutedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            combo.ItemsSource = subjects;
             combo.SelectedIndex = 0;
         }
     }

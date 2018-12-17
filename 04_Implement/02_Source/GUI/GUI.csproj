@@ -67,6 +67,9 @@
     <Compile Include="AdminCreateUser.xaml.cs">
       <DependentUpon>AdminCreateUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeacherRole.xaml.cs">
+      <DependentUpon>TeacherRole.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeacherManageTeacher.xaml.cs">
       <DependentUpon>TeacherManageTeacher.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AdminCreateUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherRole.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -297,6 +304,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\icons\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons\role.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

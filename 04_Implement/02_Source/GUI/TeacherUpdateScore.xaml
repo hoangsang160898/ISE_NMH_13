@@ -26,17 +26,8 @@
         <Grid>
             <StackPanel Margin="0,80,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="Subject:"/>
-                <ComboBox Width="170" x:Name="chooseSubject" FontSize="14">
-                    <ComboBoxItem IsSelected="True" FontSize="14">All</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">English</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Technology</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">History</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Math</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Literature</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Biology</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Information Technology</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Civic Education</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">Defense Education</ComboBoxItem>
+                <ComboBox Loaded="Combobox_Loaded_Subject" Width="170" x:Name="chooseSubject" FontSize="14">
+                    
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Class:"/>
                 <ComboBox Width="70" x:Name="chooseClass" FontSize="14" Loaded="ComboBox_Classes_Loaded" />

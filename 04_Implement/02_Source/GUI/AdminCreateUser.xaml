@@ -11,7 +11,6 @@
     <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect Fadein, Duration=0:0:0.5}">
         <Grid Margin="0,4,0,0">
             <Image Source="img/icons/adduser_avatar.png" Margin="60,150,718,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="250" Width="250"/>
-            <ComboBox FontSize="15" VerticalContentAlignment="Center" Name="chooseClass" Loaded="ComboBox_Classes_Loaded" Width="100" Margin="468,167,460,387" Height="33"/>
             <Label Content="ID:" HorizontalAlignment="Left" Margin="365,205,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="128" Height="34"/>
             <Label Content="Date of birth:"  HorizontalAlignment="Left" Margin="365,287,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
             <Label Content="Gender:"  HorizontalAlignment="Left" Margin="365,371,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
@@ -39,7 +38,6 @@
             <Label Content="Password"  HorizontalAlignment="Left" Margin="365,245,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
             <PasswordBox materialDesign:HintAssist.Hint="Enter password here" BorderThickness="0" x:Name="password_adduser" HorizontalAlignment="Left" Margin="577,245,0,0" VerticalAlignment="Top" FontSize="20" Width="185" Height="37"/>
             <PasswordBox materialDesign:HintAssist.Hint="Confirm" BorderThickness="0" x:Name="passwordconfirm_adduser" HorizontalAlignment="Left" Margin="797,245,0,0" VerticalAlignment="Top" FontSize="20" Width="186" Height="37"/>
-            <Label Content="Class:" HorizontalAlignment="Left" Margin="365,166,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="98" Height="34"/>
             <ComboBox FontSize="15" VerticalContentAlignment="Center"  x:Name="chooseYear" Loaded="ComboBox_Years_Loaded" Margin="712,167,166,387" Height="33"/>
             <Label Content="Year:" HorizontalAlignment="Left" Margin="631,166,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="81" Height="34"/>
 

@@ -21,6 +21,7 @@ namespace GUI
     public partial class StudentMyScore : Page
     {
         List<MarkDTO> marks = new List<MarkDTO>();
+        List<string> subjects = new List<string>();
         public StudentMyScore()
         {
             marks.Add(new MarkDTO { FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "Information Technology" });
@@ -32,6 +33,12 @@ namespace GUI
             marks.Add(new MarkDTO { FirstFifteenMinutesMark = 7, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "F" });
             marks.Add(new MarkDTO { FirstFifteenMinutesMark = 8, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "G" });
             marks.Add(new MarkDTO { FirstFifteenMinutesMark = 9, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "H" });
+            subjects.Add("All");
+            subjects.Add("English");
+            subjects.Add("Technology");
+            subjects.Add("Math");
+            subjects.Add("Information Technology");
+            subjects.Add("Defense Education");
             InitializeComponent();
         }
 
@@ -39,6 +46,14 @@ namespace GUI
         {
             var testGUI = marks;
             test.ItemsSource = testGUI;         
+        }
+
+        private void Combobox_Loaded_Subject(object sender, RoutedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            combo.ItemsSource = subjects;
+            
+            combo.SelectedIndex = 0;
         }
     }
 }

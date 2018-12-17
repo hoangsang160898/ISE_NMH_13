@@ -77,6 +77,9 @@ namespace GUI
                 case 7:
                     GridPrincipal.Content = new TeacherManageStudent();//report
                     break;
+                case 8:
+                    GridPrincipal.Content = new TeacherRole();//role
+                    break;
                 default:
                     break;
             }
