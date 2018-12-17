@@ -9,9 +9,20 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    class StudentDAO
+    public class StudentDAO
 
     {
+        private static StudentDAO instance;
+        private StudentDAO() { }
+        public static StudentDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new StudentDAO();
+                return instance;
+            }
+        }
         static SqlConnection con;
         // Log in va load thông tin
         public  static StudentDTO Login(string id, string pw)

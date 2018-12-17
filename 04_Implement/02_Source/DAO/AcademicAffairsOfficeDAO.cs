@@ -8,11 +8,21 @@ using System.Data;
 using DTO;
 namespace DAO
 {
-    class AcademicAffairsOfficeDAO
+    public class AcademicAffairsOfficeDAO
     {
         // load danh sách sinh viên theo lớp, theo năm học
         static SqlConnection con;
-
+        private static AcademicAffairsOfficeDAO instance;
+        private AcademicAffairsOfficeDAO() { }
+        public static AcademicAffairsOfficeDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new AcademicAffairsOfficeDAO();
+                return instance;
+            }
+        }
         public static List<StudentDTO> LoadStudent(string className, string SchoolYear)
         {
             string sTruyVan = @"Select * from Student where nameClass = '" + className + @"' and ClassSchoolYear = '" + SchoolYear+"'";

@@ -4,3 +4,9 @@ D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DTO
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.dll
 D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.pdb
+C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DTO\bin\Debug\DTO.dll
+C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DTO\bin\Debug\DTO.pdb
+C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.dll
+C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DTO\obj\Debug\DTO.pdb

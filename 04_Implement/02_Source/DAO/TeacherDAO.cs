@@ -9,8 +9,19 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    class TeacherDAO
+    public class TeacherDAO
     {
+       /* private static TeacherDAO instance;
+        private TeacherDAO() { }
+        public static TeacherDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new TeacherDAO();
+                return instance;
+            }
+        }*/
         static SqlConnection con;
         // Login va load thong tin
         public static TeacherDTO Login(string id, string pw)
@@ -64,15 +75,29 @@ namespace DAO
 
         }
         // giao vien thay doi diem
-        public static void changeMark(string idStudent, string idSubject, string semester, float FirstFifteenMinutes, float SecondFifteenMinutes, float ThirdFifteenMinutes, float FirstFortyFiveMinutes, float SecondFortyFiveMinutes, float ThirdFortyFiveMinutes, float SemesterMark)
+        public static bool changeMark(string idStudent, string idSubject, string semester, float FirstFifteenMinutes, float SecondFifteenMinutes, float ThirdFifteenMinutes, float FirstFortyFiveMinutes, float SecondFortyFiveMinutes, float ThirdFortyFiveMinutes, float SemesterMark)
         {
             string sTruyVan = @"update Mark 
                                 set FirstFifteenMinutes = "+ FirstFifteenMinutes + @", SecondFifteenMinutes ="+ SecondFifteenMinutes + ",ThirdFifteenMinutes ="+ ThirdFifteenMinutes + @", FirstFortyFiveMinutes="+ FirstFortyFiveMinutes + @", SecondFortyFiveMinutes="+ SecondFortyFiveMinutes + @", ThirdFortyFiveMinutes="+ ThirdFortyFiveMinutes + @", SemesterMark="+ SemesterMark + @"
                                 where IDStudent = '"+ idStudent+@"',  IDSubject ='"+ idSubject + "',Semester='"+ semester + "'";
             con = DataProvider.OpenConnection();
-            DataProvider.ExecuteQuery(sTruyVan, con);
+            bool check = DataProvider.ExecuteQuery(sTruyVan, con);
+            DataProvider.CloseConnection(con);
+            return check;
             
         }
+
+        public static bool changeMyInfomation(string idTeacher, string Name, string Gender, string Email, string Phone, string BirthDay)
+        {
+            string sCommand = @"update Teacher
+                                set Name = N'" + Name + @"', Gender = '" + Gender + @"', Email = '" + Email + @"', Phone = '" + Phone + @"', BirthDay = '" + BirthDay + @"' 
+                                where IDTeacher = '"+idTeacher+"'";
+            con = DataProvider.OpenConnection();
+            bool check = DataProvider.ExecuteQuery(sCommand, con);
+            DataProvider.CloseConnection(con);
+            return check;
+        }
+        
 
     }
 }

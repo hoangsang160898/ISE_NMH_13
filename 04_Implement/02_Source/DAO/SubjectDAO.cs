@@ -10,6 +10,17 @@ namespace DAO
 {
     public class SubjectDAO
     {
+        private static SubjectDAO instance;
+        private SubjectDAO() { }
+        public static SubjectDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SubjectDAO();
+                return instance;
+            }
+        }
         public static SqlConnection con;
         // load danh sách môn học
         public static List<SubjectDTO> loadListSubject()

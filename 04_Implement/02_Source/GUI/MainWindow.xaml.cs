@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -66,7 +66,7 @@ namespace GUI
         {
 
             passLogIn = passbPassword.Password;
-            if (userLogIn == null || userLogIn != userAdmin)
+           /* if (userLogIn == null || userLogIn != userAdmin)
             {
                 lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
                 lblErrorMessage_1.Visibility = Visibility.Visible;
@@ -105,7 +105,30 @@ namespace GUI
                 var window = new DashboardAdmin();
                 window.Show();
                 this.Close();
+            }*/
+
+            // Tao code
+            if (rb_tc.IsChecked == false && rb_st.IsChecked == false && rb_ad.IsChecked == false)
+            {
+                lblErrorMessage_3.Content = "You must choose a authorities.";
+                lblErrorMessage_3.Visibility = Visibility.Visible;
+                uiErrorSp_3.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
             }
+            else if (rb_tc.IsChecked == true)
+            {
+                if (TeacherBUS.Login(userLogIn, passLogIn) != null)
+                {
+                    var window = new DashboardTeacher();
+                    window.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username or Password that you have entered is incorrect\n");
+                }
+            }
+
 
         }
 

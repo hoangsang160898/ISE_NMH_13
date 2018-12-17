@@ -9,7 +9,7 @@ using DTO;
 
 namespace DAO
 {
-    class AdminDAO
+    public class AdminDAO
     {
         private static AdminDAO instance;
 

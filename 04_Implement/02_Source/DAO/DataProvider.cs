@@ -8,12 +8,12 @@ using System.Data;
 
 namespace DAO
 {
-    class DataProvider
+    public class DataProvider
     {
         public static SqlConnection OpenConnection()
         {
             // Chú ý Data Source
-            string sConection = @"Data Source=DESKTOP-8GVUPTJ\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
+            string sConection = @"Data Source=DESKTOP-FMNAUEE\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
             SqlConnection con = new SqlConnection(sConection);
             con.Open();
             return con;

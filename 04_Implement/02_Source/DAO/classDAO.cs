@@ -11,6 +11,17 @@ namespace DAO
    public class classDAO
     {
         static SqlConnection con;
+        private static classDAO instance;
+        private classDAO() { }
+        public static classDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new classDAO();
+                return instance;
+            }
+        }
         // hàm load danh sách lớp học (để đưa vào comboBox)
         public static List<ClassDTO> loadListClass()
         {
