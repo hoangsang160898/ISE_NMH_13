@@ -171,9 +171,9 @@
                 </StackPanel.Resources>
                 <ItemsControl Margin="0,440,323,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <UniformGrid Columns="3" Margin="0,0,-4,0" HorizontalAlignment="Right" Width="351">
-                        <RadioButton Content="img/icons/teacher_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_tc"  Width="100" Height="34" Checked="rb_Checked_tc" Margin="0,0,0,0"/>
-                        <RadioButton Content="img/icons/student_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_st" Width="100" Height="34" Checked="rb_Checked_st" Margin="0,0,0,0"/>
-                        <RadioButton Content="img/icons/admin_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_ad" Width="100" Height="34" Checked="rb_Checked_ad" Margin="0,0,0,0"/>
+                        <RadioButton Content="img/icons/teacher_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_tc"  Width="100" Height="34" Margin="0,0,0,0"/>
+                        <RadioButton Content="img/icons/student_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_st" Width="100" Height="34" Margin="0,0,0,0"/>
+                        <RadioButton Content="img/icons/admin_icon_white.png" Style="{StaticResource Flag}" x:Name="rb_ad" Width="100" Height="34" Margin="0,0,0,0"/>
                     </UniformGrid>
                 </ItemsControl>
             </StackPanel>

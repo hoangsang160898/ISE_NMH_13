@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 ﻿GUI
 
 
@@ -19,25 +18,3 @@ TeacherAddStudent.xaml;AdminCreateUser.xaml;TeacherRole.xaml;TeacherManageTeache
 
 False
 
-=======
-﻿GUI
-
-
-winexe
-C#
-.cs
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\
-GUI
-none
-false
-DEBUG;TRACE
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\App.xaml
-16-1783585354
-
-201741640491
-171527999374
-TeacherAddStudent.xaml;AdminCreateUser.xaml;TeacherManageTeacher.xaml;TeacherManageStudent.xaml;TeacherUpdateScore.xaml;ReviewStudentScore.xaml;TeacherSearchStudent.xaml;TeacherMyInformation.xaml;DashboardAdmin.xaml;DashboardStudent.xaml;DashboardTeacher.xaml;MainWindow.xaml;AdminMyInformation.xaml;StudentMyInformation.xaml;AdminManageUser.xaml;StudentMyScore.xaml;
-
-False
-
->>>>>>> Stashed changes

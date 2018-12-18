@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 ﻿
 FD:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\App.xaml;;
 FD:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherAddStudent.xaml;;
@@ -19,24 +18,3 @@ FD:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GU
 FD:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\AdminManageUser.xaml;;
 FD:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\StudentMyScore.xaml;;
 
-=======
-﻿
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\App.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherAddStudent.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\AdminCreateUser.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherManageTeacher.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherManageStudent.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherUpdateScore.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\ReviewStudentScore.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherSearchStudent.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\TeacherMyInformation.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\DashboardAdmin.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\DashboardStudent.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\DashboardTeacher.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\MainWindow.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\AdminMyInformation.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\StudentMyInformation.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\AdminManageUser.xaml;;
-FC:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\StudentMyScore.xaml;;
-
->>>>>>> Stashed changes

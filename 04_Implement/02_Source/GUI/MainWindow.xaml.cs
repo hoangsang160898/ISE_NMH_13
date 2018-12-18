@@ -20,8 +20,8 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        string userAdmin = "admin"; //test UI/UX
-        string passAdmin = "";
+        //string userAdmin = "admin"; //test UI/UX
+        //string passAdmin = "";
         string userLogIn, passLogIn = "";
         private DispatcherTimer dispatcherTimer;
         private DispatcherTimer dispatcherTimerForTip;
@@ -125,11 +125,12 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("Username or Password that you have entered is incorrect\n");
+                    lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                    lblErrorMessage_1.Visibility = Visibility.Visible;
+                    uiErrorSp_1.Visibility = Visibility.Visible;
+                    dispatcherTimer.Start();
                 }
             }
-
-
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
@@ -141,21 +142,6 @@ namespace GUI
             lblErrorMessage_3.Visibility = Visibility.Collapsed;
             uiErrorSp_3.Visibility = Visibility.Collapsed;
             dispatcherTimer.IsEnabled = false;
-        }
-
-        private void rb_Checked_tc(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rb_Checked_st(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rb_Checked_ad(object sender, RoutedEventArgs e)
-        {
-           
         }
 
         private void dispatcherTimerForTip_Tick(object sender, EventArgs e)
