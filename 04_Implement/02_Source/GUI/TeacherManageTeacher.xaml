@@ -90,6 +90,7 @@
                 <ComboBoxItem FontSize="14" Content="Master"/>
                 <ComboBoxItem FontSize="14" Content="(trống)"/>
             </ComboBox>
+            <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="786,32,0,0" VerticalAlignment="Top" Width="75"/>
         </Grid>
     </materialDesign:TransitioningContent>
 </Page>

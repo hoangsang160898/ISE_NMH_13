@@ -108,6 +108,7 @@
                     <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Score"/></TextBlock>
                 </StackPanel>
             </Button>
+            <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="786,32,0,0" VerticalAlignment="Top" Width="75"/>
         </Grid>
     </materialDesign:TransitioningContent>
 </Page>
