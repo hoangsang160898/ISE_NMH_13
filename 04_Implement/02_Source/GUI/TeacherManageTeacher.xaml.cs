@@ -23,8 +23,8 @@ namespace GUI
         private List<TeacherDTO> users = new List<TeacherDTO>();
         public TeacherManageTeacher()
         {
-            users.Add(new TeacherDTO { NamePosition="Master",Id ="1612556",NameClass="12C1",SchoolYear="2018-2019",Name="Nguyen Hoang Sang", Type="Teacher", Status="Active",DateofBith="16/8/1998",Gender="Male",Email="test@gmail.com",Password="123",Phone="0123456789"});
-            users.Add(new TeacherDTO { NamePosition = "Subject Teacher", Id = "1612556", Name = "Nguyen Hoang Sang", Type = "Teacher", Status = "Active" });
+           // users.Add(new TeacherDTO { NamePosition="Master",Id ="1612556",NameClass="12C1",SchoolYear="2018-2019",Name="Nguyen Hoang Sang", Type="Teacher", Status="Active",DateofBith="16/8/1998",Gender="Male",Email="test@gmail.com",Password="123",Phone="0123456789"});
+          //  users.Add(new TeacherDTO { NamePosition = "Subject Teacher", Id = "1612556", Name = "Nguyen Hoang Sang", Type = "Teacher", Status = "Active" });
             users.Add(new TeacherDTO { Id = "1612557", Name = "Le Hoang Sang", Type = "Teacher", Status = "Active" });
             users.Add(new TeacherDTO { Id = "1512383", Name = "Nguyen Thuy Nhien", Type = "Teacher", Status = "Active" });
             users.Add(new TeacherDTO { Id = "1612553", Name = "Tran Ngoc Quang", Type = "Teacher", Status = "Active" });

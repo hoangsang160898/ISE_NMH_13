@@ -38,7 +38,8 @@ namespace GUI
 
         private void Window_Loaded_Student(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = users;    
+            listviewUser.ItemsSource = users;
+
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)

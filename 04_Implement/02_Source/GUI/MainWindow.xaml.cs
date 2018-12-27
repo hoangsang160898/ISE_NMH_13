@@ -125,10 +125,42 @@ namespace GUI
                 }
                 else
                 {
-                    lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                   /* lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
                     lblErrorMessage_1.Visibility = Visibility.Visible;
                     uiErrorSp_1.Visibility = Visibility.Visible;
-                    dispatcherTimer.Start();
+                    dispatcherTimer.Start();*/
+                }
+            }
+            else if (rb_ad.IsChecked == true)
+            {
+                if (userLogIn == "admin" && passLogIn == "123")
+                {
+                    var window = new DashboardAdmin();
+                    window.Show();
+                    this.Close();
+                }
+                else
+                {
+                   /* lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                    lblErrorMessage_1.Visibility = Visibility.Visible;
+                    uiErrorSp_1.Visibility = Visibility.Visible;
+                    dispatcherTimer.Start();*/
+                }
+            }
+            else if (rb_st.IsChecked == true)
+            {
+                if (StudentBUS.Login(userLogIn, passLogIn) != null)
+                {
+                    var window = new DashboardStudent();
+                    window.Show();
+                    this.Close();
+                }
+                else
+                {
+                  /*  lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                    lblErrorMessage_1.Visibility = Visibility.Visible;
+                    uiErrorSp_1.Visibility = Visibility.Visible;
+                    dispatcherTimer.Start();*/
                 }
             }
         }

@@ -25,7 +25,7 @@ namespace DAO
         }
         public static List<StudentDTO> LoadStudent(string className, string SchoolYear)
         {
-            string sTruyVan = @"Select * from Student where nameClass = '" + className + @"' and ClassSchoolYear = '" + SchoolYear+"'";
+            string sTruyVan = @"Select * from Student where nameClass = '" + className + @"' and schoolYear = '" + SchoolYear+"'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if (dt.Rows.Count == 0)
@@ -176,6 +176,52 @@ namespace DAO
                 return false;
             }
            
+        }
+
+        public static List<string> loadListClassToComboBox()
+        {
+            var temp = classDAO.loadListClass();
+            int n = temp.Count;
+            List<string> result = new List<string>();
+            for (int i=0; i<n;i++)
+            {
+                string class_ = temp[i].Name;
+                result.Add(class_);
+            }
+            return result.Distinct().ToList();
+
+        }
+
+        public static List<string> loadSchoolYearToComboBox()
+        {
+            return classDAO.loadSchoolYear();
+        }
+
+        public static List<StudentDTO> searchStudentByName(string nameStudent, string nameClass, string schoolYear)
+        {
+            string sCommand = @"Select* from Student where ((Name like N'%" + nameStudent + "%') or (IDStudent like '%"+nameStudent+"%')) and nameClass = '" + nameClass + "' and schoolYear = '" + schoolYear+"'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<StudentDTO> result = new List<StudentDTO>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                StudentDTO student = new StudentDTO();
+                student.Id = dt.Rows[i]["IDStudent"].ToString();
+                student.Name = dt.Rows[i]["Name"].ToString();
+                student.Gender = dt.Rows[i]["Gender"].ToString();
+                student.Email = dt.Rows[i]["Email"].ToString();
+                student.Phone = dt.Rows[i]["Phone"].ToString();
+                student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                student.NameClass = dt.Rows[i]["nameClass"].ToString();
+                student.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
+                result.Add(student);
+            }
+            DataProvider.CloseConnection(con);
+            return result;
         }
     }
 }

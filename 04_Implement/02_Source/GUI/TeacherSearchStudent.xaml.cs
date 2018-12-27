@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -55,7 +56,18 @@ namespace GUI
 
         private void Window_Loaded_Student(object sender, RoutedEventArgs e)
         {
-            listviewStudent.ItemsSource = users;
+            if (Global.Teacher.NamePosition == "PDT")
+            {
+                chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
+                chooseClass.SelectedIndex = 0;
+                chooseYear.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
+                chooseYear.SelectedIndex = 0;
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                listviewStudent.ItemsSource = Global.listStudent;
+            }
+         //  Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+
+         //   listviewStudent.ItemsSource = Global.listStudent;
             
         }
 
@@ -84,21 +96,77 @@ namespace GUI
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
         {
-            var combo = sender as ComboBox;
-            combo.ItemsSource = classes;
-            combo.SelectedIndex = 0;
+            if (Global.Teacher.NamePosition == "PDT")
+            {
+                var combo = sender as ComboBox;
+                combo.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
+                combo.SelectedIndex = 0;
+            }
+            else
+            {
+                var combo = sender as ComboBox;
+                combo.ItemsSource = classes;
+                combo.SelectedIndex = 0;
+            }
         }
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
-            var combo = sender as ComboBox;
-            combo.ItemsSource = years;
-            combo.SelectedIndex = 0;
+            if (Global.Teacher.NamePosition == "PDT")
+            {
+                var combo = sender as ComboBox;
+                combo.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
+                combo.SelectedIndex = 0;
+            }
+            else
+            {
+                var combo = sender as ComboBox;
+                combo.ItemsSource = years;
+                combo.SelectedIndex = 0;
+            }
         }
 
         private void btnViewScore_Click(object sender, RoutedEventArgs e)
         {
             var window = new ReviewStudentScore();
             window.Show();
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            //Ưu tiên search theo tên trước
+
+            Global.listStudent = AcademicAffairsOfficeBUS.searchStudentByName(searchUser.Text, chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+            if (Global.listStudent != null)
+            {
+                listviewStudent.ItemsSource = Global.listStudent;
+            }
+        }
+
+        private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseClass.SelectedItem != null && chooseYear.SelectedItem != null)
+            {
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                listviewStudent.ItemsSource = Global.listStudent;
+            }
+        }
+
+        private void ChooseYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseClass.SelectedItem != null && chooseYear.SelectedItem != null)
+            {
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                listviewStudent.ItemsSource = Global.listStudent;
+            }
+        }
+
+        private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchUser.Text))
+            {
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                listviewStudent.ItemsSource = Global.listStudent;
+            }
         }
     }
 }

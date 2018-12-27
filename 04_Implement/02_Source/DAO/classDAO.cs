@@ -44,5 +44,25 @@ namespace DAO
             DataProvider.CloseConnection(con);
             return result;
         }
+
+        public static List<string> loadSchoolYear()
+        {
+            string sCommand = @"Select schoolYear from dbo.Class";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<string> result = new List<string>();
+            for (int i=0;i<dt.Rows.Count;i++)
+            {
+                string schoolyear = dt.Rows[i]["schoolYear"].ToString();
+                result.Add(schoolyear);
+            }
+
+            DataProvider.CloseConnection(con);
+            return result.Distinct().ToList();
+        }
     }
 }

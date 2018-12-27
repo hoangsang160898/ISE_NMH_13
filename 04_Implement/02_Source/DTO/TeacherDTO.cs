@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class TeacherDTO:StudentDTO
+    public class TeacherDTO:PeopleDTO
     {
         private string namePosition;
         public string NamePosition { get => namePosition; set => namePosition = value; }

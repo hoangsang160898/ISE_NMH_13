@@ -9,5 +9,7 @@ namespace BUS
     public class Global
     {
         public static TeacherDTO Teacher;
+        public static StudentDTO Student;
+        public static List<StudentDTO> listStudent;
     }
 }

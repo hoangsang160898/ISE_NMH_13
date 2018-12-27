@@ -1,12 +1,3 @@
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DAO.dll
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DAO.pdb
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DTO.dll
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DTO.pdb
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.csproj.CopyComplete
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.dll
-D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.pdb
 C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DAO.dll
 C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DAO.pdb
 C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DTO.dll

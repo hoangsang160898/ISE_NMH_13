@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -22,6 +22,16 @@ namespace GUI
         public DashboardTeacher()
         {
             InitializeComponent();
+            fullname_title.Content = Global.Teacher.Name;
+            if (Global.Teacher.NamePosition == "GV")
+            {
+                class_title.Content = "Teacher";
+            }
+            else
+            {
+                class_title.Content = "AcademicAffairOffice Staff";
+            }
+
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -84,6 +94,8 @@ namespace GUI
                     break;
             }
         }
+
+       
 
         private void MoveCursorMenu(int index)
         {

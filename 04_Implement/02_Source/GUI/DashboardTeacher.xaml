@@ -112,15 +112,15 @@
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" FontWeight="Bold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="img/icons/role.png" Margin="10,0,0,0" Height="30" Width="30"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="img/icons/role.png" Margin="10,0,0,0" Height="30" Width="30"/>
                             <TextBlock FontSize="17" VerticalAlignment="Center" Text="Regulations" Margin="5,0,0,0" Height="19"/>
-                    </StackPanel>
+                        </StackPanel>
                     </ListViewItem>
                 </ListView>
                 <Image Source="img/icons/teacher_avatar.png" Margin="10,19,205,571" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="2.326,0.9"></Image>
 
-                <Label  BorderThickness="0" Name="fullname_title" FontSize="14" Foreground="#fff" Content="Leo Nguyen Teacher" HorizontalAlignment="Left" Margin="75,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="190">
+                <Label  BorderThickness="0" Name="fullname_title" FontSize="14" Foreground="#fff" Content="Leo Nguyen Teacher" HorizontalAlignment="Left" Margin="75,0,0,602" VerticalAlignment="Bottom" FontWeight="Bold" Width="190">
                 </Label>
 
                 <Label  BorderThickness="0" Name="class_title" FontSize="14" Foreground="#fff" Content="K16 Teacher" HorizontalAlignment="Left" Margin="75,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="190" />

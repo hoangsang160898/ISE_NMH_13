@@ -22,7 +22,7 @@ namespace GUI
     public partial class TeacherMyInformation : Page
     {
       //  private TeacherDTO test = new TeacherDTO { Name = "Leo Nguyen Teacher test", Gender = "Male", Email = "testing@gmail.com", DateofBith = "01.01.1998 test", Phone = "0123456789", Id = "leonguyeteachertest" };
-        private TeacherDTO Teacher = Global.Teacher;
+      //  private TeacherDTO Teacher = Global.Teacher;
         public TeacherMyInformation()
         {
             InitializeComponent();
@@ -85,7 +85,7 @@ namespace GUI
                     gender_tc_infor.SelectedIndex = 0;
                 }
 
-                Teacher = Global.Teacher;
+               // Teacher = Global.Teacher;
             }
             else
             {
@@ -132,16 +132,16 @@ namespace GUI
              }*/
 
 
-            fullname_tc_infor.Text = Teacher.Name;
-            id_tc_infor.Text = Teacher.Id;
-            birthofday_tc_infor.Text = Teacher.DateofBith;
-            phone_tc_infor.Text = Teacher.Phone;
-            email_tc_infor.Text = Teacher.Email;
-            if (Teacher.Gender == "Male")
+            fullname_tc_infor.Text = Global.Teacher.Name;
+            id_tc_infor.Text = Global.Teacher.Id;
+            birthofday_tc_infor.Text = Global.Teacher.DateofBith;
+            phone_tc_infor.Text = Global.Teacher.Phone;
+            email_tc_infor.Text = Global.Teacher.Email;
+            if (Global.Teacher.Gender == "Male")
             {
                 gender_tc_infor.SelectedIndex = 1;
             }
-            else if (Teacher.Gender == "Female")
+            else if (Global.Teacher.Gender == "Female")
             {
                 gender_tc_infor.SelectedIndex = 2;
             }
