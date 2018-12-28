@@ -98,7 +98,51 @@ namespace DAO
             DataProvider.CloseConnection(con);
             return check;
         }
+
+        public static List<string> loadListClassToComboBox(string idTeacher, string schoolYear)
+        {
+            string sCommand = @"select nameClass from Assign where IDTeacher = '" + idTeacher + "' and schoolYear = '" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            List<string> result = new List<string>();
+            if (dt.Rows.Count <= 0)
+            {
+                return null;
+            }
+            else
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string class_ = dt.Rows[i]["nameClass"].ToString();
+                    result.Add(class_);
+                }
+                DataProvider.CloseConnection(con);
+                return result.Distinct().ToList();
+            }
+        }
         
+        public static List<string> loadSchoolYearToComboBox(string idTeacher)
+        {
+            string sCommand = @"select schoolYear from Assign where IDTeacher = '" + idTeacher + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            List<string> result = new List<string>();
+            if (dt.Rows.Count <= 0)
+            {
+                return null;
+            }
+            else
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string schoolYear = dt.Rows[i]["schoolYear"].ToString();
+                    result.Add(schoolYear);
+                }
+                DataProvider.CloseConnection(con);
+                return result.Distinct().ToList();
+            }
+        }
+
 
     }
 }

@@ -25,7 +25,7 @@ namespace GUI
         List<String> classes = new List<string>();
         public TeacherUpdateScore()
         {
-            classes.Add("10C1");
+           /* classes.Add("10C1");
             classes.Add("11C1");
             classes.Add("12C1");
             classes.Add("10C2");
@@ -47,7 +47,7 @@ namespace GUI
             marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "32112", FirstFifteenMinutesMark = 6, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "E" });
             marks.Add(new MarkDTO { NameClass = "12C13", IDStudent = "3312", FirstFifteenMinutesMark = 7, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "F" });
             marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "321312", FirstFifteenMinutesMark = 8, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "G" });
-            marks.Add(new MarkDTO { NameClass = "12C5", IDStudent = "312", FirstFifteenMinutesMark = 9, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "H" });
+            marks.Add(new MarkDTO { NameClass = "12C5", IDStudent = "312", FirstFifteenMinutesMark = 9, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "H" });*/
             InitializeComponent();
         }
 
@@ -90,7 +90,7 @@ namespace GUI
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
             MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
-            subject_st_infor.Text = item.IdSubject;
+            //subject_st_infor.Text = item.IdSubject;
             fullname_st_infor.Text = item.IDStudent;
             id_st_infor.Text = item.IDStudent;
             class_st_infor.Text = item.NameClass;

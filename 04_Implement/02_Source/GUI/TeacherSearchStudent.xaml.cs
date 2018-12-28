@@ -65,6 +65,15 @@ namespace GUI
                 Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
             }
+            else
+            {
+                chooseYear.ItemsSource = TeacherBUS.loadSchoolYearToComboBox(Global.Teacher.Id);
+                chooseYear.SelectedIndex = 0;
+                chooseClass.ItemsSource = TeacherBUS.loadListClassToComboBox(Global.Teacher.Id, chooseYear.SelectedItem.ToString());
+                chooseClass.SelectedIndex = 0;
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                listviewStudent.ItemsSource = Global.listStudent;
+            }
          //  Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
 
          //   listviewStudent.ItemsSource = Global.listStudent;
@@ -96,7 +105,7 @@ namespace GUI
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Global.Teacher.NamePosition == "PDT")
+           /* if (Global.Teacher.NamePosition == "PDT")
             {
                 var combo = sender as ComboBox;
                 combo.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
@@ -107,11 +116,11 @@ namespace GUI
                 var combo = sender as ComboBox;
                 combo.ItemsSource = classes;
                 combo.SelectedIndex = 0;
-            }
+            }*/
         }
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Global.Teacher.NamePosition == "PDT")
+           /* if (Global.Teacher.NamePosition == "PDT")
             {
                 var combo = sender as ComboBox;
                 combo.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
@@ -122,11 +131,14 @@ namespace GUI
                 var combo = sender as ComboBox;
                 combo.ItemsSource = years;
                 combo.SelectedIndex = 0;
-            }
+            }*/
         }
 
         private void btnViewScore_Click(object sender, RoutedEventArgs e)
         {
+            
+            Global.Student = (StudentDTO)listviewStudent.SelectedItem;
+           
             var window = new ReviewStudentScore();
             window.Show();
         }

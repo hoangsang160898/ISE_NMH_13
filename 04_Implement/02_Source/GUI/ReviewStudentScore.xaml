@@ -11,7 +11,7 @@
         <DataTemplate x:Key="ScoreTemplate" DataType="MarkDTO">
             <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}">
                 <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
-                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="170" Foreground="#305066" Content="{Binding IdSubject}" FontSize="14" FontWeight="Bold"/>
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="170" Foreground="#305066" Content="{Binding Subject.NameSubject }" FontSize="14" FontWeight="Bold"/>
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Height="35" Width="105" Foreground="#305066" Content="{Binding FirstFifteenMinutesMark}" FontSize="14"/>
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding SecondFifteenMinutesMark}" FontSize="14"/>
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="105" Foreground="#305066" Content="{Binding ThirdFifteenMinutesMark}" FontSize="14"/>
@@ -124,7 +124,7 @@
                  </Border>
             </StackPanel>
                 </TextBlock>
-                <ListView Margin="0,143,0,0" Name="test" ItemTemplate="{StaticResource ScoreTemplate}"/>
+                <ListView Margin="0,143,0,0" Name="test" ItemTemplate="{StaticResource ScoreTemplate}" SelectedItem="{Binding SelectedItem}"/>
                 <Label Foreground="#E74C3C" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="81" FontSize="14" Content="12345" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,45,10,0" Name="id_title"/>
             </Grid>
         </Border>

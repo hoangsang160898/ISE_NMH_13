@@ -45,6 +45,7 @@
     <Compile Include="AdminDAO.cs" />
     <Compile Include="classDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="MarkDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentDAO.cs" />
     <Compile Include="SubjectDAO.cs" />

@@ -20,5 +20,48 @@ namespace DTO
         {
             idSubject = NameSubject = "";
         }
+        public static string getNameSubject(string id)
+        {
+            if (id =="MATH")
+            {
+                return "Math";
+            }
+            else if (id == "AV")
+            {
+                return "English";
+            }
+            else if (id == "CN")
+            {
+                return "Technology";
+            }
+            else if (id == "DL")
+            {
+                return "Geography";
+            }
+            else if (id == "GDCD")
+            {
+                return "Civic Education";
+            }
+            else if (id == "GDQP")
+            {
+                return "GDQP";
+            }
+            else if (id == "LS")
+            {
+                return "History";
+            }
+            else if (id == "NV")
+            {
+                return "Literature";
+            }
+            else if (id == "SH")
+            {
+                return "Biology";
+            }
+            else
+            {
+                return "Infomation Techonogy";
+            }
+        }
     }
 }

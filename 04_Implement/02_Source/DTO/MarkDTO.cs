@@ -18,10 +18,10 @@ namespace DTO
         private double averageMark;
         private int semester;
         private string iDStudent;
-        private string idSubject;
         private string nameClass;
         private string schoolYear;
         private string idTeacher;
+        private SubjectDTO subject;
 
         public double FirstFifteenMinutesMark { get => firstFifteenMinutesMark; set => firstFifteenMinutesMark = value; }
         public double SecondFifteenMinutesMark { get => secondFifteenMinutesMark; set => secondFifteenMinutesMark = value; }
@@ -32,11 +32,11 @@ namespace DTO
         public double SemesterScore { get => semesterScore; set => semesterScore = value; }
         public double AverageMark { get => averageMark; set => averageMark = value; }
         public int Semester { get => semester; set => semester = value; }
-        public string IDStudent { get => iDStudent; set => iDStudent = value; }
-        public string IdSubject { get => idSubject; set => idSubject = value; }
+        public string IDStudent { get => iDStudent; set => iDStudent = value; }  
         public string NameClass { get => nameClass; set => nameClass = value; }
         public string SchoolYear { get => schoolYear; set => schoolYear = value; }
         public string IdTeacher { get => idTeacher; set => idTeacher = value; }
+        public SubjectDTO Subject { get => subject; set => subject = value; }
 
         public MarkDTO()
         {
@@ -44,6 +44,8 @@ namespace DTO
             FirstFortyFiveMinutesMark = SecondFortyFiveMinutesMark = ThirdFortyFiveMinutesMark = 0;
             semesterScore = 0;
             averageMark = 0;
+            Subject = new SubjectDTO();
+            
         }
     }
 }

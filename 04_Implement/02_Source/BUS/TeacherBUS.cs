@@ -145,5 +145,14 @@ namespace BUS
             
             return TeacherDAO.changeMyInfomation(idTeacher, Name, Gender, Email, Phone, BirthDay);
         }
+        public static List<string> loadListClassToComboBox(string idTeacher, string schoolYear)
+        {
+            return TeacherDAO.loadListClassToComboBox(idTeacher, schoolYear);
+        }
+
+        public static List<string> loadSchoolYearToComboBox(string idTeacher)
+        {
+            return TeacherDAO.loadSchoolYearToComboBox(idTeacher);
+        }
     }
 }
