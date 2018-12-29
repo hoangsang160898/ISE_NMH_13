@@ -46,6 +46,7 @@
     <Compile Include="MarkBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentBUS.cs" />
+    <Compile Include="SubjectBUS.cs" />
     <Compile Include="TeacherBUS.cs" />
   </ItemGroup>
   <ItemGroup>

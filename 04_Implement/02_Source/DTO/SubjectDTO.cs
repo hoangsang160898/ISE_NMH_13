@@ -63,5 +63,49 @@ namespace DTO
                 return "Infomation Techonogy";
             }
         }
+
+        public static string getIDSubject(string name)
+        {
+            if (name == "Math")
+            {
+                return "MATH";
+            }
+            else if (name == "Literature")
+            {
+                return "NV";
+            }
+            else if (name == "English")
+            {
+                return "AV";
+            }
+            else if (name == "Biology")
+            {
+                return "SH";
+            }
+            else if (name == "Geography")
+            {
+                return "DL";
+            }
+            else if (name == "Infomation Technology")
+            {
+                return "TH";
+            }
+            else if (name =="Civic Education")
+            {
+                return "GDCD";
+            }
+            else if (name == "Technology")
+            {
+                return "CN";
+            }
+            else if (name == "Defense Education")
+            {
+                return "GDQP";
+            }
+            else
+            {
+                return "LS";
+            }
+        }
     }
 }
