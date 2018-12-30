@@ -25,6 +25,10 @@ namespace BUS
         {
             return MarkDAO.loadMark(idStudent, nameClass, schoolYear, semester);
         }
+        public static List<MarkDTO> loadMark(string idStudent, string nameClass, string schoolYear, string semester, string nameSubject)
+        {
+            return MarkDAO.loadMark(idStudent, nameClass, schoolYear, semester, nameSubject);
+        }
     }
 
 }

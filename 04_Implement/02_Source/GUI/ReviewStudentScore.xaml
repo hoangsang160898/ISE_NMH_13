@@ -80,7 +80,7 @@
 
                 <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
                     <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold">Subject:</Label>
-                    <ComboBox Width="170" Name="chooseSubject" FontSize="14">
+                    <ComboBox Width="170" Name="chooseSubject" FontSize="14" SelectionChanged="ChooseSubject_SelectionChanged">
                         
                     </ComboBox>
                     <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Grade:</Label>
@@ -90,7 +90,7 @@
                         <ComboBoxItem FontSize="14">12</ComboBoxItem>
                     </ComboBox>
                     <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
-                    <ComboBox Width="40" Name="chooseSemester" FontSize="14">
+                    <ComboBox Width="40" Name="chooseSemester" FontSize="14" SelectionChanged="ChooseSemester_SelectionChanged">
                         <ComboBoxItem FontSize="14" IsSelected="True">I</ComboBoxItem>
                         <ComboBoxItem FontSize="14">II</ComboBoxItem>
                     </ComboBox>

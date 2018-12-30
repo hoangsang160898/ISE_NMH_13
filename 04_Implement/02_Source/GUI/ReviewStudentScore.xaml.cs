@@ -23,6 +23,7 @@ namespace GUI
         List<MarkDTO> marks = new List<MarkDTO>();
         string nameClass = "";
         string semester = "";
+        List<string> listSubject = new List<string>();
         public ReviewStudentScore()
         {
            /* marks.Add(new MarkDTO { FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "Information Technology" });
@@ -55,12 +56,13 @@ namespace GUI
         {
             if (Global.Teacher.NamePosition == "PDT")
             {
-                chooseSubject.ItemsSource = SubjectBUS.loadListNameSubject();
-
+                listSubject = SubjectBUS.loadListNameSubject();
+                listSubject.Add("All");
+                chooseSubject.ItemsSource = listSubject;
                 chooseSubject.SelectedIndex = 0;
-
                 
-                //if (chooseYear.SelectedValue.ToString())
+                
+                
                 if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
                 {
                     semester = "1";
@@ -69,8 +71,10 @@ namespace GUI
                 {
                     semester = "2";
                 }
-                MessageBox.Show(chooseSemester.SelectedValue.ToString());
-                MessageBox.Show(chooseSubject.SelectedValue.ToString());
+
+
+               // MessageBox.Show(chooseSemester.SelectedValue.ToString());
+                //MessageBox.Show(chooseSubject.SelectedValue.ToString());
                 if (chooseSubject.SelectedValue.ToString() == "All")
                 {
                   
@@ -78,12 +82,57 @@ namespace GUI
                 }
                 else
                 {
-                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                   // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
                 }
                 
             }
         
 
+        }
+
+        private void ChooseSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+            {
+                semester = "1";
+            }
+            else
+            {
+                semester = "2";
+            }
+
+            if (chooseSubject.SelectedValue.ToString() == "All")
+            {
+                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+            }
+            else
+            {
+                // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+            }
+        }
+
+        private void ChooseSemester_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+            {
+                semester = "1";
+            }
+            else
+            {
+                semester = "2";
+            }
+
+            if (chooseSubject.SelectedValue.ToString() == "All")
+            {
+                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+            }
+            else
+            {
+                // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+            }
         }
     }
 }
