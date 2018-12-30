@@ -31,6 +31,11 @@
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Class:"/>
                 <ComboBox Width="70" x:Name="chooseClass" FontSize="14" Loaded="ComboBox_Classes_Loaded" />
+                <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
+                <ComboBox Width="40" Name="chooseSemester" FontSize="14">
+                    <ComboBoxItem FontSize="14" IsSelected="True">I</ComboBoxItem>
+                    <ComboBoxItem FontSize="14">II</ComboBoxItem>
+                </ComboBox>
             </StackPanel>
             <TextBlock  Margin="0,130,0,0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
