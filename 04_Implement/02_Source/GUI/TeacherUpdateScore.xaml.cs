@@ -25,6 +25,7 @@ namespace GUI
         List<MarkDTO> marks = new List<MarkDTO>();
         List<String> classes = new List<string>();
         List<string> listSubject = new List<string>();
+        string semester = "";
         public TeacherUpdateScore()
         {
            /* classes.Add("10C1");
@@ -65,16 +66,16 @@ namespace GUI
 
                 chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
                 chooseClass.SelectedIndex = 0;
-               /* if (chooseSubject.SelectedValue.ToString() == "All")
-                {
 
-                    listviewUser.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, "1");
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
                 }
                 else
                 {
-                    // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-                    listviewUser.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, "1", chooseSubject.SelectedValue.ToString());
-                }*/
+                    semester = "2";
+                }
+               
             }
         }
 
