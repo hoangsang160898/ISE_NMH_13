@@ -11,12 +11,12 @@
       Title="Update Score" Loaded="Window_Loaded_User">
 
     <Page.Resources>
-        <DataTemplate x:Key="InformationOfAdminTemplate" DataType="PeopleDTO">
+        <DataTemplate x:Key="InformationOfAdminTemplate" DataType="MarkDTO">
             <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}">
                 <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="100" Foreground="#305066" Content="{Binding IDStudent}" FontSize="14"/>
-                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="180" Foreground="#305066" Content="{Binding IDStudent}" FontSize="14"/>
-                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="180" Foreground="#305066" Content="{Binding IdSubject}" FontSize="14"/>
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="180" Foreground="#305066" Content="{Binding NameStudent}" FontSize="14"/>
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="180" Foreground="#305066" Content="{Binding Subject.NameSubject}" FontSize="14"/>
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="90" Foreground="#305066" Content="{Binding NameClass}" FontSize="14"/>
                 </StackPanel>
             </materialDesign:TransitioningContent>

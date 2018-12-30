@@ -28,7 +28,7 @@ namespace GUI
         string semester = "";
         public TeacherUpdateScore()
         {
-           /* classes.Add("10C1");
+            classes.Add("10C1");
             classes.Add("11C1");
             classes.Add("12C1");
             classes.Add("10C2");
@@ -42,10 +42,10 @@ namespace GUI
             subjects.Add("Math");
             subjects.Add("Information Technology");
             subjects.Add("Defense Education");
-            marks.Add(new MarkDTO {Semester=4 ,NameClass="12C1",IDStudent="321312",FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "Information Technology" });
-            marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "31312", FirstFifteenMinutesMark = 2, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "A" });
-            marks.Add(new MarkDTO { NameClass = "12C3", IDStudent = "32312", FirstFifteenMinutesMark = 3, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "B" });
-            marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "312", FirstFifteenMinutesMark = 4, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "C" });
+            marks.Add(new MarkDTO {Semester=4 ,NameClass="12C1",IDStudent="321312",FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5 });
+            marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "31312", FirstFifteenMinutesMark = 2, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5 });
+            marks.Add(new MarkDTO { NameClass = "12C3", IDStudent = "32312", FirstFifteenMinutesMark = 3, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5 });
+           /* marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "312", FirstFifteenMinutesMark = 4, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "C" });
             marks.Add(new MarkDTO { NameClass = "12C1", IDStudent = "312", FirstFifteenMinutesMark = 5, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "D" });
             marks.Add(new MarkDTO { NameClass = "12C2", IDStudent = "32112", FirstFifteenMinutesMark = 6, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "E" });
             marks.Add(new MarkDTO { NameClass = "12C13", IDStudent = "3312", FirstFifteenMinutesMark = 7, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "F" });
@@ -59,10 +59,15 @@ namespace GUI
             //listviewUser.ItemsSource = marks;
             if (Global.Teacher.NamePosition == "PDT")
             {
-                listSubject = SubjectBUS.loadListNameSubject();
                 listSubject.Add("All");
+                List<string> temp = SubjectBUS.loadListNameSubject();
+                int n = temp.Count;
+                for (int i=0;i<n;i++)
+                {
+                    listSubject.Add(temp[i]);
+                }
                 chooseSubject.ItemsSource = listSubject;
-                chooseSubject.SelectedIndex = 0;
+                chooseSubject.SelectedIndex = 1;
 
                 chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
                 chooseClass.SelectedIndex = 0;
@@ -76,6 +81,14 @@ namespace GUI
                     semester = "2";
                 }
                
+                if (chooseSubject.SelectedValue.ToString() != "All")
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
             }
         }
 
@@ -114,7 +127,7 @@ namespace GUI
         {
             MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
             //subject_st_infor.Text = item.IdSubject;
-            fullname_st_infor.Text = item.IDStudent;
+            fullname_st_infor.Text = item.NameStudent;
             id_st_infor.Text = item.IDStudent;
             class_st_infor.Text = item.NameClass;
             m15st_st_infor.Text = item.FirstFifteenMinutesMark.ToString();
@@ -123,6 +136,7 @@ namespace GUI
             m45st_st_infor.Text = item.FirstFortyFiveMinutesMark.ToString();
             m45nd_st_infor.Text = item.SecondFortyFiveMinutesMark.ToString();
             m45rd_st_infor.Text = item.ThirdFortyFiveMinutesMark.ToString();
+            subject_st_infor.Text = item.Subject.NameSubject;
             semester_st_infor.Text = item.Semester.ToString();
         }
 
