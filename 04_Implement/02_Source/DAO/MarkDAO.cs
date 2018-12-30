@@ -39,20 +39,26 @@ namespace DAO
                 {
                     MarkDTO temp = new MarkDTO();
                     temp.IDStudent = dt.Rows[i]["IDStudent"].ToString();
-                    temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
+                    //   temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
                     temp.NameClass = dt.Rows[i]["nameClass"].ToString();
                     temp.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
                     temp.Subject.IdSubject = dt.Rows[i]["IDSubject"].ToString();
                     temp.Subject.NameSubject = SubjectDTO.getNameSubject(temp.Subject.IdSubject);
-                    temp.Semester =int.Parse(dt.Rows[i]["Semester"].ToString());
-                    temp.FirstFifteenMinutesMark = double.Parse(dt.Rows[i]["FirstFifteenMinutes"].ToString());
-                    temp.SecondFifteenMinutesMark = double.Parse(dt.Rows[i]["SecondFifteenMinutes"].ToString());
-                    temp.ThirdFifteenMinutesMark = double.Parse(dt.Rows[i]["ThirdFifteenMinutes"].ToString());
-                    temp.FirstFortyFiveMinutesMark = double.Parse(dt.Rows[i]["FirstFortyFiveMinutes"].ToString());
-                    temp.SecondFortyFiveMinutesMark = double.Parse(dt.Rows[i]["SecondFortyFiveMinutes"].ToString());
-                    temp.ThirdFortyFiveMinutesMark = double.Parse(dt.Rows[i]["ThirdFortyFiveMinutes"].ToString());
-                    temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
-
+                    temp.Semester = int.Parse(dt.Rows[i]["Semester"].ToString());
+                    if (dt.Rows[i]["FirstFifteenMinutes"].ToString() != "")
+                        temp.FirstFifteenMinutesMark = double.Parse(dt.Rows[i]["FirstFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFifteenMinutes"].ToString() != "")
+                        temp.SecondFifteenMinutesMark = double.Parse(dt.Rows[i]["SecondFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFifteenMinutes"].ToString() != "")
+                        temp.ThirdFifteenMinutesMark = double.Parse(dt.Rows[i]["ThirdFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["FirstFortyFiveMinutes"].ToString() != "")
+                        temp.FirstFortyFiveMinutesMark = double.Parse(dt.Rows[i]["FirstFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFortyFiveMinutes"].ToString() != "")
+                        temp.SecondFortyFiveMinutesMark = double.Parse(dt.Rows[i]["SecondFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFortyFiveMinutes"].ToString() != "")
+                        temp.ThirdFortyFiveMinutesMark = double.Parse(dt.Rows[i]["ThirdFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SemesterMark"].ToString() != "")
+                        temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
                     result.Add(temp);
                 }
                 return result;
@@ -75,20 +81,26 @@ namespace DAO
                 {
                     MarkDTO temp = new MarkDTO();
                     temp.IDStudent = dt.Rows[i]["IDStudent"].ToString();
-                    temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
+                 //   temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
                     temp.NameClass = dt.Rows[i]["nameClass"].ToString();
                     temp.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
                     temp.Subject.IdSubject = dt.Rows[i]["IDSubject"].ToString();
                     temp.Subject.NameSubject = SubjectDTO.getNameSubject(temp.Subject.IdSubject);
                     temp.Semester = int.Parse(dt.Rows[i]["Semester"].ToString());
-                    temp.FirstFifteenMinutesMark = double.Parse(dt.Rows[i]["FirstFifteenMinutes"].ToString());
-                    temp.SecondFifteenMinutesMark = double.Parse(dt.Rows[i]["SecondFifteenMinutes"].ToString());
-                    temp.ThirdFifteenMinutesMark = double.Parse(dt.Rows[i]["ThirdFifteenMinutes"].ToString());
-                    temp.FirstFortyFiveMinutesMark = double.Parse(dt.Rows[i]["FirstFortyFiveMinutes"].ToString());
-                    temp.SecondFortyFiveMinutesMark = double.Parse(dt.Rows[i]["SecondFortyFiveMinutes"].ToString());
-                    temp.ThirdFortyFiveMinutesMark = double.Parse(dt.Rows[i]["ThirdFortyFiveMinutes"].ToString());
-                    temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
-
+                    if (dt.Rows[i]["FirstFifteenMinutes"].ToString() != "")
+                        temp.FirstFifteenMinutesMark = double.Parse(dt.Rows[i]["FirstFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFifteenMinutes"].ToString() != "")
+                        temp.SecondFifteenMinutesMark = double.Parse(dt.Rows[i]["SecondFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFifteenMinutes"].ToString() != "")
+                        temp.ThirdFifteenMinutesMark = double.Parse(dt.Rows[i]["ThirdFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["FirstFortyFiveMinutes"].ToString() != "")
+                        temp.FirstFortyFiveMinutesMark = double.Parse(dt.Rows[i]["FirstFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFortyFiveMinutes"].ToString() != "")
+                        temp.SecondFortyFiveMinutesMark = double.Parse(dt.Rows[i]["SecondFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFortyFiveMinutes"].ToString() != "")
+                        temp.ThirdFortyFiveMinutesMark = double.Parse(dt.Rows[i]["ThirdFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SemesterMark"].ToString() != "")
+                        temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
                     result.Add(temp);
                 }
                 return result;

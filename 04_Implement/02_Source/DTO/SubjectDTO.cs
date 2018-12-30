@@ -44,7 +44,7 @@ namespace DTO
             }
             else if (id == "GDQP")
             {
-                return "GDQP";
+                return "Defense Education";
             }
             else if (id == "LS")
             {

@@ -24,6 +24,7 @@ namespace GUI
         string nameClass = "";
         string semester = "";
         List<string> listSubject = new List<string>();
+        bool isLoaded = false;
         public ReviewStudentScore()
         {
            /* marks.Add(new MarkDTO { FirstFifteenMinutesMark = 1, SecondFifteenMinutesMark = 5, ThirdFifteenMinutesMark = 9, FirstFortyFiveMinutesMark = 10, SecondFortyFiveMinutesMark = 3, ThirdFortyFiveMinutesMark = 8.5, SemesterScore = 9.5, IdSubject = "Information Technology" });
@@ -54,6 +55,8 @@ namespace GUI
 
         private void Window_Loaded_ReviewScore(object sender, RoutedEventArgs e)
         {
+            isLoaded = true;
+            id_title.Content = Global.Student.Id;
             if (Global.Teacher.NamePosition == "PDT")
             {
                 listSubject = SubjectBUS.loadListNameSubject();
@@ -87,51 +90,88 @@ namespace GUI
                 }
                 
             }
+            else
+            {
+                listSubject = TeacherBUS.loadListSubjectToComboBox(Global.Teacher.Id, Global.Student.NameClass, Global.Student.SchoolYear);
+                chooseSubject.ItemsSource = listSubject;
+                chooseSubject.SelectedIndex = 0;
+
+
+
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
+
+
+                // MessageBox.Show(chooseSemester.SelectedValue.ToString());
+                //MessageBox.Show(chooseSubject.SelectedValue.ToString());
+                if (chooseSubject.SelectedValue.ToString() == "All")
+                {
+
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                }
+                else
+                {
+                    // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+                }
+            }
         
 
         }
 
         private void ChooseSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+            if (isLoaded == true)
             {
-                semester = "1";
-            }
-            else
-            {
-                semester = "2";
-            }
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
 
-            if (chooseSubject.SelectedValue.ToString() == "All")
-            {
-                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-            }
-            else
-            {
-                // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+                if (chooseSubject.SelectedValue.ToString() == "All")
+                {
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                }
+                else
+                {
+                    // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+                }
             }
         }
 
         private void ChooseSemester_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+            if (isLoaded == true)
             {
-                semester = "1";
-            }
-            else
-            {
-                semester = "2";
-            }
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
 
-            if (chooseSubject.SelectedValue.ToString() == "All")
-            {
-                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-            }
-            else
-            {
-                // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+                if (chooseSubject.SelectedValue.ToString() == "All")
+                {
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                }
+                else
+                {
+                    // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester, chooseSubject.SelectedValue.ToString());
+                }
             }
         }
     }

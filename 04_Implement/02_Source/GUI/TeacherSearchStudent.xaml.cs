@@ -146,9 +146,9 @@ namespace GUI
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            //Ưu tiên search theo tên trước
+            
 
-            Global.listStudent = AcademicAffairsOfficeBUS.searchStudentByName(searchUser.Text, chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+            Global.listStudent = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
             if (Global.listStudent != null)
             {
                 listviewStudent.ItemsSource = Global.listStudent;

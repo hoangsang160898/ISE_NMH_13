@@ -25,7 +25,7 @@ namespace DAO
         }
         public static List<StudentDTO> LoadStudent(string className, string SchoolYear)
         {
-            string sTruyVan = @"Select * from Student where nameClass = '" + className + @"' and schoolYear = '" + SchoolYear+"'";
+            string sTruyVan = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + className + @"' and SC.schoolYear = '" + SchoolYear+"'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if (dt.Rows.Count == 0)
@@ -197,9 +197,9 @@ namespace DAO
             return classDAO.loadSchoolYear();
         }
 
-        public static List<StudentDTO> searchStudentByName(string nameStudent, string nameClass, string schoolYear)
+        public static List<StudentDTO> searchStudent(string textToSearch, string nameClass, string schoolYear)
         {
-            string sCommand = @"Select* from Student where ((Name like N'%" + nameStudent + "%') or (IDStudent like '%"+nameStudent+"%')) and nameClass = '" + nameClass + "' and schoolYear = '" + schoolYear+"'";
+            string sCommand = @"Select* from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where ((S.Name like N'%" + textToSearch + "%') or (SC.IDStudent like '%"+textToSearch+"%')) and SC.nameClass = '" + nameClass + "' and SC.schoolYear = '" + schoolYear+"'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             if (dt.Rows.Count == 0)

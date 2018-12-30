@@ -129,6 +129,7 @@ namespace DAO
             List<string> result = new List<string>();
             if (dt.Rows.Count <= 0)
             {
+                DataProvider.CloseConnection(con);
                 return null;
             }
             else
@@ -143,6 +144,29 @@ namespace DAO
             }
         }
 
+       public static List<string> loadListSubjectToComboBox(string idTeacher, string nameClass, string schoolYear)
+        {
+            string sCommand = @"Select Subject.NameSubject from Subject join Assign on (Subject.IDSubject = Assign.IDSubject) where Assign.IDTeacher = '" + idTeacher + "' and Assign.nameClass = '" + nameClass + "' and schoolYear = '" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            List<string> result = new List<string>();
+            if (dt.Rows.Count <=0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string nameSubject = dt.Rows[i]["nameSubject"].ToString();
+                    result.Add(nameSubject);
+                }
+                DataProvider.CloseConnection(con);
+                return result.Distinct().ToList();
+            }
+           
+        }
 
     }
 }

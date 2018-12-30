@@ -42,8 +42,8 @@ namespace DAO
             student.Email = dt.Rows[0]["Email"].ToString();
             student.Phone = dt.Rows[0]["Phone"].ToString();
             student.DateofBith = dt.Rows[0]["BirthDay"].ToString();
-            student.NameClass = dt.Rows[0]["nameClass"].ToString();
-            student.SchoolYear = dt.Rows[0]["schoolYear"].ToString();
+           // student.NameClass = dt.Rows[0]["nameClass"].ToString();
+            //student.SchoolYear = dt.Rows[0]["schoolYear"].ToString();
             DataProvider.CloseConnection(con);
             return student;
         }

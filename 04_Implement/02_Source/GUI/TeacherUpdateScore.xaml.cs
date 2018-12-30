@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -23,6 +24,7 @@ namespace GUI
         List<string> subjects = new List<string>();
         List<MarkDTO> marks = new List<MarkDTO>();
         List<String> classes = new List<string>();
+        List<string> listSubject = new List<string>();
         public TeacherUpdateScore()
         {
            /* classes.Add("10C1");
@@ -53,7 +55,27 @@ namespace GUI
 
         private void Window_Loaded_User(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = marks;    
+            //listviewUser.ItemsSource = marks;
+            if (Global.Teacher.NamePosition == "PDT")
+            {
+                listSubject = SubjectBUS.loadListNameSubject();
+                listSubject.Add("All");
+                chooseSubject.ItemsSource = listSubject;
+                chooseSubject.SelectedIndex = 0;
+
+                chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
+                chooseClass.SelectedIndex = 0;
+               /* if (chooseSubject.SelectedValue.ToString() == "All")
+                {
+
+                    listviewUser.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, "1");
+                }
+                else
+                {
+                    // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                    listviewUser.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, "1", chooseSubject.SelectedValue.ToString());
+                }*/
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -105,16 +127,16 @@ namespace GUI
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
         {
-            var combo = sender as ComboBox;
+           /* var combo = sender as ComboBox;
             combo.ItemsSource = classes;
-            combo.SelectedIndex = 0;
+            combo.SelectedIndex = 0;*/
         }
 
         private void Combobox_Loaded_Subject(object sender, RoutedEventArgs e)
         {
-            var combo = sender as ComboBox;
+          /*  var combo = sender as ComboBox;
             combo.ItemsSource = subjects;
-            combo.SelectedIndex = 0;
+            combo.SelectedIndex = 0;*/
         }
     }
 }

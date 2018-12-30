@@ -154,5 +154,10 @@ namespace BUS
         {
             return TeacherDAO.loadSchoolYearToComboBox(idTeacher);
         }
+
+        public static List<string> loadListSubjectToComboBox(string idTeacher, string nameClass, string schoolYear)
+        {
+            return TeacherDAO.loadListSubjectToComboBox(idTeacher, nameClass, schoolYear);
+        }
     }
 }

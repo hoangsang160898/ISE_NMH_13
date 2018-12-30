@@ -45,9 +45,11 @@ namespace BUS
             return result;
         }
 
-        public static List<StudentDTO> searchStudentByName(string nameStudent, string nameClass, string schoolYear)
+        public static List<StudentDTO> searchStudent(string textToSearch, string nameClass, string schoolYear)
         {
-            var result = AcademicAffairsOfficeDAO.searchStudentByName(nameStudent, nameClass, schoolYear);
+            var result = AcademicAffairsOfficeDAO.searchStudent(textToSearch, nameClass, schoolYear);
+            if (result == null)
+                return null;
             int n = result.Count;
             for (int i=0;i<n;i++)
             {
