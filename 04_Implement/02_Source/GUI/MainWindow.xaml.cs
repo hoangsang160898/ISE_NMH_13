@@ -125,10 +125,14 @@ namespace GUI
                 }
                 else
                 {
-                   /* lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                    lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
                     lblErrorMessage_1.Visibility = Visibility.Visible;
                     uiErrorSp_1.Visibility = Visibility.Visible;
-                    dispatcherTimer.Start();*/
+                    dispatcherTimer.Start();
+                    lblErrorMessage_2.Content = "The password that you've entered" + "\n" + "is incorrect.";
+                    lblErrorMessage_2.Visibility = Visibility.Visible;
+                    uiErrorSp_2.Visibility = Visibility.Visible;
+                    dispatcherTimer.Start();
                 }
             }
             else if (rb_ad.IsChecked == true)
@@ -157,10 +161,14 @@ namespace GUI
                 }
                 else
                 {
-                  /*  lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                    lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
                     lblErrorMessage_1.Visibility = Visibility.Visible;
                     uiErrorSp_1.Visibility = Visibility.Visible;
-                    dispatcherTimer.Start();*/
+                    dispatcherTimer.Start();
+                    lblErrorMessage_2.Content = "The password that you've entered" + "\n" + "is incorrect.";
+                    lblErrorMessage_2.Visibility = Visibility.Visible;
+                    uiErrorSp_2.Visibility = Visibility.Visible;
+                    dispatcherTimer.Start();
                 }
             }
         }

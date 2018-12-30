@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\obj\Debug\
 GUI
 none
 false
 DEBUG;TRACE
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\GUI\App.xaml
+D:\Đại học\Năm 3_HKI\NM CNPM\Project\ISE_NMH_13\04_Implement\02_Source\GUI\App.xaml
 17841129164
 
 21983997497
-171527999374
+17-936982824
 TeacherAddStudent.xaml;AdminCreateUser.xaml;TeacherRole.xaml;TeacherManageTeacher.xaml;TeacherManageStudent.xaml;TeacherUpdateScore.xaml;ReviewStudentScore.xaml;TeacherSearchStudent.xaml;TeacherMyInformation.xaml;DashboardAdmin.xaml;DashboardStudent.xaml;DashboardTeacher.xaml;MainWindow.xaml;AdminMyInformation.xaml;StudentMyInformation.xaml;AdminManageUser.xaml;StudentMyScore.xaml;
 
 False

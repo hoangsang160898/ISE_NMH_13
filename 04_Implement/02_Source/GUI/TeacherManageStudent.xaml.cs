@@ -121,5 +121,21 @@ namespace GUI
             var window = new ReviewStudentScore();
             window.Show();
         }
+
+        private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
+        {
+            /* if (Global.Teacher.NamePosition == "PDT")
+             {
+                 var combo = sender as ComboBox;
+                 combo.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
+                 combo.SelectedIndex = 0;
+             }
+             else
+             {
+                 var combo = sender as ComboBox;
+                 combo.ItemsSource = classes;
+                 combo.SelectedIndex = 0;
+             }*/
+        }
     }
 }

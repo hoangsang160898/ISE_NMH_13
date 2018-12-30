@@ -118,6 +118,7 @@ namespace GUI
                 combo.SelectedIndex = 0;
             }*/
         }
+
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
            /* if (Global.Teacher.NamePosition == "PDT")
