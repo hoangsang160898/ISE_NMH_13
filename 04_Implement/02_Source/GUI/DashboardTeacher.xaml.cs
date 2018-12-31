@@ -76,7 +76,7 @@ namespace GUI
                     GridPrincipal.Content = new TeacherAddStudent();
                     break;
                 case 4:
-                    GridPrincipal.Content = new TeacherManageStudent();//manage classes
+                    GridPrincipal.Content = new TeacherManageClasses();//manage classes
                     break;
                 case 5:
                     GridPrincipal.Content = new TeacherManageStudent();//manage students
@@ -85,7 +85,7 @@ namespace GUI
                     GridPrincipal.Content = new TeacherManageTeacher();//manage teachers
                     break;
                 case 7:
-                    GridPrincipal.Content = new TeacherManageStudent();//report
+                    GridPrincipal.Content = new TeacherReport();//report
                     break;
                 case 8:
                     GridPrincipal.Content = new TeacherRole();//role

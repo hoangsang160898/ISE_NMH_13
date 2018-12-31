@@ -67,6 +67,15 @@
     <Compile Include="AdminCreateUser.xaml.cs">
       <DependentUpon>AdminCreateUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeacherManageClasses.xaml.cs">
+      <DependentUpon>TeacherManageClasses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherReport.xaml.cs">
+      <DependentUpon>TeacherReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherReportChart.xaml.cs">
+      <DependentUpon>TeacherReportChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeacherRole.xaml.cs">
       <DependentUpon>TeacherRole.xaml</DependentUpon>
     </Compile>
@@ -160,6 +169,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AdminCreateUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherManageClasses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="TeacherReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherReportChart.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
