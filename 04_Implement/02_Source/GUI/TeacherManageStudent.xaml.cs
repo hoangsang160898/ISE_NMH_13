@@ -109,10 +109,13 @@ namespace GUI
             schoolyear_st_infor.Text = item.SchoolYear;
             if (item.Status == "Active")
             {
-                btnDelete.Visibility = Visibility.Visible;
-            }else if (item.Status == "Deactive")
+               btnDelete.Visibility = Visibility.Visible;
+                btnActive.Visibility = Visibility.Collapsed;
+            }
+            else if (item.Status == "Deactive")
             {
                 btnActive.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Collapsed;
             }
         }
 
