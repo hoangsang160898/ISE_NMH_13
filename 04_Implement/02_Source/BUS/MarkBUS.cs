@@ -43,6 +43,16 @@ namespace BUS
         {
             return MarkDAO.loadMarkByClass(nameClass, schoolYear, semester);
         }
+
+        public static List<MarkDTO> searchStudent_Mark(string keyWord, string nameSubject, string nameClass, string schoolYear, string semester)
+        {
+            return MarkDAO.searchStudent_Mark(keyWord, nameSubject, nameClass, schoolYear, semester);
+        }
+
+        public static bool UpdateScore(string idStudent, string nameClass, string schoolYear, string idSubject,string semester, MarkDTO mark)
+        {
+            return MarkDAO.UpdateScore(idStudent, nameClass, schoolYear, idSubject,semester, mark);
+        }
     }
 
 }

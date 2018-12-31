@@ -25,6 +25,7 @@ namespace GUI
         List<MarkDTO> marks = new List<MarkDTO>();
         List<String> classes = new List<string>();
         List<string> listSubject = new List<string>();
+        bool isLoaded = false;
         string semester = "";
         public TeacherUpdateScore()
         {
@@ -116,6 +117,32 @@ namespace GUI
             m45nd_st_infor.IsReadOnly = true;
             m45rd_st_infor.IsReadOnly = true;
             semester_st_infor.IsReadOnly = true;
+            MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
+            MarkDTO mark = new MarkDTO();
+            mark.FirstFifteenMinutesMark = double.Parse(m15st_st_infor.Text);
+            mark.SecondFifteenMinutesMark = double.Parse(m15nd_st_infor.Text);
+            mark.ThirdFifteenMinutesMark = double.Parse(m15rd_st_infor.Text);
+            mark.FirstFortyFiveMinutesMark = double.Parse(m45st_st_infor.Text);
+            mark.SecondFortyFiveMinutesMark = double.Parse(m45nd_st_infor.Text);
+            mark.ThirdFortyFiveMinutesMark = double.Parse(m45rd_st_infor.Text);
+            mark.SemesterScore = double.Parse(semester_st_infor.Text);
+            
+            if (MarkBUS.UpdateScore(item.IDStudent, item.NameClass, item.SchoolYear, item.Subject.IdSubject,item.Semester.ToString(), mark))
+            {
+                if (chooseSubject.SelectedValue.ToString() != "All")
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật điểm thất bại");
+            }
+            
         }
         
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -137,21 +164,114 @@ namespace GUI
             m45nd_st_infor.Text = item.SecondFortyFiveMinutesMark.ToString();
             m45rd_st_infor.Text = item.ThirdFortyFiveMinutesMark.ToString();
             subject_st_infor.Text = item.Subject.NameSubject;
-            semester_st_infor.Text = item.Semester.ToString();
+            semester_st_infor.Text = item.SemesterScore.ToString();
         }
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
         {
-           /* var combo = sender as ComboBox;
-            combo.ItemsSource = classes;
+          /*  var combo = sender as ComboBox;
+            combo.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
             combo.SelectedIndex = 0;*/
         }
 
         private void Combobox_Loaded_Subject(object sender, RoutedEventArgs e)
         {
-          /*  var combo = sender as ComboBox;
-            combo.ItemsSource = subjects;
+           /*var combo = sender as ComboBox;
+            combo.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
             combo.SelectedIndex = 0;*/
+        }
+
+        private void ChooseSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseSubject.SelectedItem != null && chooseClass.SelectedItem != null && chooseSemester.SelectedItem != null)
+            {
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
+
+                if (chooseSubject.SelectedValue.ToString() != "All")
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+            }
+        }
+
+        private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseSubject.SelectedItem != null && chooseClass.SelectedItem != null && chooseSemester.SelectedItem != null)
+            {
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
+
+                if (chooseSubject.SelectedValue.ToString() != "All")
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+            }
+        }
+
+        private void ChooseSemester_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (chooseSubject.SelectedItem != null && chooseClass.SelectedItem != null && chooseSemester.SelectedItem != null)
+            {
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
+
+                if (chooseSubject.SelectedValue.ToString() != "All")
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+            }
+        }
+
+        private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchUser.Text))
+            {
+                if (chooseSubject.SelectedValue.ToString() != "All")
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                }
+            }
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            listviewUser.ItemsSource = MarkBUS.searchStudent_Mark(searchUser.Text, chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
         }
     }
 }
