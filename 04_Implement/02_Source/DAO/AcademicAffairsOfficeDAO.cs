@@ -162,7 +162,7 @@ namespace DAO
         // Thêm học sinh mới
         public static bool AddNewStudent(StudentDTO student)
         {
-            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord,nameClass,schoolYear) value ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",student.Id,student.Name,student.Gender,student.Email,student.Phone,student.DateofBith,student.Password,student.NameClass,student.SchoolYear);
+            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord) value ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",student.Id,student.Name,student.Gender,student.Email,student.Phone,student.DateofBith,student.Password);
             con = DataProvider.OpenConnection();
             try
             {
@@ -184,6 +184,20 @@ namespace DAO
             int n = temp.Count;
             List<string> result = new List<string>();
             for (int i=0; i<n;i++)
+            {
+                string class_ = temp[i].Name;
+                result.Add(class_);
+            }
+            return result.Distinct().ToList();
+
+        }
+
+        public static List<string> loadListClassToComboBox(string schoolYear)
+        {
+            var temp = classDAO.loadListClass(schoolYear);
+            int n = temp.Count;
+            List<string> result = new List<string>();
+            for (int i = 0; i < n; i++)
             {
                 string class_ = temp[i].Name;
                 result.Add(class_);

@@ -27,6 +27,11 @@ namespace BUS
             return AcademicAffairsOfficeDAO.loadListClassToComboBox();
         }
 
+        public static List<string> loadListClassToComboBox(string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.loadListClassToComboBox(schoolYear);
+        }
+
         public static List<string> loadListSchoolYearToComboBox()
         {
             return AcademicAffairsOfficeDAO.loadSchoolYearToComboBox();
@@ -58,6 +63,26 @@ namespace BUS
                 result[i].DateofBith = temp;
             }
             return result;
+        }
+
+        public static bool addNewStudent(StudentDTO student)
+        {
+            // kiểm tra định dạng IDStudent
+            if (student.Id.Length <= 6)
+                return false;
+            if (student.Id[0] != 'H' || student.Id[0] != 'h')
+                return false;
+            if (student.Id[1] != 'S' || student.Id[1] != 's')
+                return false;
+
+            if (!TeacherBUS.marchBirthDay(student.DateofBith))
+                return false;
+
+            if (!TeacherBUS.marchEmail(student.Email))
+                return false;
+
+
+            return AcademicAffairsOfficeDAO.AddNewStudent(student);
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -44,6 +44,25 @@ namespace GUI
 
         private void btnDoneofAddUser_click(object sender, RoutedEventArgs e)
         {
+            StudentDTO temp = new StudentDTO();
+            temp.Id = id_addstudent.Text;
+            temp.Email = email_addstudent.Text;
+            temp.DateofBith = birthofday_addstudent.Text;
+            temp.Phone = phone_addstudent.Text;
+            temp.Gender = gender_addstudent.Text;
+            temp.Password = password_addstudent.Password.ToString();
+
+            if (password_addstudent.Password.ToString() != passwordconfirm_addstudent.Password.ToString())
+            {
+                MessageBox.Show("Password and Confirm Password does not match");
+            }
+
+            if (AcademicAffairsOfficeBUS.addNewStudent(temp) == false)
+            {
+                MessageBox.Show("Add student failed");
+                return;
+            }
+
             id_addstudent.Text = "";
             email_addstudent.Text = "";
             birthofday_addstudent.Text = "";
@@ -53,19 +72,22 @@ namespace GUI
             gender_addstudent.Text = "";
             password_addstudent.Clear();
             passwordconfirm_addstudent.Clear();
+
+
+
         }
 
-        private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
+        /*private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
             combo.ItemsSource = classes;
             combo.SelectedIndex = 0;
-        }
+        }*/
 
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
-            combo.ItemsSource = years;
+            combo.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
             combo.SelectedIndex = 0;
         }
     }

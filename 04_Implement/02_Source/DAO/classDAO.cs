@@ -45,6 +45,28 @@ namespace DAO
             return result;
         }
 
+        public static List<ClassDTO> loadListClass(string schoolYear)
+        {
+            string sTruyVan = @"Select* from Class where schoolYear ='"+schoolYear+"'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<ClassDTO> result = new List<ClassDTO>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ClassDTO Class = new ClassDTO();
+                Class.Name = dt.Rows[i]["nameClass"].ToString();
+                Class.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
+                Class.IdMaster = dt.Rows[i]["IDMaster"].ToString();
+                result.Add(Class);
+            }
+            DataProvider.CloseConnection(con);
+            return result;
+        }
+
         public static List<string> loadSchoolYear()
         {
             string sCommand = @"Select schoolYear from dbo.Class";

@@ -58,10 +58,12 @@ namespace GUI
         {
             if (Global.Teacher.NamePosition == "PDT")
             {
-                chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox();
-                chooseClass.SelectedIndex = 0;
                 chooseYear.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
                 chooseYear.SelectedIndex = 0;
+
+                chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(chooseYear.SelectedValue.ToString());
+                chooseClass.SelectedIndex = 0;
+              
                 Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
             }
