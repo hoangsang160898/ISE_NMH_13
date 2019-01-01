@@ -91,6 +91,27 @@ namespace GUI
                     listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
                 }
             }
+            else
+            {
+                chooseClass.ItemsSource = TeacherBUS.loadListClassToComboBox(Global.Teacher.Id, "2018-2019");
+                chooseClass.SelectedIndex = 0;
+
+                chooseSubject.ItemsSource = TeacherBUS.loadListSubjectToComboBox(Global.Teacher.Id, chooseClass.SelectedValue.ToString(), "2018-2019");
+                chooseSubject.SelectedIndex = 0;
+
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
+                }
+                else
+                {
+                    semester = "2";
+                }
+
+                listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+
+
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
