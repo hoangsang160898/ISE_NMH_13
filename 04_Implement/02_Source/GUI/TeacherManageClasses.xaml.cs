@@ -74,12 +74,14 @@ namespace GUI
         {
             comboboxLeft.Visibility = Visibility.Collapsed;
             controlLeft.Visibility = Visibility.Collapsed;
+            btn_rtl.Visibility = Visibility.Collapsed;
         }
 
         private void rb_trans_Checked(object sender, RoutedEventArgs e)
         {
             comboboxLeft.Visibility = Visibility.Visible;
             controlLeft.Visibility = Visibility.Visible;
+            btn_rtl.Visibility = Visibility.Visible;
         }
     }
 }
