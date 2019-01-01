@@ -232,10 +232,198 @@ namespace DAO
                 student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
                 student.NameClass = dt.Rows[i]["nameClass"].ToString();
                 student.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
+                if (dt.Rows[i]["isActive"].ToString()=="T")
+                {
+                    student.IsActive = "Active";
+                }
+                else
+
+                {
+                    student.IsActive = "Deactive";
+                }
                 result.Add(student);
             }
             DataProvider.CloseConnection(con);
             return result;
         }
+
+        public static List<StudentDTO> loadStudentNotInClass(string schoolYear)
+        {
+            string sCommand = @"select distinct S.*
+                                from Student S, Student_Class SC
+                                where S.IDStudent in (select IDStudent from Student) and S.IDStudent not in (select IDStudent from Student_Class) and SC.schoolYear ='" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <=0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            int n = dt.Rows.Count;
+            List<StudentDTO> result = new List<StudentDTO>();
+            for (int i=0;i<n;i++)
+            {
+                StudentDTO student = new StudentDTO();
+                student.Id = dt.Rows[i]["IDStudent"].ToString();
+                student.Name = dt.Rows[i]["Name"].ToString();
+                student.Gender = dt.Rows[i]["Gender"].ToString();
+                student.Email = dt.Rows[i]["Email"].ToString();
+                student.Phone = dt.Rows[i]["Phone"].ToString();
+                student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                
+                if (dt.Rows[i]["isActive"].ToString() == "T")
+                {
+                    student.Status = "Active";
+                }
+                else
+
+                {
+                    student.Status = "Deactive";
+                }
+                result.Add(student);
+            }
+            DataProvider.CloseConnection(con);
+            return result;
+        }
+
+        public static List<StudentDTO> searchStudentNotInClass(string textToSearch, string schoolYear)
+        {
+            string sCommand = @"select distinct S.*
+                                from Student S, Student_Class SC
+                                where S.IDStudent in (select IDStudent from Student) and S.IDStudent not in (select IDStudent from Student_Class) and SC.schoolYear ='" + schoolYear + "' and ((S.IDStudent like '%" + textToSearch + "%') or (S.Name like N'%" + textToSearch + "%'))";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            int n = dt.Rows.Count;
+            List<StudentDTO> result = new List<StudentDTO>();
+            for (int i = 0; i < n; i++)
+            {
+                StudentDTO student = new StudentDTO();
+                student.Id = dt.Rows[i]["IDStudent"].ToString();
+                student.Name = dt.Rows[i]["Name"].ToString();
+                student.Gender = dt.Rows[i]["Gender"].ToString();
+                student.Email = dt.Rows[i]["Email"].ToString();
+                student.Phone = dt.Rows[i]["Phone"].ToString();
+                student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+
+                if (dt.Rows[i]["isActive"].ToString() == "T")
+                {
+                    student.Status = "Active";
+                }
+                else
+
+                {
+                    student.Status = "Deactive";
+                }
+                result.Add(student);
+            }
+            DataProvider.CloseConnection(con);
+            return result;
+        }
+
+        public static List<StudentDTO> LoadStudent(string nameClass, string schoolYear, string status)
+        {
+            string sCommand = "";
+            if (status == "Active")
+            {
+                sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "' and S.IsActive = 'T'";
+            }
+            else if (status =="Deactive")
+            {
+                sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "' and S.IsActive = 'F'";
+            }
+            else
+            {
+                sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "'";
+            }
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<StudentDTO> result = new List<StudentDTO>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                StudentDTO student = new StudentDTO();
+                student.Id = dt.Rows[i]["IDStudent"].ToString();
+                student.Name = dt.Rows[i]["Name"].ToString();
+                student.Gender = dt.Rows[i]["Gender"].ToString();
+                student.Email = dt.Rows[i]["Email"].ToString();
+                student.Phone = dt.Rows[i]["Phone"].ToString();
+                student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                student.NameClass = dt.Rows[i]["nameClass"].ToString();
+                student.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
+                if (dt.Rows[i]["isActive"].ToString() == "T")
+                {
+                    student.Status = "Active";
+                }
+                else
+
+                {
+                    student.Status = "Deactive";
+                }
+                result.Add(student);
+            }
+            DataProvider.CloseConnection(con);
+            return result;
+        }
+
+        public static bool initMark(int semester, string className, string schoolYear, string idSubject, string idStudent)
+        {
+            string sCommand = @"Insert into Mark values(" + semester.ToString() + ",0,0,0,0,0,0,0,'" + idStudent + "','" + idSubject + "','" + className + "','" + schoolYear + "')";
+            con = DataProvider.OpenConnection();
+            try
+            {
+               bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+
+        public static bool InsertStudentToClass(string IDStudent, string nameClass, string schoolYear)
+        {
+            string sCommand = string.Format("Insert into Student_Class values('{0}','{1}','{2}')", IDStudent, nameClass, schoolYear);
+            bool result = true;
+            con = DataProvider.OpenConnection();
+            try
+            {
+                result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+
+            if (result == false)
+                return false;
+
+            string[] idSubjects = { "MATH", "NV", "AV", "SH", "CN", "LS", "DL", "GDCD", "GDQP", "TH" };
+
+            int n = idSubjects.Length;
+            for (int i=0;i<n;i++)
+            {
+                initMark(1, nameClass, schoolYear, idSubjects[i], IDStudent);
+                initMark(2, nameClass, schoolYear, idSubjects[i], IDStudent);
+            }
+            return true;
+
+        }
+        
     }
+
+   
 }

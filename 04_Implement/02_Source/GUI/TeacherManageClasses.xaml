@@ -25,11 +25,11 @@
         <Grid>
             <StackPanel Margin="20,93,697,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top" Width="311" Height="40" Name="comboboxLeft">
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="Class:"/>
-                <ComboBox Width="100" x:Name="chooseClass"  Loaded="ComboBox_Classes_Loaded" FontSize="14">
+                <ComboBox Width="100" x:Name="chooseClass"  Loaded="ComboBox_Classes_Loaded" FontSize="14" SelectionChanged="ChooseClass_SelectionChanged">
 
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Status:"/>
-                <ComboBox Width="70" x:Name="chooseStatus" FontSize="14">
+                <ComboBox Width="70" x:Name="chooseStatus" FontSize="14" SelectionChanged="ChooseStatus_SelectionChanged">
                     <ComboBoxItem FontSize="14"  Content="All"/>
                     <ComboBoxItem FontSize="14" IsSelected="True" Content="Active"/>
                     <ComboBoxItem FontSize="14" Content="Deactive"/>
@@ -37,11 +37,11 @@
             </StackPanel>
             <StackPanel Margin="610,93,86,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top" Width="332" Height="40" Name="comboboxRight">
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="Class:"/>
-                <ComboBox Width="100" x:Name="chooseClass2"  Loaded="ComboBox_Classes_Loaded" FontSize="14">
+                <ComboBox Width="100" x:Name="chooseClass2"  Loaded="ComboBox_Classes_Loaded" FontSize="14" SelectionChanged="ChooseClass2_SelectionChanged">
 
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Status:"/>
-                <ComboBox Width="70" x:Name="chooseStatus2" FontSize="14">
+                <ComboBox Width="70" x:Name="chooseStatus2" FontSize="14" SelectionChanged="ChooseStatus2_SelectionChanged">
                     <ComboBoxItem FontSize="14"  Content="All"/>
                     <ComboBoxItem FontSize="14" IsSelected="True" Content="Active"/>
                     <ComboBoxItem FontSize="14" Content="Deactive"/>
@@ -61,7 +61,7 @@
                  </Border>
             </StackPanel>
             </TextBlock>
-            <ListView MouseUp="SelectItem" Margin="0,232,595,0" Name="listviewUser" ItemTemplate="{StaticResource InformationOfAdminTemplate}">
+            <ListView MouseUp="SelectItem" Margin="0,232,595,0" Name="listviewUser" ItemTemplate="{StaticResource InformationOfAdminTemplate}" SelectionChanged="ListviewUser_SelectionChanged">
 
             </ListView>
             <TextBlock  Margin="592,182,0,0">
@@ -78,12 +78,12 @@
                 </Border>
             </StackPanel>
             </TextBlock>
-            <ListView MouseUp="SelectItem2" Margin="592,232,0,0" Name="listviewUser2" ItemTemplate="{StaticResource InformationOfAdminTemplate}">
+            <ListView MouseUp="SelectItem2" Margin="592,232,0,0" Name="listviewUser2" ItemTemplate="{StaticResource InformationOfAdminTemplate}" SelectionChanged="ListviewUser2_SelectionChanged">
 
             </ListView>
             <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="20,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Name="searchUser1" TextChanged="searchUser_TextChanged"/>
-            <Button x:Name="btn_Search1" Content="Search" HorizontalAlignment="Left" Margin="332,56,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button x:Name="btn_ltr" Content=">>" HorizontalAlignment="Left" Margin="472,334,0,0" VerticalAlignment="Top" Width="76"/>
+            <Button x:Name="btn_Search1" Content="Search" HorizontalAlignment="Left" Margin="332,56,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Search1_Click"/>
+            <Button x:Name="btn_ltr" Content=">>" HorizontalAlignment="Left" Margin="472,334,0,0" VerticalAlignment="Top" Width="76" Click="Btn_ltr_Click"/>
             <Button x:Name="btn_rtl" Content=">>" HorizontalAlignment="Left" Margin="472,406,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -107,8 +107,8 @@
                 <Label  FontSize="14" Content="Current: " HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="Red"/>
                 <Label  FontSize="14" Content="0" HorizontalAlignment="Left" Margin="5,138,0,0" VerticalAlignment="Top" x:Name="lbl_Current2" Width="30" Foreground="Red"/>
             </StackPanel>
-            <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="610,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" x:Name="searchUser2" TextChanged="searchUser_TextChanged"/>
-            <Button x:Name="btn_Search2" Content="Search" HorizontalAlignment="Left" Margin="922,56,0,0" VerticalAlignment="Top" Width="75"/>
+            <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="610,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" x:Name="searchUser2" TextChanged="SearchUser2_TextChanged"/>
+            <Button x:Name="btn_Search2" Content="Search" HorizontalAlignment="Left" Margin="922,56,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Search2_Click"/>
             <StackPanel Margin="0,10,0,0">
                 <StackPanel.Resources>
                     <Style x:Key="Flag" TargetType="RadioButton">

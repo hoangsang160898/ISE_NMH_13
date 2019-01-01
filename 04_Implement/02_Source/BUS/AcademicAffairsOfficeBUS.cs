@@ -86,5 +86,25 @@ namespace BUS
             student.DateofBith = birthDay;
             return AcademicAffairsOfficeDAO.AddNewStudent(student);
         }
+
+        public static List<StudentDTO> loadStudentNotInClass(string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.loadStudentNotInClass(schoolYear);
+        }
+
+        public static List<StudentDTO> searchStudentNotInClass(string textToSearch, string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.searchStudentNotInClass(textToSearch, schoolYear);
+        }
+
+        public static List<StudentDTO> LoadStudent(string nameClass, string schoolYear, string status)
+        {
+            return AcademicAffairsOfficeDAO.LoadStudent(nameClass, schoolYear, status);
+        }
+
+        public static bool InsertStudentToClass(string IDStudent, string nameClass, string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.InsertStudentToClass(IDStudent, nameClass, schoolYear);
+        }
     }
 }

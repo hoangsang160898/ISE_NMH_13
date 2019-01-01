@@ -1,9 +1,0 @@
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DAO.dll
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DAO.pdb
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DTO.dll
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\bin\Debug\DTO.pdb
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.csproj.CopyComplete
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.dll
-C:\Users\hoang\Documents\Do An NMCNPM\ISE_NMH_13\04_Implement\02_Source\DAO\obj\Debug\DAO.pdb
