@@ -68,11 +68,11 @@ namespace BUS
         public static bool addNewStudent(StudentDTO student)
         {
             // kiểm tra định dạng IDStudent
-            if (student.Id.Length <= 6)
+            if (student.Id.Length <= 4)
                 return false;
-            if (student.Id[0] != 'H' || student.Id[0] != 'h')
+            if (student.Id[0] != 'H')
                 return false;
-            if (student.Id[1] != 'S' || student.Id[1] != 's')
+            if (student.Id[1] != 'S')
                 return false;
 
             if (!TeacherBUS.marchBirthDay(student.DateofBith))
@@ -81,7 +81,9 @@ namespace BUS
             if (!TeacherBUS.marchEmail(student.Email))
                 return false;
 
-
+            string birthDay = student.DateofBith;
+            TeacherBUS.StandalizedBirthDayToDatabase(ref birthDay);
+            student.DateofBith = birthDay;
             return AcademicAffairsOfficeDAO.AddNewStudent(student);
         }
     }

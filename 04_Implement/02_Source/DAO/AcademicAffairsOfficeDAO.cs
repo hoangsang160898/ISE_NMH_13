@@ -162,13 +162,13 @@ namespace DAO
         // Thêm học sinh mới
         public static bool AddNewStudent(StudentDTO student)
         {
-            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord) value ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",student.Id,student.Name,student.Gender,student.Email,student.Phone,student.DateofBith,student.Password);
+            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord, isActive) values ('{0}',N'{1}','{2}','{3}','{4}','{5}','{6}','{7}')",student.Id,student.Name,student.Gender,student.Email,student.Phone,student.DateofBith,student.Password,student.IsActive);
             con = DataProvider.OpenConnection();
             try
             {
-                DataProvider.ExecuteQuery(sCommand, con);
+                bool result  = DataProvider.ExecuteQuery(sCommand, con);
                 DataProvider.CloseConnection(con);
-                return true;
+                return result;
             }
             catch (Exception ex)
             {

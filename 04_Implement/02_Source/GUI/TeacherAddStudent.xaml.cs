@@ -51,23 +51,37 @@ namespace GUI
             temp.Phone = phone_addstudent.Text;
             temp.Gender = gender_addstudent.Text;
             temp.Password = password_addstudent.Password.ToString();
+            temp.Name = fname_addstudent.Text;
+            
+            if (id_addstudent.Text =="" || email_addstudent.Text == "" || birthofday_addstudent.Text == "" || phone_addstudent.Text == "" || gender_addstudent.Text == "" || password_addstudent.Password.ToString()=="" || passwordconfirm_addstudent.Password.ToString()=="")
+            {
+                MessageBox.Show("You must fill out the infomation");
+                return;
+            }
 
             if (password_addstudent.Password.ToString() != passwordconfirm_addstudent.Password.ToString())
             {
                 MessageBox.Show("Password and Confirm Password does not match");
+                return;
             }
+
+            
 
             if (AcademicAffairsOfficeBUS.addNewStudent(temp) == false)
             {
                 MessageBox.Show("Add student failed");
                 return;
             }
+            else
+            {
+                MessageBox.Show("Add successfully");
+            }
 
             id_addstudent.Text = "";
             email_addstudent.Text = "";
             birthofday_addstudent.Text = "";
             phone_addstudent.Text = "";
-        
+            fname_addstudent.Text = "";
             chooseYear.SelectedIndex = 0;
             gender_addstudent.Text = "";
             password_addstudent.Clear();
