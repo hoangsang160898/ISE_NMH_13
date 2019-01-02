@@ -38,13 +38,9 @@ namespace GUI
         }
 
         private void Window_Loaded_Student(object sender, RoutedEventArgs e)
-<<<<<<< HEAD
         {
-            // listviewUser.ItemsSource = users;
-=======
-        {
-            // listviewUser.ItemsSource = users;
->>>>>>> 744f5e1a2c79e29955f778ef902bb2cbbdd75ee2
+
+
             chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
             chooseClass.SelectedIndex = 0;
 
@@ -79,14 +75,9 @@ namespace GUI
             birthofday_st_infor.IsReadOnly = true;
             email_st_infor.IsReadOnly = true;
             phone_st_infor.IsReadOnly = true;
-<<<<<<< HEAD
-=======
+
             schoolyear_st_infor.IsReadOnly = true;
 
-<<<<<<< HEAD
->>>>>>> 744f5e1a2c79e29955f778ef902bb2cbbdd75ee2
-=======
->>>>>>> 744f5e1a2c79e29955f778ef902bb2cbbdd75ee2
 
         }
 
@@ -162,7 +153,7 @@ namespace GUI
                  combo.ItemsSource = classes;
                  combo.SelectedIndex = 0;
              }*/
-<<<<<<< HEAD
+
         }
 
         private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -180,24 +171,5 @@ namespace GUI
                 listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
             }
         }
-=======
-        }
-
-        private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
-            {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
-            }
-        }
-
-        private void ChooseStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
-            {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
-            }
-        }
->>>>>>> 744f5e1a2c79e29955f778ef902bb2cbbdd75ee2
     }
 }
