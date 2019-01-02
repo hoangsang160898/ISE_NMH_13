@@ -321,9 +321,9 @@ namespace DAO
             con = DataProvider.OpenConnection();
             try
             {
-                DataProvider.ExecuteQuery(sCommand, con);
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
                 DataProvider.CloseConnection(con);
-                return true;
+                return result;
             }
             catch (Exception ex)
             {
@@ -331,6 +331,25 @@ namespace DAO
                 return false;
             }
         }
+
+        public static bool removeMark(string IDStudent, string nameClass, string schoolYear)
+        {
+            string sCommand = @"Delete from Mark where IDStudent ='" + IDStudent + "' and nameClass ='" + nameClass + "' and schoolYear ='" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+
     }
 
    

@@ -86,5 +86,22 @@ namespace DAO
             DataProvider.CloseConnection(con);
             return result.Distinct().ToList();
         }
+
+        public static bool updateClass(string IDStudent, string nameClass, string schoolYear)
+        {
+            string sCommand = @"Update Student_Class set nameClass = '" + nameClass + "' where IDStudent = '" + IDStudent + "' and schoolYear ='" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
     }
 }

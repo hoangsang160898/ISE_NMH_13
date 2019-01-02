@@ -106,5 +106,15 @@ namespace BUS
         {
             return AcademicAffairsOfficeDAO.InsertStudentToClass(IDStudent, nameClass, schoolYear);
         }
+
+        public static bool updateClass(string IDStudent, string nameClass, string schoolYear)
+        {
+            return classDAO.updateClass(IDStudent, nameClass, schoolYear);
+        }
+
+        public static bool InsertMark(MarkDTO mark)
+        {
+            return AcademicAffairsOfficeDAO.InsertMark(mark);
+        }
     }
 }

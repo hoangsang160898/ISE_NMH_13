@@ -390,6 +390,22 @@ namespace DAO
             }
         }
 
+        public static bool InsertMark(MarkDTO mark)
+        {
+            string sCommand = string.Format(@"Insert into Mark values('{0}',{1},{2},{3},{4},{5},{6},{7},'{8}','{9}','{10}','{11}')", mark.Semester.ToString(), mark.FirstFifteenMinutesMark, mark.SecondFifteenMinutesMark, mark.ThirdFifteenMinutesMark, mark.FirstFortyFiveMinutesMark, mark.SecondFortyFiveMinutesMark, mark.ThirdFortyFiveMinutesMark, mark.SemesterScore, mark.IDStudent, mark.Subject.IdSubject, mark.NameClass, mark.SchoolYear);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
 
         public static bool InsertStudentToClass(string IDStudent, string nameClass, string schoolYear)
         {
