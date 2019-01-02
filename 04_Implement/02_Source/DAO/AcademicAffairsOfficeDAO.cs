@@ -328,11 +328,11 @@ namespace DAO
         public static List<StudentDTO> LoadStudent(string nameClass, string schoolYear, string status)
         {
             string sCommand = "";
-            if (status == "Active")
+            if (status == "System.Windows.Controls.ComboBoxItem: Active")
             {
                 sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "' and S.IsActive = 'T'";
             }
-            else if (status =="Deactive")
+            else if (status == "System.Windows.Controls.ComboBoxItem: Deactive")
             {
                 sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "' and S.IsActive = 'F'";
             }
@@ -390,6 +390,22 @@ namespace DAO
             }
         }
 
+        public static bool InsertMark(MarkDTO mark)
+        {
+            string sCommand = string.Format(@"Insert into Mark values('{0}',{1},{2},{3},{4},{5},{6},{7},'{8}','{9}','{10}','{11}')", mark.Semester.ToString(), mark.FirstFifteenMinutesMark, mark.SecondFifteenMinutesMark, mark.ThirdFifteenMinutesMark, mark.FirstFortyFiveMinutesMark, mark.SecondFortyFiveMinutesMark, mark.ThirdFortyFiveMinutesMark, mark.SemesterScore, mark.IDStudent, mark.Subject.IdSubject, mark.NameClass, mark.SchoolYear);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
 
         public static bool InsertStudentToClass(string IDStudent, string nameClass, string schoolYear)
         {

@@ -53,6 +53,13 @@ namespace BUS
         {
             return MarkDAO.UpdateScore(idStudent, nameClass, schoolYear, idSubject,semester, mark);
         }
+
+        public static bool removeMark(string IDStudent, string nameClass, string schoolYear)
+        {
+            return MarkDAO.removeMark(IDStudent, nameClass, schoolYear);
+        }
+
+
     }
 
 }

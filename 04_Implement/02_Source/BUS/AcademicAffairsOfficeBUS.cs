@@ -99,12 +99,34 @@ namespace BUS
 
         public static List<StudentDTO> LoadStudent(string nameClass, string schoolYear, string status)
         {
-            return AcademicAffairsOfficeDAO.LoadStudent(nameClass, schoolYear, status);
-        }
+            List<StudentDTO> result= AcademicAffairsOfficeDAO.LoadStudent(nameClass, schoolYear, status);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i=0;i<n;i++)
+                {
+                    string birthDay = result[i].DateofBith;
+                    TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
+                    result[i].DateofBith = birthDay;
+                }
+                return result;
+            }
+            return null;
+        } 
 
         public static bool InsertStudentToClass(string IDStudent, string nameClass, string schoolYear)
         {
             return AcademicAffairsOfficeDAO.InsertStudentToClass(IDStudent, nameClass, schoolYear);
+        }
+
+        public static bool updateClass(string IDStudent, string nameClass, string schoolYear)
+        {
+            return classDAO.updateClass(IDStudent, nameClass, schoolYear);
+        }
+
+        public static bool InsertMark(MarkDTO mark)
+        {
+            return AcademicAffairsOfficeDAO.InsertMark(mark);
         }
     }
 }
