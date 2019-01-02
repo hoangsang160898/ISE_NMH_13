@@ -328,11 +328,11 @@ namespace DAO
         public static List<StudentDTO> LoadStudent(string nameClass, string schoolYear, string status)
         {
             string sCommand = "";
-            if (status == "Active")
+            if (status == "System.Windows.Controls.ComboBoxItem: Active")
             {
                 sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "' and S.IsActive = 'T'";
             }
-            else if (status =="Deactive")
+            else if (status == "System.Windows.Controls.ComboBoxItem: Deactive")
             {
                 sCommand = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + nameClass + @"' and SC.schoolYear = '" + schoolYear + "' and S.IsActive = 'F'";
             }

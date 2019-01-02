@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -38,8 +39,11 @@ namespace GUI
 
         private void Window_Loaded_Student(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = users;
+            // listviewUser.ItemsSource = users;
+            chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+            chooseClass.SelectedIndex = 0;
 
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -57,6 +61,15 @@ namespace GUI
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
+            StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
+            item.Gender = gender_st_infor.Text;
+            item.DateofBith = birthofday_st_infor.Text;
+            item.Name = fullname_st_infor.Text;
+            item.Email = email_st_infor.Text;
+          //  item.NameClass = class_st_infor.Text;
+            item.Phone = phone_st_infor.Text;
+
+
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             gender_st_infor.IsEnabled = false ;
@@ -66,6 +79,8 @@ namespace GUI
             class_st_infor.IsReadOnly = true;
             phone_st_infor.IsReadOnly = true;
             schoolyear_st_infor.IsReadOnly = true;
+
+
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -121,6 +136,7 @@ namespace GUI
 
         private void btnViewScore_Click(object sender, RoutedEventArgs e)
         {
+            Global.Student = (StudentDTO)listviewUser.SelectedItems[0];
             var window = new ReviewStudentScore();
             window.Show();
         }
@@ -139,6 +155,22 @@ namespace GUI
                  combo.ItemsSource = classes;
                  combo.SelectedIndex = 0;
              }*/
+        }
+
+        private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
+            {
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            }
+        }
+
+        private void ChooseStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
+            {
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            }
         }
     }
 }
