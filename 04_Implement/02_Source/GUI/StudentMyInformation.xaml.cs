@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -47,19 +47,83 @@ namespace GUI
             gender_st_infor.IsEnabled = false;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
+
+            string idStudent = id_st_infor.Text;
+            string Name = Global.Student.Name;
+            string Gender = gender_st_infor.Text;
+            string Email = email_st_infor.Text;
+            string Phone = phone_st_infor.Text;
+            string BirthDay = birthofday_st_infor.Text;
+
+            if (StudentBUS.changeMyInfomation(idStudent, Name, Gender, Email, Phone, BirthDay))
+            {
+                Global.Student.Name = Name;
+                Global.Student.Gender = Gender;
+                Global.Student.Email = Email;
+                Global.Student.Phone = Phone;
+
+                Global.Student.DateofBith = BirthDay;
+
+               
+                id_st_infor.Text = Global.Student.Id;
+                birthofday_st_infor.Text = Global.Student.DateofBith;
+                phone_st_infor.Text = Global.Student.Phone;
+                email_st_infor.Text = Global.Student.Email;
+
+
+                if (Global.Student.Gender == "Male")
+                {
+                    gender_st_infor.SelectedIndex = 1;
+                }
+                else if (Global.Student.Gender == "Female")
+                {
+                    gender_st_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_st_infor.SelectedIndex = 0;
+                }
+
+                // Teacher = Global.Teacher;
+            }
+            else
+            {
+                id_st_infor.Text = Global.Student.Id;
+                birthofday_st_infor.Text = Global.Student.DateofBith;
+                phone_st_infor.Text = Global.Student.Phone;
+                email_st_infor.Text = Global.Student.Email;
+
+
+                if (Global.Student.Gender == "Male")
+                {
+                    gender_st_infor.SelectedIndex = 1;
+                }
+                else if (Global.Student.Gender == "Female")
+                {
+                    gender_st_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_st_infor.SelectedIndex = 0;
+                }
+
+
+                MessageBox.Show("Update your information failed");
+            }
+
         }
         private void Window_Loaded_StudentInformation(object sender, RoutedEventArgs e)
         {
-            fullname_st_infor.Text = test.Name;
-            id_st_infor.Text = test.Id;
-            birthofday_st_infor.Text = test.DateofBith;
-            phone_st_infor.Text = test.Phone;
-            email_st_infor.Text = test.Email;
-            if (test.Gender == "Male")
+            fullname_st_infor.Text = Global.Student.Name;
+            id_st_infor.Text = Global.Student.Id;
+            birthofday_st_infor.Text = Global.Student.DateofBith;
+            phone_st_infor.Text = Global.Student.Phone;
+            email_st_infor.Text = Global.Student.Email;
+            if (Global.Student.Gender == "Male")
             {
                 gender_st_infor.SelectedIndex = 1;
             }
-            else if (test.Gender == "Female")
+            else if (Global.Student.Gender == "Female")
             {
                 gender_st_infor.SelectedIndex = 2;
             }

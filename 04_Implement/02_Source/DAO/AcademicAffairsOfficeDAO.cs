@@ -489,6 +489,215 @@ namespace DAO
                 return false;
             }
         }
+
+        public static bool isMaster(string IDTeacher, string schoolYear)
+        {
+            string sCommand = @"select* from Class where IDMaster = '" + IDTeacher + "' and schoolYear ='" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static List<TeacherDTO> loadListTeacher()
+        {
+            string sCommand = @"Select* from Teacher";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                List<TeacherDTO> result = new List<TeacherDTO>();
+                int n = dt.Rows.Count;
+                for (int i=0;i<n;i++)
+                {
+                    TeacherDTO teacher = new TeacherDTO();
+                    teacher.Id = dt.Rows[i]["IDTeacher"].ToString();
+                    teacher.Name = dt.Rows[i]["Name"].ToString();
+                    teacher.Gender = dt.Rows[i]["Gender"].ToString();
+                    teacher.Email = dt.Rows[i]["Email"].ToString();
+                    teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                    teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
+                    result.Add(teacher);
+                }
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+
+        }
+
+        public static List<TeacherDTO> loadListHomeRoomTeacher(string schoolYear)
+        {
+            string sCommand = @"select T.* from Teacher T join Class C on (T.IDTeacher = C.IDMaster) where C.schoolYear = '" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                List<TeacherDTO> result = new List<TeacherDTO>();
+                int n = dt.Rows.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    TeacherDTO teacher = new TeacherDTO();
+                    teacher.Id = dt.Rows[i]["IDTeacher"].ToString();
+                    teacher.Name = dt.Rows[i]["Name"].ToString();
+                    teacher.Gender = dt.Rows[i]["Gender"].ToString();
+                    teacher.Email = dt.Rows[i]["Email"].ToString();
+                    teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                    teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
+                    teacher.NamePosition = "Homeroom Teacher";
+                    result.Add(teacher);
+                }
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+        }
+        
+        public static List<TeacherDTO> loadListAAOS()
+        {
+            string sCommand = @"Select* from Teacher where TypeTeacher = 'PDT'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                List<TeacherDTO> result = new List<TeacherDTO>();
+                int n = dt.Rows.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    TeacherDTO teacher = new TeacherDTO();
+                    teacher.Id = dt.Rows[i]["IDTeacher"].ToString();
+                    teacher.Name = dt.Rows[i]["Name"].ToString();
+                    teacher.Gender = dt.Rows[i]["Gender"].ToString();
+                    teacher.Email = dt.Rows[i]["Email"].ToString();
+                    teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                    teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
+                    teacher.NamePosition = "Academic Affair Office Staff";
+                    result.Add(teacher);
+                }
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+        }
+
+        public static List<TeacherDTO> loadListSubjectTeacher(string schoolYear)
+        {
+            string sCommand = @"Select* from Teacher T join Assign A on (T.IDTeacher = A.IDTeacher) where A.schoolYear = '" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                List<TeacherDTO> result = new List<TeacherDTO>();
+                int n = dt.Rows.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    TeacherDTO teacher = new TeacherDTO();
+                    teacher.Id = dt.Rows[i]["IDTeacher"].ToString();
+                    teacher.Name = dt.Rows[i]["Name"].ToString();
+                    teacher.Gender = dt.Rows[i]["Gender"].ToString();
+                    teacher.Email = dt.Rows[i]["Email"].ToString();
+                    teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                    teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
+                    teacher.NamePosition = "Subject Teacher";
+                    result.Add(teacher);
+                }
+                DataProvider.CloseConnection(con);
+
+                
+
+                return result;
+            }
+        }
+
+        public static List<TeacherDTO> searchTeacher(string textToSearch, string schoolYear, string position)
+        {
+            string sCommand = "";
+            
+            if (position == "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
+            {
+               sCommand = @"Select* from Teacher where TypeTeacher = 'PDT' and ((Name like N'%"+textToSearch+"%') or (IDTeacher like '%+"+textToSearch+"%'))";
+            }
+            else if (position == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
+            {
+                sCommand = @"select T.* from Teacher T join Class C on (T.IDTeacher = C.IDMaster) where C.schoolYear = '" + schoolYear + "' and ((T.Name like N'%" + textToSearch + "%') or (T.IDTeacher like '%" + textToSearch + "%'))";
+            }
+            else if (position == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
+            {
+                sCommand = @"Select* from Teacher T join Assign A on (T.IDTeacher = A.IDTeacher) where A.schoolYear = '" + schoolYear + "' and ((T.Name like N'%" + textToSearch + "%') or (T.IDTeacher like '%" + textToSearch + "%'))";
+            }
+            else
+            {
+                sCommand = @"Select* from Teacher where ((Name like N'%" + textToSearch + "%') or (IDTeacher like '%" + textToSearch + "%'))";
+            }
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                List<TeacherDTO> result = new List<TeacherDTO>();
+                int n = dt.Rows.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    TeacherDTO teacher = new TeacherDTO();
+                    teacher.Id = dt.Rows[i]["IDTeacher"].ToString();
+                    teacher.Name = dt.Rows[i]["Name"].ToString();
+                    teacher.Gender = dt.Rows[i]["Gender"].ToString();
+                    teacher.Email = dt.Rows[i]["Email"].ToString();
+                    teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
+                    teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
+                    if (position == "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
+                    {
+                        teacher.NamePosition = "Academic Affair Office Staff";
+                    }
+                    else if (position == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
+                    {
+                        teacher.NamePosition = "Homeroom Teacher";
+                    }
+                    else if (position == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
+                    {
+                        teacher.NamePosition = "Subject Teacher";
+                    }
+
+
+                     result.Add(teacher);
+                }
+                DataProvider.CloseConnection(con);
+
+
+
+                return result;
+            }
+
+        }
+
         
     }
 

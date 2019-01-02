@@ -23,7 +23,7 @@ namespace GUI
         {
             InitializeComponent();
             fullname_title.Content = Global.Teacher.Name;
-            if (Global.Teacher.NamePosition == "GV")
+            if (Global.Teacher.Type == "GV")
             {
                 class_title.Content = "Teacher";
             }

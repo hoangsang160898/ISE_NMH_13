@@ -56,7 +56,7 @@ namespace GUI
 
         private void Window_Loaded_Student(object sender, RoutedEventArgs e)
         {
-            if (Global.Teacher.NamePosition == "PDT")
+            if (Global.Teacher.Type == "PDT")
             {
                 chooseYear.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
                 chooseYear.SelectedIndex = 0;

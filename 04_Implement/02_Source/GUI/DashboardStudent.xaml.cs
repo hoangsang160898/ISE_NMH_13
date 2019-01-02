@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using DTO;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -75,8 +75,8 @@ namespace GUI
         private void Window_Loaded_TitleStudent(object sender, RoutedEventArgs e)
         {
             var student = test;
-            fullname_title.Content = test.Name;
-            class_title.Content = test.NameClass;
+            fullname_title.Content = Global.Student.Name;
+            class_title.Content = Global.Student.NameClass;
         }
     }
 }

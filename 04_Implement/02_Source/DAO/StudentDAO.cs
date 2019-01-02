@@ -27,7 +27,7 @@ namespace DAO
         // Log in va load thông tin
         public  static StudentDTO Login(string id, string pw)
         {
-            string sTruyVan = @"select * from Student where IDStudent= '" + id + @"' and PassWord = '" + pw + "'";
+            string sTruyVan = @"select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where S.IDStudent= '" + id + @"' and S.PassWord = '" + pw + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if(dt.Rows.Count == 0)
@@ -42,8 +42,8 @@ namespace DAO
             student.Email = dt.Rows[0]["Email"].ToString();
             student.Phone = dt.Rows[0]["Phone"].ToString();
             student.DateofBith = dt.Rows[0]["BirthDay"].ToString();
-           // student.NameClass = dt.Rows[0]["nameClass"].ToString();
-            //student.SchoolYear = dt.Rows[0]["schoolYear"].ToString();
+            student.NameClass = dt.Rows[0]["nameClass"].ToString();
+            student.SchoolYear = dt.Rows[0]["schoolYear"].ToString();
             DataProvider.CloseConnection(con);
             return student;
         }
@@ -56,6 +56,17 @@ namespace DAO
             DataProvider.CloseConnection(con);
             return dt;
         }
-    
+
+        public static bool changeMyInfomation(string idStudent, string Name, string Gender, string Email, string Phone, string BirthDay)
+        {
+            string sCommand = @"update Student
+                                set Name = N'" + Name + @"', Gender = '" + Gender + @"', Email = '" + Email + @"', Phone = '" + Phone + @"', BirthDay = '" + BirthDay + @"' 
+                                where IDStudent = '" + idStudent + "'";
+            con = DataProvider.OpenConnection();
+            bool check = DataProvider.ExecuteQuery(sCommand, con);
+            DataProvider.CloseConnection(con);
+            return check;
+        }
+
     }
 }

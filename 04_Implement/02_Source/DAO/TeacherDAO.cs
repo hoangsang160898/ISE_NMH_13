@@ -41,7 +41,7 @@ namespace DAO
             teacher.Email = dt.Rows[0]["Email"].ToString();
             teacher.Phone = dt.Rows[0]["Phone"].ToString();
             teacher.DateofBith = dt.Rows[0]["BirthDay"].ToString();
-            teacher.NamePosition = dt.Rows[0]["TypeTeacher"].ToString();
+            teacher.Type = dt.Rows[0]["TypeTeacher"].ToString();
             DataProvider.CloseConnection(con);
             return teacher;
         }

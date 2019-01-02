@@ -153,5 +153,120 @@ namespace BUS
         {
             return AcademicAffairsOfficeDAO.ActiveStudent(IDStudent);
         }
+
+        public static List<TeacherDTO> loadListTeacher()
+        {
+            List<TeacherDTO> result = AcademicAffairsOfficeDAO.loadListTeacher();
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i=0;i<n;i++)
+                {
+                    if (result[i].Type == "PDT")
+                    {
+                        result[i].NamePosition = "Academic Affair Offfice Staff";
+                    }
+                    else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id,"2018-2019"))
+                    {
+                        result[i].NamePosition = "Homeroom Teacher";
+                    }
+                    else
+                    {
+                        result[i].NamePosition = "Subject Teacher";
+                    }
+
+                    string birthDay = result[i].DateofBith;
+                    TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
+                    result[i].DateofBith = birthDay;
+                }
+                return result;
+            }
+            return null;
+        }
+
+
+        public static List<TeacherDTO> loadListHomeRoomTeacher(string schoolYear)
+        {
+            List<TeacherDTO> result = AcademicAffairsOfficeDAO.loadListHomeRoomTeacher(schoolYear);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    string birthDay = result[i].DateofBith;
+                    TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
+                    result[i].DateofBith = birthDay;
+                }
+                return result;
+            }
+            return null;
+        }
+        public static List<TeacherDTO> loadListAAOS()
+        {
+            List<TeacherDTO> result = AcademicAffairsOfficeDAO.loadListAAOS();
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    string birthDay = result[i].DateofBith;
+                    TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
+                    result[i].DateofBith = birthDay;
+                }
+                return result;
+            }
+            return null;
+        }
+        public static List<TeacherDTO> loadListSubjectTeacher(string schoolYear)
+        {
+
+            List<TeacherDTO> result = AcademicAffairsOfficeDAO.loadListSubjectTeacher(schoolYear);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    string birthDay = result[i].DateofBith;
+                    TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
+                    result[i].DateofBith = birthDay;
+                }
+                return result;
+            }
+            return null;
+
+        }
+
+        public static List<TeacherDTO> searchTeacher(string textToSearch, string schoolYear, string position)
+        {
+            List<TeacherDTO> result = AcademicAffairsOfficeDAO.searchTeacher(textToSearch, schoolYear, position);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    string birthDay = result[i].DateofBith;
+                    TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
+                    result[i].DateofBith = birthDay;
+
+                    if (position == "System.Windows.Controls.ComboBoxItem: All")
+                    {
+                        if (result[i].Type == "PDT")
+                        {
+                            result[i].NamePosition = "Academic Affair Offfice Staff";
+                        }
+                        else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id, "2018-2019"))
+                        {
+                            result[i].NamePosition = "Homeroom Teacher";
+                        }
+                        else
+                        {
+                            result[i].NamePosition = "Subject Teacher";
+                        }
+                    }
+                }
+                return result;
+            }
+            return null;
+        }
     }
 }

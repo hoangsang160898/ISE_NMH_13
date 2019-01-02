@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -21,6 +22,7 @@ namespace GUI
     public sealed partial class TeacherManageTeacher : Page
     {
         private List<TeacherDTO> users = new List<TeacherDTO>();
+        bool isLoaded = false;
         public TeacherManageTeacher()
         {
            // users.Add(new TeacherDTO { NamePosition="Master",Id ="1612556",NameClass="12C1",SchoolYear="2018-2019",Name="Nguyen Hoang Sang", Type="Teacher", Status="Active",DateofBith="16/8/1998",Gender="Male",Email="test@gmail.com",Password="123",Phone="0123456789"});
@@ -38,7 +40,8 @@ namespace GUI
 
         private void Window_Loaded_Teacher(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = users;    
+            isLoaded = true;
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListTeacher();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -115,6 +118,60 @@ namespace GUI
         {
             var window = new ReviewStudentScore();
             window.Show();
+        }
+
+        private void ChoosePosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isLoaded == true)
+            {
+                if (choosePosition.SelectedValue.ToString()== "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListAAOS();
+                }
+                else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher("2018-2019");
+                }
+                else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher("2018-2019");
+                }
+                else
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListTeacher();
+                }
+            }
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchTeacher(searchUser.Text, "2018-2019", choosePosition.SelectedValue.ToString());
+        }
+
+        private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(searchUser.Text))
+            {
+                if (choosePosition.SelectedValue != null)
+                {
+                    if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
+                    {
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListAAOS();
+                    }
+                    else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
+                    {
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher("2018-2019");
+                    }
+                    else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
+                    {
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher("2018-2019");
+                    }
+                    else
+                    {
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListTeacher();
+                    }
+                }
+            }
         }
     }
 }

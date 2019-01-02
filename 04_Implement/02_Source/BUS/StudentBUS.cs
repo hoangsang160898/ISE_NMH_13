@@ -129,6 +129,20 @@ namespace BUS
                 return Global.Student;
             }
         }
+        public static bool changeMyInfomation(string idStudent, string Name, string Gender, string Email, string Phone, string BirthDay)
+        {
+            if (!TeacherBUS.marchEmail(Email))
+            {
+                return false;
+            }
+            if (!TeacherBUS.marchBirthDay(BirthDay))
+            {
+                return false;
+            }
 
+           TeacherBUS.StandalizedBirthDayToDatabase(ref BirthDay);
+
+            return StudentDAO.changeMyInfomation(idStudent, Name, Gender, Email, Phone, BirthDay);
+        }
     }
 }

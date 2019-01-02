@@ -58,7 +58,7 @@ namespace GUI
         private void Window_Loaded_User(object sender, RoutedEventArgs e)
         {
             //listviewUser.ItemsSource = marks;
-            if (Global.Teacher.NamePosition == "PDT")
+            if (Global.Teacher.Type == "PDT")
             {
                 listSubject.Add("All");
                 List<string> temp = SubjectBUS.loadListNameSubject();
