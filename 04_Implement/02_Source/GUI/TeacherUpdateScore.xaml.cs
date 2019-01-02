@@ -153,10 +153,12 @@ namespace GUI
                 if (chooseSubject.SelectedValue.ToString() != "All")
                 {
                     listviewUser.ItemsSource = MarkBUS.loadMarkByNameSubject(chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                    listviewUser.SelectedIndex = 0;
                 }
                 else
                 {
                     listviewUser.ItemsSource = MarkBUS.loadMarkByClass(chooseClass.SelectedValue.ToString(), "2018-2019", semester);
+                    listviewUser.SelectedIndex = 0;
                 }
             }
             else
@@ -173,19 +175,22 @@ namespace GUI
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-            MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
-            //subject_st_infor.Text = item.IdSubject;
-            fullname_st_infor.Text = item.NameStudent;
-            id_st_infor.Text = item.IDStudent;
-            class_st_infor.Text = item.NameClass;
-            m15st_st_infor.Text = item.FirstFifteenMinutesMark.ToString();
-            m15nd_st_infor.Text = item.SecondFifteenMinutesMark.ToString();
-            m15rd_st_infor.Text = item.ThirdFifteenMinutesMark.ToString();
-            m45st_st_infor.Text = item.FirstFortyFiveMinutesMark.ToString();
-            m45nd_st_infor.Text = item.SecondFortyFiveMinutesMark.ToString();
-            m45rd_st_infor.Text = item.ThirdFortyFiveMinutesMark.ToString();
-            subject_st_infor.Text = item.Subject.NameSubject;
-            semester_st_infor.Text = item.SemesterScore.ToString();
+            if (listviewUser.SelectedItems[0] != null)
+            {
+                MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
+                //subject_st_infor.Text = item.IdSubject;
+                fullname_st_infor.Text = item.NameStudent;
+                id_st_infor.Text = item.IDStudent;
+                class_st_infor.Text = item.NameClass;
+                m15st_st_infor.Text = item.FirstFifteenMinutesMark.ToString();
+                m15nd_st_infor.Text = item.SecondFifteenMinutesMark.ToString();
+                m15rd_st_infor.Text = item.ThirdFifteenMinutesMark.ToString();
+                m45st_st_infor.Text = item.FirstFortyFiveMinutesMark.ToString();
+                m45nd_st_infor.Text = item.SecondFortyFiveMinutesMark.ToString();
+                m45rd_st_infor.Text = item.ThirdFortyFiveMinutesMark.ToString();
+                subject_st_infor.Text = item.Subject.NameSubject;
+                semester_st_infor.Text = item.SemesterScore.ToString();
+            }
         }
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)

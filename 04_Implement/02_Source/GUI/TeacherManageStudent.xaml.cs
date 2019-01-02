@@ -64,9 +64,15 @@ namespace GUI
             item.DateofBith = birthofday_st_infor.Text;
             item.Name = fullname_st_infor.Text;
             item.Email = email_st_infor.Text;
-          //  item.NameClass = class_st_infor.Text;
+            item.NameClass = class_st_infor.Text;
             item.Phone = phone_st_infor.Text;
+            item.SchoolYear = schoolyear_st_infor.Text;
 
+            if (!AcademicAffairsOfficeBUS.updateInfoStudent(item))
+            {
+                MessageBox.Show("Update information student failed");
+                return;
+            }
 
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
@@ -83,8 +89,19 @@ namespace GUI
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
+            if (!AcademicAffairsOfficeBUS.deActiveStudent(item.Id))
+            {
+                MessageBox.Show("Deactive Faidled");
+            }
+            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+        
+
+
             btnDelete.Visibility = Visibility.Collapsed;
             btnActive.Visibility = Visibility.Visible;
+
+
         }
 
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,40 +112,49 @@ namespace GUI
 
         private void btnActive_Click(object sender, RoutedEventArgs e)
         {
+            StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
+            if (!AcademicAffairsOfficeBUS.ActiveStudent(item.Id))
+            {
+                MessageBox.Show("Active Faidled");
+            }
+            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
             btnDelete.Visibility = Visibility.Visible;
             btnActive.Visibility = Visibility.Collapsed;
         }
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-            StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
-            fullname_st_infor.Text = item.Name;
-            birthofday_st_infor.Text = item.DateofBith;
-            email_st_infor.Text = item.Email;
-            class_st_infor.Text = item.NameClass;
-            if (item.Gender == "Male")
+            if (listviewUser.SelectedItems[0] != null)
             {
-                gender_st_infor.SelectedIndex = 1;
-            }
-            else if (item.Gender == "Female")
-            {
-                gender_st_infor.SelectedIndex = 2;
-            }
-            else
-            {
-                gender_st_infor.SelectedIndex = 0;
-            }
-            phone_st_infor.Text = item.Phone;
-            schoolyear_st_infor.Text = item.SchoolYear;
-            if (item.Status == "Active")
-            {
-               btnDelete.Visibility = Visibility.Visible;
-                btnActive.Visibility = Visibility.Collapsed;
-            }
-            else if (item.Status == "Deactive")
-            {
-                btnActive.Visibility = Visibility.Visible;
-                btnDelete.Visibility = Visibility.Collapsed;
+                StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
+                fullname_st_infor.Text = item.Name;
+                birthofday_st_infor.Text = item.DateofBith;
+                email_st_infor.Text = item.Email;
+                class_st_infor.Text = item.NameClass;
+                if (item.Gender == "Male")
+                {
+                    gender_st_infor.SelectedIndex = 1;
+                }
+                else if (item.Gender == "Female")
+                {
+                    gender_st_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_st_infor.SelectedIndex = 0;
+                }
+                phone_st_infor.Text = item.Phone;
+                schoolyear_st_infor.Text = item.SchoolYear;
+                if (item.Status == "Active")
+                {
+                    btnDelete.Visibility = Visibility.Visible;
+                    btnActive.Visibility = Visibility.Collapsed;
+                }
+                else if (item.Status == "Deactive")
+                {
+                    btnActive.Visibility = Visibility.Visible;
+                    btnDelete.Visibility = Visibility.Collapsed;
+                }
             }
         }
 
@@ -169,6 +195,19 @@ namespace GUI
             if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
             {
                 listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            }
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedValue.ToString(), "2018-2019");
+        }
+
+        private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchUser.Text))
+            {
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedValue.ToString(), "2018-2019");
             }
         }
     }

@@ -128,5 +128,30 @@ namespace BUS
         {
             return AcademicAffairsOfficeDAO.InsertMark(mark);
         }
+
+        public static bool updateInfoStudent(StudentDTO student)
+        {
+            string birthDay = student.DateofBith;
+
+            if (!TeacherBUS.marchBirthDay(student.DateofBith))
+                return false;
+
+            if (!TeacherBUS.marchEmail(student.Email))
+                return false;
+
+            TeacherBUS.StandalizedBirthDayToDatabase(ref birthDay);
+            student.DateofBith = birthDay;
+            return AcademicAffairsOfficeDAO.updateInfoStudent(student);
+        }
+
+        public static bool deActiveStudent(string IDStudent)
+        {
+            return AcademicAffairsOfficeDAO.deActiveStudent(IDStudent);
+        }
+
+        public static bool ActiveStudent(string IDStudent)
+        {
+            return AcademicAffairsOfficeDAO.ActiveStudent(IDStudent);
+        }
     }
 }

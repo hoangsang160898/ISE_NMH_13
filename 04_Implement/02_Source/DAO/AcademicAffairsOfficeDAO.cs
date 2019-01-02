@@ -438,6 +438,57 @@ namespace DAO
             return true;
 
         }
+
+        public static bool updateInfoStudent(StudentDTO student)
+        {
+            string sCommand = string.Format(@"Update student set Name = N'{0}', BirthDay = '{1}', Email = '{2}', Gender = '{3}', Phone = '{4}' where IDStudent = '{5}'",student.Name,student.DateofBith,student.Email,student.Gender,student.Phone,student.Id);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+        public static bool deActiveStudent(string IDStudent)
+        {
+            string sCommand = string.Format(@"Update Student set isActive = 'F' where IDStudent = '{0}'", IDStudent);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+        public static bool ActiveStudent(string IDStudent)
+        {
+            string sCommand = string.Format(@"Update Student set isActive = 'T' where IDStudent = '{0}'", IDStudent);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
         
     }
 

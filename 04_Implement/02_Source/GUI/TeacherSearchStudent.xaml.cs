@@ -75,6 +75,7 @@ namespace GUI
                 chooseClass.SelectedIndex = 0;
                 Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
+                listviewStudent.SelectedIndex = 0;
             }
          //  Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
 
@@ -95,14 +96,17 @@ namespace GUI
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-            StudentDTO item = (StudentDTO)listviewStudent.SelectedItems[0];
-            fullname_st_infor.Content = item.Name;
-            birthofday_st_infor.Content = item.DateofBith;
-            email_st_infor.Content = item.Email;
-            gender_st_infor.Content = item.Gender;
-            phone_st_infor.Content = item.Phone;
-            nameclass_st_infor.Content = item.NameClass;
-            yearSchool_st_infor.Content = item.SchoolYear;
+            if (listviewStudent.SelectedItems[0] != null)
+            {
+                StudentDTO item = (StudentDTO)listviewStudent.SelectedItems[0];
+                fullname_st_infor.Content = item.Name;
+                birthofday_st_infor.Content = item.DateofBith;
+                email_st_infor.Content = item.Email;
+                gender_st_infor.Content = item.Gender;
+                phone_st_infor.Content = item.Phone;
+                nameclass_st_infor.Content = item.NameClass;
+                yearSchool_st_infor.Content = item.SchoolYear;
+            }
         }
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)
