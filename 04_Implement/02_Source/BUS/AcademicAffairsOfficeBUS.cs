@@ -268,5 +268,14 @@ namespace BUS
             }
             return null;
         }
+
+        public static bool isMaster(string IDTeacher, string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.isMaster(IDTeacher, schoolYear);
+        }
+        public static int getSumStudent(string nameClass, string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.getSumStudent(nameClass, schoolYear);
+        }
     }
 }

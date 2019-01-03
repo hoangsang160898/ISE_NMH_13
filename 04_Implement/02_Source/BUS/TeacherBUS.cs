@@ -154,9 +154,23 @@ namespace BUS
         {
             return TeacherDAO.loadSchoolYearToComboBox(idTeacher);
         }
-
+        public static bool isMaster(string id, string nameClass, string schoolYear)
+        {
+            return TeacherDAO.isMaster(id, nameClass, schoolYear);
+        }
         public static List<string> loadListSubjectToComboBox(string idTeacher, string nameClass, string schoolYear)
         {
+            if (TeacherBUS.isMaster(idTeacher,nameClass,schoolYear))
+            {
+                List<string> temp = SubjectBUS.loadListNameSubject();
+                List<string> result = new List<string>();
+                result.Add("All");
+                for (int i=0;i<temp.Count;i++)
+                {
+                    result.Add(temp[i]);
+                }
+                return result;
+            }
             return TeacherDAO.loadListSubjectToComboBox(idTeacher, nameClass, schoolYear);
         }
     }

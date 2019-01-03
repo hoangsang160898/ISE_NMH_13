@@ -59,8 +59,13 @@ namespace GUI
             id_title.Content = Global.Student.Id;
             if (Global.Teacher.Type == "PDT")
             {
-                listSubject = SubjectBUS.loadListNameSubject();
                 listSubject.Add("All");
+                List<string> temp = SubjectBUS.loadListNameSubject();
+                int n = temp.Count;
+                for (int i=0;i<n;i++)
+                {
+                    listSubject.Add(temp[i]);
+                }
                 chooseSubject.ItemsSource = listSubject;
                 chooseSubject.SelectedIndex = 0;
                 

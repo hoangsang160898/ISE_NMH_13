@@ -169,5 +169,17 @@ namespace DAO
            
         }
 
+        public static bool isMaster(string id, string nameClass, string schoolYear)
+        {
+            string sCommand = @"Select* from Class where IDMaster ='" + id + "' and nameClass = '" + nameClass + "' and schoolYear ='" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

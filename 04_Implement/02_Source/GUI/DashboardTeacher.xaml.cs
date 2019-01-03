@@ -26,6 +26,12 @@ namespace GUI
             if (Global.Teacher.Type == "GV")
             {
                 class_title.Content = "Teacher";
+                ListViewMenu.Items.RemoveAt(8);
+                ListViewMenu.Items.RemoveAt(7);
+                ListViewMenu.Items.RemoveAt(6);
+                ListViewMenu.Items.RemoveAt(5);
+                ListViewMenu.Items.RemoveAt(4);
+                ListViewMenu.Items.RemoveAt(3);
             }
             else
             {

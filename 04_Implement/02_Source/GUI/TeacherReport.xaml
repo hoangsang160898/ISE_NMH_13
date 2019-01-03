@@ -11,7 +11,7 @@
       Title="Teacher Report" Loaded="Window_Loaded_Report">
 
     <Page.Resources>
-        <DataTemplate x:Key="ReportTemplate" DataType="ahihi">
+        <DataTemplate x:Key="ReportTemplate" DataType="Report">
             <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}">
                 <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                     <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="125" Foreground="#305066" Content="{Binding stt}" FontSize="14" />

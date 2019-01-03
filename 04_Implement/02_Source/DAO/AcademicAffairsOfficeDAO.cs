@@ -702,6 +702,14 @@ namespace DAO
 
         }
 
+        public static int getSumStudent(string nameClass, string schoolYear)
+        {
+            string sCommand = @"Select IDStudent from Student_Class where nameClass ='" + nameClass + "' and schoolYear ='" + schoolYear + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            return dt.Rows.Count;
+        }
+
         
     }
 
