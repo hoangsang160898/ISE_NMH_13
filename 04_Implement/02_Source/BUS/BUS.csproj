@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcademicAffairsOfficeBUS.cs" />
+    <Compile Include="AdminBUS.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="MarkBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

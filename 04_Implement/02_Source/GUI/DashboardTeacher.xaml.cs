@@ -31,7 +31,7 @@ namespace GUI
             {
                 class_title.Content = "AcademicAffairOffice Staff";
             }
-
+            
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

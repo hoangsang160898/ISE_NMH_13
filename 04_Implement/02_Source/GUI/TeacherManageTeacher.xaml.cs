@@ -58,15 +58,73 @@ namespace GUI
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
-            btnEdit.Visibility = Visibility.Visible;
-            btnDoneOfEdit.Visibility = Visibility.Collapsed;
-            position_tc_infor.IsEnabled = false;
             gender_tc_infor.IsEnabled = false;
-            fullname_tc_infor.IsReadOnly = true;
-            birthofday_tc_infor.IsReadOnly = true;
-            email_tc_infor.IsReadOnly = true;
-            gender_tc_infor.IsReadOnly = true;
             phone_tc_infor.IsReadOnly = true;
+            email_tc_infor.IsReadOnly = true;
+            birthofday_tc_infor.IsReadOnly = true;
+            gender_tc_infor.IsReadOnly = true;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnEdit.Visibility = Visibility.Visible;
+
+            string idTeacher = id_tc_infor.Text;
+            string Name = fullname_tc_infor.Text;
+            string Gender = gender_tc_infor.Text;
+            string Email = email_tc_infor.Text;
+            string Phone = phone_tc_infor.Text;
+            string BirthDay = birthofday_tc_infor.Text;
+            if (TeacherBUS.changeMyInfomation(idTeacher, Name, Gender, Email, Phone, BirthDay))
+            {
+                Global.Teacher.Name = Name;
+                Global.Teacher.Gender = Gender;
+                Global.Teacher.Email = Email;
+                Global.Teacher.Phone = Phone;
+
+                Global.Teacher.DateofBith = BirthDay;
+
+                fullname_tc_infor.Text = Global.Teacher.Name;
+                id_tc_infor.Text = Global.Teacher.Id;
+                birthofday_tc_infor.Text = Global.Teacher.DateofBith;
+                phone_tc_infor.Text = Global.Teacher.Phone;
+                email_tc_infor.Text = Global.Teacher.Email;
+
+
+                if (Global.Teacher.Gender == "Male")
+                {
+                    gender_tc_infor.SelectedIndex = 1;
+                }
+                else if (Global.Teacher.Gender == "Female")
+                {
+                    gender_tc_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_tc_infor.SelectedIndex = 0;
+                }
+
+                // Teacher = Global.Teacher;
+            }
+            else
+            {
+                fullname_tc_infor.Text = Global.Teacher.Name;
+                id_tc_infor.Text = Global.Teacher.Id;
+                birthofday_tc_infor.Text = Global.Teacher.DateofBith;
+                phone_tc_infor.Text = Global.Teacher.Phone;
+                email_tc_infor.Text = Global.Teacher.Email;
+                if (Global.Teacher.Gender == "Male")
+                {
+                    gender_tc_infor.SelectedIndex = 1;
+                }
+                else if (Global.Teacher.Gender == "Female")
+                {
+                    gender_tc_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_tc_infor.SelectedIndex = 0;
+                }
+
+                MessageBox.Show("Update information failed");
+            }
         }
 
 

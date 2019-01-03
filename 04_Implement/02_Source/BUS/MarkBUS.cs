@@ -23,11 +23,35 @@ namespace BUS
 
         public static List<MarkDTO> loadMark(string idStudent, string nameClass, string schoolYear, string semester)
         {
-            return MarkDAO.loadMark(idStudent, nameClass, schoolYear, semester);
+            List<MarkDTO> result = MarkDAO.loadMark(idStudent, nameClass, schoolYear, semester);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i=0;i<n;i++)
+                {
+                    double a = (result[i].FirstFifteenMinutesMark + result[i].SecondFifteenMinutesMark + result[i].ThirdFifteenMinutesMark + result[i].FirstFortyFiveMinutesMark * 2 + result[i].SecondFortyFiveMinutesMark * 2 + result[i].ThirdFortyFiveMinutesMark * 2 + result[i].SemesterScore * 3) / 12;
+                    a = Math.Round(a, 2);
+                    result[i].AverageMark = a;
+                }
+                return result;
+            }
+            return null;
         }
         public static List<MarkDTO> loadMark(string idStudent, string nameClass, string schoolYear, string semester, string nameSubject)
         {
-            return MarkDAO.loadMark(idStudent, nameClass, schoolYear, semester, nameSubject);
+            List<MarkDTO> result = MarkDAO.loadMark(idStudent, nameClass, schoolYear, semester, nameSubject);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    double a = (result[i].FirstFifteenMinutesMark + result[i].SecondFifteenMinutesMark + result[i].ThirdFifteenMinutesMark + result[i].FirstFortyFiveMinutesMark * 2 + result[i].SecondFortyFiveMinutesMark * 2 + result[i].ThirdFortyFiveMinutesMark * 2 + result[i].SemesterScore * 3) / 12;
+                    a = Math.Round(a, 2);
+                    result[i].AverageMark = a;
+                }
+                return result;
+            }
+            return null;
         }
         public static string getNameStudent(string id)
         {
@@ -36,22 +60,58 @@ namespace BUS
 
         public static List<MarkDTO> loadMarkByNameSubject(string nameSubject, string nameClass, string schoolYear, string semester)
         {
-            return MarkDAO.loadMarkByNameSubject(nameSubject, nameClass, schoolYear, semester);
+            List<MarkDTO> result = MarkDAO.loadMarkByNameSubject(nameSubject, nameClass, schoolYear, semester);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    double a = (result[i].FirstFifteenMinutesMark + result[i].SecondFifteenMinutesMark + result[i].ThirdFifteenMinutesMark + result[i].FirstFortyFiveMinutesMark * 2 + result[i].SecondFortyFiveMinutesMark * 2 + result[i].ThirdFortyFiveMinutesMark * 2 + result[i].SemesterScore * 3) / 12;
+                    a = Math.Round(a, 2);
+                    result[i].AverageMark = a;
+                }
+                return result;
+            }
+            return null;
         }
 
         public static List<MarkDTO> loadMarkByClass(string nameClass, string schoolYear, string semester)
         {
-            return MarkDAO.loadMarkByClass(nameClass, schoolYear, semester);
+            List<MarkDTO> result = MarkDAO.loadMarkByClass(nameClass, schoolYear, semester);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    double a = (result[i].FirstFifteenMinutesMark + result[i].SecondFifteenMinutesMark + result[i].ThirdFifteenMinutesMark + result[i].FirstFortyFiveMinutesMark * 2 + result[i].SecondFortyFiveMinutesMark * 2 + result[i].ThirdFortyFiveMinutesMark * 2 + result[i].SemesterScore * 3) / 12;
+                    a = Math.Round(a, 2);
+                    result[i].AverageMark = a;
+                }
+                return result;
+            }
+            return null;
         }
 
         public static List<MarkDTO> searchStudent_Mark(string keyWord, string nameSubject, string nameClass, string schoolYear, string semester)
         {
-            return MarkDAO.searchStudent_Mark(keyWord, nameSubject, nameClass, schoolYear, semester);
+            List<MarkDTO> result = MarkDAO.searchStudent_Mark(keyWord, nameSubject, nameClass, schoolYear, semester);
+            if (result != null)
+            {
+                int n = result.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    double a = (result[i].FirstFifteenMinutesMark + result[i].SecondFifteenMinutesMark + result[i].ThirdFifteenMinutesMark + result[i].FirstFortyFiveMinutesMark * 2 + result[i].SecondFortyFiveMinutesMark * 2 + result[i].ThirdFortyFiveMinutesMark * 2 + result[i].SemesterScore * 3) / 12;
+                    a = Math.Round(a, 2);
+                    result[i].AverageMark = a;
+                }
+                return result;
+            }
+            return null;
         }
 
         public static bool UpdateScore(string idStudent, string nameClass, string schoolYear, string idSubject,string semester, MarkDTO mark)
         {
-            return MarkDAO.UpdateScore(idStudent, nameClass, schoolYear, idSubject,semester, mark);
+          return MarkDAO.UpdateScore(idStudent, nameClass, schoolYear, idSubject,semester, mark);
         }
 
         public static bool removeMark(string IDStudent, string nameClass, string schoolYear)

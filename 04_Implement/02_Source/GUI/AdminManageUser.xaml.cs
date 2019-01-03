@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -21,6 +22,7 @@ namespace GUI
     public sealed partial class AdminManageUser : Page
     {
         private List<PeopleDTO> users = new List<PeopleDTO>();
+        bool isLoaded = false;
         public AdminManageUser()
         {
             users.Add(new PeopleDTO {Id ="1612556",Name="Nguyen Hoang Sang", Type="Student", Status="Active",DateofBith="16/8/1998",Gender="Male",Email="test@gmail.com",Password="123",Phone="0123456789"});
@@ -38,7 +40,20 @@ namespace GUI
 
         private void Window_Loaded_User(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = users;    
+            isLoaded = true;
+            // listviewUser.ItemsSource = users;    
+           if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListStudent(chooseStatus.SelectedValue.ToString());
+            }
+           else if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Teacher")
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListTeacher(chooseStatus.SelectedValue.ToString());
+            }
+           else
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -50,6 +65,14 @@ namespace GUI
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
+            PeopleDTO item = (PeopleDTO)listviewUser.SelectedItems[0];
+            if (!AdminBUS.resetPassword(item.Id,password_user_infor.Password,item.Type))
+            {
+                MessageBox.Show("Change password failed");
+                return;
+            }
+
+
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             password_user_infor.IsEnabled = false;
@@ -102,6 +125,69 @@ namespace GUI
                 else if (item.Status == "Deactive")
                 {
                     btnActive.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        private void ChooseAuthor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isLoaded)
+            {
+                if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListStudent(chooseStatus.SelectedValue.ToString());
+                }
+                else if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Teacher")
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListTeacher(chooseStatus.SelectedValue.ToString());
+                }
+                else
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
+                }
+            }
+        }
+
+        private void ChooseStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isLoaded)
+            {
+                if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListStudent(chooseStatus.SelectedValue.ToString());
+                }
+                else if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Teacher")
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListTeacher(chooseStatus.SelectedValue.ToString());
+                }
+                else
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
+                }
+            }
+        }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            listviewUser.ItemsSource = AdminBUS.searchUser(chooseAuthor.SelectedValue.ToString(), chooseStatus.SelectedValue.ToString(), searchUser.Text);
+
+        }
+
+        private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(searchUser.Text))
+            {
+                if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListStudent(chooseStatus.SelectedValue.ToString());
+                }
+                else if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Teacher")
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListTeacher(chooseStatus.SelectedValue.ToString());
+                }
+                else
+                {
+                    listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
                 }
             }
         }

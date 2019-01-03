@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -46,19 +46,83 @@ namespace GUI
             gender_ad_infor.IsEnabled = false;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
+
+            string idAdmin = id_ad_infor.Text;
+            string Name = Global.Admin.Name;
+            string Gender = gender_ad_infor.Text;
+            string Email = email_ad_infor.Text;
+            string Phone = phone_ad_infor.Text;
+            string BirthDay = birthofday_ad_infor.Text;
+
+            if (AdminBUS.changeMyInfomation(idAdmin, Name, Gender, Email, Phone, BirthDay))
+            {
+                Global.Admin.Name = Name;
+                Global.Admin.Gender = Gender;
+                Global.Admin.Email = Email;
+                Global.Admin.Phone = Phone;
+
+                Global.Admin.DateofBith = BirthDay;
+
+
+                id_ad_infor.Text = Global.Admin.Id;
+                birthofday_ad_infor.Text = Global.Admin.DateofBith;
+                phone_ad_infor.Text = Global.Admin.Phone;
+                email_ad_infor.Text = Global.Admin.Email;
+
+
+                if (Global.Admin.Gender == "Male")
+                {
+                    gender_ad_infor.SelectedIndex = 1;
+                }
+                else if (Global.Admin.Gender == "Female")
+                {
+                    gender_ad_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_ad_infor.SelectedIndex = 0;
+                }
+
+                // Teacher = Global.Teacher;
+            }
+            else
+            {
+                id_ad_infor.Text = Global.Admin.Id;
+                birthofday_ad_infor.Text = Global.Admin.DateofBith;
+                phone_ad_infor.Text = Global.Admin.Phone;
+                email_ad_infor.Text = Global.Admin.Email;
+
+
+                if (Global.Admin.Gender == "Male")
+                {
+                    gender_ad_infor.SelectedIndex = 1;
+                }
+                else if (Global.Admin.Gender == "Female")
+                {
+                    gender_ad_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_ad_infor.SelectedIndex = 0;
+                }
+
+
+                MessageBox.Show("Update your information failed");
+            }
+
         }
         private void Window_Loaded_AdminInformation(object sender, RoutedEventArgs e)
         {
-            fullname_ad_infor.Text = test.Name;
-            id_ad_infor.Text = test.Id;
-            birthofday_ad_infor.Text = test.DateofBith;
-            phone_ad_infor.Text = test.Phone;
-            email_ad_infor.Text = test.Email;
-            if (test.Gender == "Male")
+            fullname_ad_infor.Text = Global.Admin.Name;
+            id_ad_infor.Text = Global.Admin.Id;
+            birthofday_ad_infor.Text = Global.Admin.DateofBith;
+            phone_ad_infor.Text = Global.Admin.Phone;
+            email_ad_infor.Text = Global.Admin.Email;
+            if (Global.Admin.Gender == "Male")
             {
                 gender_ad_infor.SelectedIndex = 1;
             }
-            else if (test.Gender == "Female")
+            else if (Global.Admin.Gender == "Female")
             {
                 gender_ad_infor.SelectedIndex = 2;
             }

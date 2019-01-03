@@ -57,7 +57,7 @@ namespace GUI
         {
             isLoaded = true;
             id_title.Content = Global.Student.Id;
-            if (Global.Teacher.NamePosition == "PDT")
+            if (Global.Teacher.Type == "PDT")
             {
                 listSubject = SubjectBUS.loadListNameSubject();
                 listSubject.Add("All");

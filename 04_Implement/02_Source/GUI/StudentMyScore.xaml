@@ -14,7 +14,7 @@
         <DataTemplate x:Key="ScoreTemplate" DataType="MarkDTO">
             <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}">
             <StackPanel Background="#CFE6FF"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
-                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="170" Foreground="#305066" Content="{Binding IdSubject}" FontSize="14" FontWeight="Bold"/>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" Height="35" Width="170" Foreground="#305066" Content="{Binding Subject.NameSubject}" FontSize="14" FontWeight="Bold"/>
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Height="35" Width="105" Foreground="#305066" Content="{Binding FirstFifteenMinutesMark}" FontSize="14"/>
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Width="105" Foreground="#305066" Content="{Binding SecondFifteenMinutesMark}" FontSize="14"/>
                 <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Height="35" Width="105" Foreground="#305066" Content="{Binding ThirdFifteenMinutesMark}" FontSize="14"/>
@@ -31,7 +31,7 @@
         <Grid>
             <StackPanel Margin="0,25,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold">Subject:</Label>
-                <ComboBox Width="170" Name="chooseSubject" Loaded="Combobox_Loaded_Subject" FontSize="14">
+                <ComboBox Width="170" Name="chooseSubject" Loaded="Combobox_Loaded_Subject" FontSize="14" SelectionChanged="ChooseSubject_SelectionChanged">
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Grade:</Label>
                 <ComboBox Width="70" Name="chooseYear" FontSize="14">
@@ -40,7 +40,7 @@
                     <ComboBoxItem FontSize="14">12</ComboBoxItem>
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
-                <ComboBox Width="40" Name="chooseSemester" FontSize="14">
+                <ComboBox Width="40" Name="chooseSemester" FontSize="14" SelectionChanged="ChooseSemester_SelectionChanged">
                     <ComboBoxItem FontSize="14" IsSelected="True">I</ComboBoxItem>
                     <ComboBoxItem FontSize="14">II</ComboBoxItem>
                 </ComboBox>

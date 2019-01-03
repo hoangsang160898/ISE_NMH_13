@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -21,7 +21,10 @@ namespace GUI
     {
         public DashboardAdmin()
         {
+          
             InitializeComponent();
+            fullname_title.Content = Global.Admin.Name;
+            class_title.Content = Global.Admin.Type;
         }
 
         private void btnMini_Click(object sender, RoutedEventArgs e)

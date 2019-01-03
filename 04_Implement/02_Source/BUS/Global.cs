@@ -14,5 +14,6 @@ namespace BUS
         public static List<MarkDTO> listMark;
         public static List<SubjectDTO> listSubject;
         public static MarkDTO Mark;
+        public static AdminDTO Admin;
     }
 }

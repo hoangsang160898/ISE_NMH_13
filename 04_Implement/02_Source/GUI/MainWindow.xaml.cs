@@ -107,7 +107,7 @@ namespace GUI
                 this.Close();
             }*/
 
-            // Tao code
+            
             if (rb_tc.IsChecked == false && rb_st.IsChecked == false && rb_ad.IsChecked == false)
             {
                 lblErrorMessage_3.Content = "You must choose a authorities.";
@@ -137,7 +137,7 @@ namespace GUI
             }
             else if (rb_ad.IsChecked == true)
             {
-                if (userLogIn == "admin" && passLogIn == "123")
+                if (AdminBUS.Login(userLogIn, passLogIn) != null)
                 {
                     var window = new DashboardAdmin();
                     window.Show();
@@ -145,10 +145,14 @@ namespace GUI
                 }
                 else
                 {
-                   /* lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
+                    lblErrorMessage_1.Content = "The username that you've entered" + "\n" + "doesn't match any account.";
                     lblErrorMessage_1.Visibility = Visibility.Visible;
                     uiErrorSp_1.Visibility = Visibility.Visible;
-                    dispatcherTimer.Start();*/
+                    dispatcherTimer.Start();
+                    lblErrorMessage_2.Content = "The password that you've entered" + "\n" + "is incorrect.";
+                    lblErrorMessage_2.Visibility = Visibility.Visible;
+                    uiErrorSp_2.Visibility = Visibility.Visible;
+                    dispatcherTimer.Start();
                 }
             }
             else if (rb_st.IsChecked == true)

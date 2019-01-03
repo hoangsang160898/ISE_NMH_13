@@ -529,6 +529,7 @@ namespace DAO
                     teacher.Email = dt.Rows[i]["Email"].ToString();
                     teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
                     teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
+                    teacher.Phone = dt.Rows[i]["Phone"].ToString();
                     result.Add(teacher);
                 }
                 DataProvider.CloseConnection(con);
@@ -561,6 +562,7 @@ namespace DAO
                     teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
                     teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
                     teacher.NamePosition = "Homeroom Teacher";
+                    teacher.Phone = dt.Rows[i]["Phone"].ToString();
                     result.Add(teacher);
                 }
                 DataProvider.CloseConnection(con);
@@ -591,7 +593,8 @@ namespace DAO
                     teacher.Email = dt.Rows[i]["Email"].ToString();
                     teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
                     teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
-                    teacher.NamePosition = "Academic Affair Office Staff";
+                    teacher.NamePosition = "AAO Staff";
+                    teacher.Phone = dt.Rows[i]["Phone"].ToString();
                     result.Add(teacher);
                 }
                 DataProvider.CloseConnection(con);
@@ -623,6 +626,7 @@ namespace DAO
                     teacher.DateofBith = dt.Rows[i]["BirthDay"].ToString();
                     teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
                     teacher.NamePosition = "Subject Teacher";
+                    teacher.Phone = dt.Rows[i]["Phone"].ToString();
                     result.Add(teacher);
                 }
                 DataProvider.CloseConnection(con);
@@ -675,7 +679,7 @@ namespace DAO
                     teacher.Type = dt.Rows[i]["TypeTeacher"].ToString();
                     if (position == "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
                     {
-                        teacher.NamePosition = "Academic Affair Office Staff";
+                        teacher.NamePosition = "AAO Staff";
                     }
                     else if (position == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
                     {

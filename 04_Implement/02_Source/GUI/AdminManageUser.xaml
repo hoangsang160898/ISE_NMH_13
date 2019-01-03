@@ -26,14 +26,14 @@
         <Grid>
             <StackPanel Margin="0,80,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" FontSize="14" FontWeight="Bold" Content="Authories:"/>
-                <ComboBox Width="100" x:Name="chooseAuthor" FontSize="14">
+                <ComboBox Width="100" x:Name="chooseAuthor" FontSize="14" SelectionChanged="ChooseAuthor_SelectionChanged">
                     <ComboBoxItem IsSelected="True" FontSize="14" Content="All"/>
                     <ComboBoxItem FontSize="14" Content="Student"/>
                     <ComboBoxItem FontSize="14" Content="Teacher"/>
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Status:"/>
-                <ComboBox Width="70" x:Name="chooseStatus" FontSize="14">
-                    <ComboBoxItem FontSize="14" IsSelected="True" Content="All"/>
+                <ComboBox Width="70" x:Name="chooseStatus" FontSize="14" SelectionChanged="ChooseStatus_SelectionChanged">
+                    <ComboBoxItem IsSelected="True" FontSize="14"  Content="All"/>
                     <ComboBoxItem FontSize="14" Content="Active"/>
                     <ComboBoxItem FontSize="14" Content="Deactive"/>
                 </ComboBox>
@@ -58,7 +58,7 @@
             
             </ListView>
 
-            <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="308,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" Name="searchUser"/>
+            <TextBox  materialDesign:HintAssist.Hint="Search..." HorizontalAlignment="Left" FontSize="14" Height="39" Margin="308,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" Name="searchUser" TextChanged="SearchUser_TextChanged"/>
             <Image Source="img/icons/manageuser_avatar.png" Width="100" Height="100" Margin="741,130,187,361"></Image>
             <Label Content="Full name:"  HorizontalAlignment="Left" Margin="596,257,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140" Height="34"/>
             <Label Content="Date of birth:"  HorizontalAlignment="Left" Margin="596,297,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="140"/>
@@ -102,7 +102,7 @@
             </Button>
             <Label Content="Password"  HorizontalAlignment="Left" Margin="596,382,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
             <PasswordBox IsEnabled="False" materialDesign:HintAssist.Hint="Select user to continue" BorderThickness="0" x:Name="password_user_infor" HorizontalAlignment="Left" Margin="741,382,0,0" VerticalAlignment="Top" FontSize="17" Width="175"/>
-            <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="786,32,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="786,32,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Search_Click"/>
         </Grid>
     </materialDesign:TransitioningContent>
 </Page>

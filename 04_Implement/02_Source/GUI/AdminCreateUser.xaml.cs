@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
-
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -44,11 +44,44 @@ namespace GUI
 
         private void btnDoneofAddUser_click(object sender, RoutedEventArgs e)
         {
+            StudentDTO temp = new StudentDTO();
+            temp.Id = id_adduser.Text;
+            temp.Email = email_adduser.Text;
+            temp.DateofBith = birthofday_adduser.Text;
+            temp.Phone = phone_adduser.Text;
+            temp.Gender = gender_adduser.Text;
+            temp.Password = password_adduser.Password.ToString();
+            temp.Name = fname_adduser.Text;
+
+            if (id_adduser.Text == "" || email_adduser.Text == "" || birthofday_adduser.Text == "" || phone_adduser.Text == "" || gender_adduser.Text == "" || password_adduser.Password.ToString() == "" || passwordconfirm_adduser.Password.ToString() == "")
+            {
+                MessageBox.Show("You must fill out the infomation");
+                return;
+            }
+
+            if (password_adduser.Password.ToString() != passwordconfirm_adduser.Password.ToString())
+            {
+                MessageBox.Show("Password and Confirm Password does not match");
+                return;
+            }
+
+
+
+            if (AcademicAffairsOfficeBUS.addNewStudent(temp) == false)
+            {
+                MessageBox.Show("Add student failed");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Add successfully");
+            }
+
             id_adduser.Text = "";
             email_adduser.Text = "";
             birthofday_adduser.Text = "";
             phone_adduser.Text = "";
-           
+            fname_adduser.Text = "";
             chooseYear.SelectedIndex = 0;
             gender_adduser.Text = "";
             password_adduser.Clear();
@@ -65,7 +98,7 @@ namespace GUI
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
-            combo.ItemsSource = years;
+            combo.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
             combo.SelectedIndex = 0;
         }
     }
