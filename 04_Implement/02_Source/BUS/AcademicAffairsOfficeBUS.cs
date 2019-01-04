@@ -10,7 +10,7 @@ namespace BUS
     public class AcademicAffairsOfficeBUS
     {
         private static AcademicAffairsOfficeBUS instance;
-        private AcademicAffairsOfficeBUS() {}
+        private AcademicAffairsOfficeBUS() { }
 
         public static AcademicAffairsOfficeBUS Instance
         {
@@ -56,7 +56,7 @@ namespace BUS
             if (result == null)
                 return null;
             int n = result.Count;
-            for (int i=0;i<n;i++)
+            for (int i = 0; i < n; i++)
             {
                 string temp = result[i].DateofBith;
                 TeacherBUS.StandalizedBirthDayToUI(ref temp);
@@ -99,11 +99,11 @@ namespace BUS
 
         public static List<StudentDTO> LoadStudent(string nameClass, string schoolYear, string status)
         {
-            List<StudentDTO> result= AcademicAffairsOfficeDAO.LoadStudent(nameClass, schoolYear, status);
+            List<StudentDTO> result = AcademicAffairsOfficeDAO.LoadStudent(nameClass, schoolYear, status);
             if (result != null)
             {
                 int n = result.Count;
-                for (int i=0;i<n;i++)
+                for (int i = 0; i < n; i++)
                 {
                     string birthDay = result[i].DateofBith;
                     TeacherBUS.StandalizedBirthDayToUI(ref birthDay);
@@ -112,7 +112,7 @@ namespace BUS
                 return result;
             }
             return null;
-        } 
+        }
 
         public static bool InsertStudentToClass(string IDStudent, string nameClass, string schoolYear)
         {
@@ -160,13 +160,13 @@ namespace BUS
             if (result != null)
             {
                 int n = result.Count;
-                for (int i=0;i<n;i++)
+                for (int i = 0; i < n; i++)
                 {
                     if (result[i].Type == "PDT")
                     {
                         result[i].NamePosition = "Academic Affair Offfice Staff";
                     }
-                    else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id,"2018-2019"))
+                    else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id, "2018-2019"))
                     {
                         result[i].NamePosition = "Homeroom Teacher";
                     }
@@ -276,6 +276,138 @@ namespace BUS
         public static int getSumStudent(string nameClass, string schoolYear)
         {
             return AcademicAffairsOfficeDAO.getSumStudent(nameClass, schoolYear);
+        }
+
+        public static bool isPass(string idStudent, string nameClass, string schoolYear, string subject, string semester)
+        {
+            List<MarkDTO> mark = MarkBUS.loadMark(idStudent, nameClass, schoolYear, semester, subject);
+
+            double average = mark[0].AverageMark;
+            return (average >= 5);
+        }
+
+        public static int getSumStudentPass(string nameClass, string schoolYear, string subject, string semester)
+        {
+            List<StudentDTO> students = AcademicAffairsOfficeBUS.loadListStudent(nameClass, schoolYear);
+            int count = 0;
+            int n = students.Count;
+            for (int i = 0; i < n; i++)
+            {
+                if (AcademicAffairsOfficeBUS.isPass(students[i].Id, nameClass, schoolYear, subject, semester))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        public static double getRatio(string nameClass, string schoolYear, string subject, string semester)
+        {
+            double ratio = (double)AcademicAffairsOfficeBUS.getSumStudentPass(nameClass, schoolYear, subject, semester) / getSumStudent(nameClass, schoolYear);
+            ratio = Math.Round(ratio, 2);
+            return ratio;
+        }
+
+        public static List<Report> loadReport(string semester, string schoolYear, string subject, List<string> listNameClass)
+        {
+            List<Report> result = new List<Report>();
+            int n = listNameClass.Count;
+            if (semester == "System.Windows.Controls.ComboBoxItem: I")
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    Report student = new Report();
+                    student.stt = i + 1;
+                    student.nameClass = listNameClass[i];
+                    student.tt = AcademicAffairsOfficeBUS.getSumStudent(listNameClass[i], schoolYear);
+                    student.pass = AcademicAffairsOfficeBUS.getSumStudentPass(listNameClass[i], schoolYear, subject, "1");
+                    student.scale = AcademicAffairsOfficeBUS.getRatio(listNameClass[i], schoolYear, subject, "1");
+                    result.Add(student);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    Report student = new Report();
+                    student.stt = i + 1;
+                    student.nameClass = listNameClass[i];
+                    student.tt = AcademicAffairsOfficeBUS.getSumStudent(listNameClass[i], schoolYear);
+                    student.pass = AcademicAffairsOfficeBUS.getSumStudentPass(listNameClass[i], schoolYear, subject, "2");
+                    student.scale = AcademicAffairsOfficeBUS.getRatio(listNameClass[i], schoolYear, subject, "2");
+                    result.Add(student);
+                }
+            }
+            return result;
+        }
+
+
+        public static bool isPassAllSubject(string idStudent, string nameClass, string schoolYear, List<string> listSubject, string semester)
+        {
+            int n = listSubject.Count;
+            double sum = 0;
+            for (int i=0;i<n;i++)
+            {
+                List<MarkDTO> mark = MarkBUS.loadMark(idStudent, nameClass, schoolYear, semester,listSubject[i]);
+                sum += mark[0].AverageMark;
+            }
+            sum = sum / n;
+            sum = Math.Round(sum, 2);
+            return (sum >= 5);
+        }
+
+        public static List<Report> loadReport(string semester, string schoolYear, List<string> listSubject, List<string> listNameClass)
+        {
+            List<Report> result = new List<Report>();
+            int n = listNameClass.Count;
+           
+            if (semester == "System.Windows.Controls.ComboBoxItem: I")
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    Report student = new Report();
+                    student.stt = i + 1;
+                    student.nameClass = listNameClass[i];
+                    student.tt = AcademicAffairsOfficeBUS.getSumStudent(listNameClass[i], schoolYear);
+                    List<StudentDTO> students = AcademicAffairsOfficeBUS.loadListStudent(listNameClass[i], schoolYear);
+                    for (int j=0;j<students.Count;j++)
+                    {
+                        if (isPassAllSubject(students[j].Id, listNameClass[i], schoolYear, listSubject, "1"))
+                        {
+                            student.pass++;
+                        }
+                    }
+
+
+                    student.scale = (double)student.pass / student.tt;
+                    student.scale = Math.Round(student.scale, 2);
+                    result.Add(student);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    Report student = new Report();
+                    student.stt = i + 1;
+                    student.nameClass = listNameClass[i];
+                    student.tt = AcademicAffairsOfficeBUS.getSumStudent(listNameClass[i], schoolYear);
+                    List<StudentDTO> students = AcademicAffairsOfficeBUS.loadListStudent(listNameClass[i], schoolYear);
+                    for (int j = 0; j < students.Count; j++)
+                    {
+                        if (isPassAllSubject(students[j].Id, listNameClass[i], schoolYear, listSubject, "2"))
+                        {
+                            student.pass++;
+                        }
+                    }
+
+
+                    student.scale = (double)student.pass / student.tt;
+                    student.scale = Math.Round(student.scale, 2);
+                    result.Add(student);
+                }
+            }
+            return result;
         }
     }
 }

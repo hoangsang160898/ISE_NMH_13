@@ -28,13 +28,13 @@
             <StackPanel Margin="0,25,0,0" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Type:"/>
                 <ComboBox Width="130" x:Name="chooseType" FontSize="14" SelectionChanged="chooseType_SelectionChanged">
-                    <ComboBoxItem FontSize="14" IsSelected="True" Content="Semester"/>
-                    <ComboBoxItem FontSize="14" Content="Subject"/>
+                    <ComboBoxItem FontSize="14" IsSelected="True"  Content="Semester"/>
+                    <ComboBoxItem FontSize="14"  Content="Subject"/>
                 </ComboBox>
                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Subject:"/>
-                <ComboBox IsEnabled="False" Width="170" x:Name="chooseSubject" Loaded="Combobox_Loaded_Subject" FontSize="14"/>
+                <ComboBox IsEnabled="False" Width="170" x:Name="chooseSubject" Loaded="Combobox_Loaded_Subject" FontSize="14" SelectionChanged="ChooseSubject_SelectionChanged"/>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold" Content="Semester:"/>
-                <ComboBox Width="40" x:Name="chooseSemester" FontSize="14">
+                <ComboBox Width="40" x:Name="chooseSemester" FontSize="14" SelectionChanged="ChooseSemester_SelectionChanged">
                     <ComboBoxItem FontSize="14" IsSelected="True" Content="I"/>
                     <ComboBoxItem FontSize="14" Content="II"/>
                 </ComboBox>

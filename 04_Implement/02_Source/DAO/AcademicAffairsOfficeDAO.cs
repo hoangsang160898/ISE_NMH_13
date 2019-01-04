@@ -604,7 +604,7 @@ namespace DAO
 
         public static List<TeacherDTO> loadListSubjectTeacher(string schoolYear)
         {
-            string sCommand = @"Select* from Teacher T join Assign A on (T.IDTeacher = A.IDTeacher) where A.schoolYear = '" + schoolYear + "'";
+            string sCommand = "Select * from Teacher where IDTeacher in (select IDTeacher from Assign where schoolYear = '" + schoolYear+"')";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             if (dt.Rows.Count <= 0)
@@ -651,7 +651,7 @@ namespace DAO
             }
             else if (position == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
             {
-                sCommand = @"Select* from Teacher T join Assign A on (T.IDTeacher = A.IDTeacher) where A.schoolYear = '" + schoolYear + "' and ((T.Name like N'%" + textToSearch + "%') or (T.IDTeacher like '%" + textToSearch + "%'))";
+                sCommand = "Select * from Teacher where IDTeacher in (select IDTeacher from Assign where schoolYear = '" + schoolYear + "') and ((Name like N'%" + textToSearch + "%') or (IDTeacher like '%" + textToSearch + "%'))";
             }
             else
             {

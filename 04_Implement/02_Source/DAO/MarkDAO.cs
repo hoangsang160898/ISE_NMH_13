@@ -74,6 +74,7 @@ namespace DAO
             List<MarkDTO> result = new List<MarkDTO>();
             if (dt.Rows.Count <= 0)
             {
+                DataProvider.CloseConnection(con);
                 return null;
             }
             else
@@ -104,6 +105,7 @@ namespace DAO
                         temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
                     result.Add(temp);
                 }
+                DataProvider.CloseConnection(con);
                 return result;
             }
         }
