@@ -78,11 +78,11 @@ namespace GUI
                 Global.Teacher.Gender = Gender;
                 Global.Teacher.Email = Email;
                 Global.Teacher.Phone = Phone;
-
+                Global.Teacher.Id = idTeacher;
                 Global.Teacher.DateofBith = BirthDay;
 
                 fullname_tc_infor.Text = Global.Teacher.Name;
-                id_tc_infor.Text = Global.Teacher.Id;
+                id_tc_infor.Text = idTeacher;
                 birthofday_tc_infor.Text = Global.Teacher.DateofBith;
                 phone_tc_infor.Text = Global.Teacher.Phone;
                 email_tc_infor.Text = Global.Teacher.Email;
@@ -101,7 +101,24 @@ namespace GUI
                     gender_tc_infor.SelectedIndex = 0;
                 }
 
-                // Teacher = Global.Teacher;
+                if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListAAOS();
+                }
+                else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher(Global.schoolYear);
+                }
+                else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher(Global.schoolYear);
+                }
+                else
+                {
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListTeacher();
+                }
+
+                
             }
             else
             {
@@ -172,6 +189,8 @@ namespace GUI
                 {
                     position_tc_infor.SelectedIndex = 3;
                 }
+
+
             }
         }
 

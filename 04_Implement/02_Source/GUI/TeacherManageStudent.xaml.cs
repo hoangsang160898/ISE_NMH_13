@@ -73,6 +73,7 @@ namespace GUI
                 MessageBox.Show("Update information student failed");
                 return;
             }
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
 
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
@@ -89,18 +90,20 @@ namespace GUI
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
-            if (!AcademicAffairsOfficeBUS.deActiveStudent(item.Id))
+            if (listviewUser.SelectedItems.Count > 0)
             {
-                MessageBox.Show("Deactive Faidled");
+                StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
+                if (!AcademicAffairsOfficeBUS.deActiveStudent(item.Id))
+                {
+                    MessageBox.Show("Deactive Faidled");
+                }
+                listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
+
+
+
+                btnDelete.Visibility = Visibility.Collapsed;
+                btnActive.Visibility = Visibility.Visible;
             }
-            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
-        
-
-
-            btnDelete.Visibility = Visibility.Collapsed;
-            btnActive.Visibility = Visibility.Visible;
-
 
         }
 
@@ -112,14 +115,17 @@ namespace GUI
 
         private void btnActive_Click(object sender, RoutedEventArgs e)
         {
-            StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
-            if (!AcademicAffairsOfficeBUS.ActiveStudent(item.Id))
+            if (listviewUser.SelectedItems.Count > 0)
             {
-                MessageBox.Show("Active Faidled");
+                StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
+                if (!AcademicAffairsOfficeBUS.ActiveStudent(item.Id))
+                {
+                    MessageBox.Show("Active Faidled");
+                }
+                listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
+                btnDelete.Visibility = Visibility.Visible;
+                btnActive.Visibility = Visibility.Collapsed;
             }
-            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
-            btnDelete.Visibility = Visibility.Visible;
-            btnActive.Visibility = Visibility.Collapsed;
         }
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
