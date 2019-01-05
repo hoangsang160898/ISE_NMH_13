@@ -34,10 +34,8 @@
                 <ComboBox Width="170" Name="chooseSubject" Loaded="Combobox_Loaded_Subject" FontSize="14" SelectionChanged="ChooseSubject_SelectionChanged">
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Grade:</Label>
-                <ComboBox Width="70" Name="chooseYear" FontSize="14">
-                    <ComboBoxItem FontSize="14" IsSelected="True">10</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">11</ComboBoxItem>
-                    <ComboBoxItem FontSize="14">12</ComboBoxItem>
+                <ComboBox Width="70" Name="chooseYear" FontSize="14" SelectionChanged="ChooseYear_SelectionChanged">
+                   
                 </ComboBox>
                 <Label  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="14" FontWeight="Bold">Semester:</Label>
                 <ComboBox Width="40" Name="chooseSemester" FontSize="14" SelectionChanged="ChooseSemester_SelectionChanged">

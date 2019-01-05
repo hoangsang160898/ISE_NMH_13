@@ -27,7 +27,7 @@ namespace DAO
         // Log in va load thông tin
         public  static StudentDTO Login(string id, string pw)
         {
-            string sTruyVan = @"select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where S.IDStudent= '" + id + @"' and S.PassWord = '" + pw + "'";
+            string sTruyVan = @"select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where S.IsActive ='T' and S.IDStudent= '" + id + @"' and S.PassWord = '" + pw + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if(dt.Rows.Count == 0)

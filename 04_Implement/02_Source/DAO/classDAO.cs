@@ -69,7 +69,7 @@ namespace DAO
 
         public static List<string> loadSchoolYear()
         {
-            string sCommand = @"Select schoolYear from dbo.Class";
+            string sCommand = @"Select distinct schoolYear from dbo.Class";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             if (dt.Rows.Count == 0)

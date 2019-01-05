@@ -80,6 +80,24 @@ namespace GUI
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            PeopleDTO item = (PeopleDTO)listviewUser.SelectedItems[0];
+            if (!AdminBUS.DeActiveUser(item.Id,item.Type))
+            {
+                MessageBox.Show("Error", "Deactive user failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListStudent(chooseStatus.SelectedValue.ToString());
+            }
+            else if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Teacher")
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListTeacher(chooseStatus.SelectedValue.ToString());
+            }
+            else
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
+            }
+
             btnDelete.Visibility = Visibility.Collapsed;
             btnActive.Visibility = Visibility.Visible;
         }
@@ -91,6 +109,25 @@ namespace GUI
 
         private void btnActive_Click(object sender, RoutedEventArgs e)
         {
+            PeopleDTO item = (PeopleDTO)listviewUser.SelectedItems[0];
+            if (!AdminBUS.ActiveUser(item.Id, item.Type))
+            {
+                MessageBox.Show("Error", "Active user failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListStudent(chooseStatus.SelectedValue.ToString());
+            }
+            else if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Teacher")
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListTeacher(chooseStatus.SelectedValue.ToString());
+            }
+            else
+            {
+                listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
+            }
+
+
             btnDelete.Visibility = Visibility.Visible;
             btnActive.Visibility = Visibility.Collapsed;
         }

@@ -158,7 +158,7 @@ namespace BUS
         {
             return TeacherDAO.isMaster(id, nameClass, schoolYear);
         }
-        public static List<string> loadListSubjectToComboBox(string idTeacher, string nameClass, string schoolYear)
+        public static List<string> loadListSubjectToComboBoxInSearch(string idTeacher, string nameClass, string schoolYear)
         {
             if (TeacherBUS.isMaster(idTeacher,nameClass,schoolYear))
             {
@@ -171,6 +171,12 @@ namespace BUS
                 }
                 return result;
             }
+            return TeacherDAO.loadListSubjectToComboBox(idTeacher, nameClass, schoolYear);
+        }
+
+        public static List<string> loadListSubjectToComboBoxInUpdate(string idTeacher, string nameClass, string schoolYear)
+        {
+          
             return TeacherDAO.loadListSubjectToComboBox(idTeacher, nameClass, schoolYear);
         }
     }

@@ -59,8 +59,9 @@ namespace GUI
             chooseSubject.ItemsSource = subjects;
             chooseSubject.SelectedIndex = 0;
 
+            chooseYear.ItemsSource = AcademicAffairsOfficeBUS.getNameClassWithIDStudent(Global.Student.Id);
             //  chooseYear.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
-            //chooseYear.SelectedIndex = 0;
+            chooseYear.SelectedIndex = 0;
 
             if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
             {
@@ -74,15 +75,15 @@ namespace GUI
             if (chooseSubject.SelectedValue.ToString() == "All")
             {
 
-                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, "2018-2019", semester);
+                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester);
             }
             else
             {
                 // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-                test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, "2018-2019", semester, chooseSubject.SelectedValue.ToString());
+                test.ItemsSource = MarkBUS.loadMarkByNameWithoutSchoolYear(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester, chooseSubject.SelectedValue.ToString());
             }
 
-               
+
         }
 
         private void Combobox_Loaded_Subject(object sender, RoutedEventArgs e)
@@ -106,14 +107,15 @@ namespace GUI
                     semester = "2";
                 }
 
-                if (chooseSubject.SelectedValue.ToString() == "All")
+                if (chooseSubject.SelectedValue.ToString() == "All" && chooseYear.SelectedValue != null)
                 {
-                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, "2018-2019", semester);
+
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester);
                 }
-                else
+                else if (chooseYear.SelectedValue != null)
                 {
                     // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, "2018-2019", semester, chooseSubject.SelectedValue.ToString());
+                    test.ItemsSource = MarkBUS.loadMarkByNameWithoutSchoolYear(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester, chooseSubject.SelectedValue.ToString());
                 }
             }
         }
@@ -131,14 +133,41 @@ namespace GUI
                     semester = "2";
                 }
 
-                if (chooseSubject.SelectedValue.ToString() == "All")
+                if (chooseSubject.SelectedValue.ToString() == "All" && chooseYear.SelectedValue != null)
                 {
-                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, "2018-2019", semester);
+
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester);
+                }
+                else if (chooseYear.SelectedValue != null)
+                {
+                    // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
+                    test.ItemsSource = MarkBUS.loadMarkByNameWithoutSchoolYear(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester, chooseSubject.SelectedValue.ToString());
+                }
+            }
+        }
+
+        private void ChooseYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (chooseSubject.SelectedValue != null && chooseSemester.SelectedValue != null && chooseYear.SelectedValue != null)
+            {
+                if (chooseSemester.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: I")
+                {
+                    semester = "1";
                 }
                 else
                 {
+                    semester = "2";
+                }
+
+                if (chooseSubject.SelectedValue.ToString() == "All" && chooseYear.SelectedValue != null)
+                {
+
+                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester);
+                }
+                else if (chooseYear.SelectedValue != null)
+                {
                     // test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, Global.Student.SchoolYear, semester);
-                    test.ItemsSource = MarkBUS.loadMark(Global.Student.Id, Global.Student.NameClass, "2018-2019", semester, chooseSubject.SelectedValue.ToString());
+                    test.ItemsSource = MarkBUS.loadMarkByNameWithoutSchoolYear(Global.Student.Id, chooseYear.SelectedValue.ToString(), semester, chooseSubject.SelectedValue.ToString());
                 }
             }
         }

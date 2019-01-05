@@ -68,16 +68,16 @@ namespace GUI
             chooseSubject.ItemsSource = SubjectBUS.loadListNameSubject();
             chooseSubject.SelectedIndex = 0;
 
-            listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+            listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
             listNameSubject = SubjectBUS.loadListNameSubject();
 
             if (chooseType.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject")
             {
-                test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019",chooseSubject.SelectedValue.ToString(), listNameClass);
+                test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear,chooseSubject.SelectedValue.ToString(), listNameClass);
             }
             else
             {
-                test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", listNameSubject, listNameClass);
+                test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, listNameSubject, listNameClass);
             }
         }
 
@@ -108,15 +108,15 @@ namespace GUI
 
             if (isLoaded)
             {
-                listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+                listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
                 listNameSubject = SubjectBUS.loadListNameSubject();
                 if (chooseType.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject")
                 {
-                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", chooseSubject.SelectedValue.ToString(), listNameClass);
+                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, chooseSubject.SelectedValue.ToString(), listNameClass);
                 }
                 else
                 {
-                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", listNameSubject, listNameClass);
+                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, listNameSubject, listNameClass);
                 }
             }
         }
@@ -124,15 +124,15 @@ namespace GUI
         {
             if (isLoaded)
             {
-                listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+                listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
                 listNameSubject = SubjectBUS.loadListNameSubject();
                 if (chooseType.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject")
                 {
-                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", chooseSubject.SelectedValue.ToString(), listNameClass);
+                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, chooseSubject.SelectedValue.ToString(), listNameClass);
                 }
                 else
                 {
-                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", listNameSubject, listNameClass);
+                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, listNameSubject, listNameClass);
                 }
             }
         }
@@ -141,15 +141,15 @@ namespace GUI
         {
             if (isLoaded)
             {
-                listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+                listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
                 listNameSubject = SubjectBUS.loadListNameSubject();
                 if (chooseType.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject")
                 {
-                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", chooseSubject.SelectedValue.ToString(), listNameClass);
+                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, chooseSubject.SelectedValue.ToString(), listNameClass);
                 }
                 else
                 {
-                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), "2018-2019", listNameSubject, listNameClass);
+                    test.ItemsSource = AcademicAffairsOfficeBUS.loadReport(chooseSemester.SelectedValue.ToString(), Global.schoolYear, listNameSubject, listNameClass);
                 }
             }
         }

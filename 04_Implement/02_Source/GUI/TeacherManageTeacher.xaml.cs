@@ -188,11 +188,11 @@ namespace GUI
                 }
                 else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
                 {
-                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher("2018-2019");
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher(Global.schoolYear);
                 }
                 else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
                 {
-                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher("2018-2019");
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher(Global.schoolYear);
                 }
                 else
                 {
@@ -203,7 +203,7 @@ namespace GUI
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchTeacher(searchUser.Text, "2018-2019", choosePosition.SelectedValue.ToString());
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchTeacher(searchUser.Text, Global.schoolYear, choosePosition.SelectedValue.ToString());
         }
 
         private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
@@ -218,11 +218,11 @@ namespace GUI
                     }
                     else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Subject Teacher")
                     {
-                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher("2018-2019");
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListSubjectTeacher(Global.schoolYear);
                     }
                     else if (choosePosition.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
                     {
-                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher("2018-2019");
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListHomeRoomTeacher(Global.schoolYear);
                     }
                     else
                     {

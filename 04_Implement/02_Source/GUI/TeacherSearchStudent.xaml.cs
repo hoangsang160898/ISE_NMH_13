@@ -64,16 +64,16 @@ namespace GUI
                 chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(chooseYear.SelectedValue.ToString());
                 chooseClass.SelectedIndex = 0;
               
-                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedValue.ToString(), chooseYear.SelectedValue.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
             }
             else
             {
                 chooseYear.ItemsSource = TeacherBUS.loadSchoolYearToComboBox(Global.Teacher.Id);
                 chooseYear.SelectedIndex = 0;
-                chooseClass.ItemsSource = TeacherBUS.loadListClassToComboBox(Global.Teacher.Id, chooseYear.SelectedItem.ToString());
+                chooseClass.ItemsSource = TeacherBUS.loadListClassToComboBox(Global.Teacher.Id, chooseYear.SelectedValue.ToString());
                 chooseClass.SelectedIndex = 0;
-                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
+                Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedValue.ToString(), chooseYear.SelectedValue.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
                 listviewStudent.SelectedIndex = 0;
             }
@@ -155,10 +155,11 @@ namespace GUI
             
 
             Global.listStudent = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
-            if (Global.listStudent != null)
-            {
-                listviewStudent.ItemsSource = Global.listStudent;
-            }
+            /* if (Global.listStudent != null)
+             {
+                 listviewStudent.ItemsSource = Global.listStudent;
+             }*/
+            listviewStudent.ItemsSource = Global.listStudent;
         }
 
         private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -174,6 +175,16 @@ namespace GUI
         {
             if (chooseClass.SelectedItem != null && chooseYear.SelectedItem != null)
             {
+                if (Global.Teacher.Type == "PDT")
+                {
+                    chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(chooseYear.SelectedValue.ToString());
+                    chooseClass.SelectedIndex = 0;
+                }
+                else
+                {
+                    chooseClass.ItemsSource = TeacherBUS.loadListClassToComboBox(Global.Teacher.Id, chooseYear.SelectedValue.ToString());
+                    chooseClass.SelectedIndex = 0;
+                }
                 Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
             }

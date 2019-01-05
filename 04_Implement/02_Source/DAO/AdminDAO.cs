@@ -588,6 +588,55 @@ namespace DAO
 
         }
        
+        public static bool ActiveUser(string id, string type)
+        {
+            string sCommand = "";
+            if (type == "Student")
+            {
+                sCommand = @"update Student set IsActive = 'T' where IDStudent ='" + id + "'";
+            }
+            else
+            {
+                sCommand = @"update Teacher set IsActive = 'T' where IDTeacher ='" + id + "'";
+            }
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+        public static bool DeActiveUser(string id, string type)
+        {
+            string sCommand = "";
+            if (type == "Student")
+            {
+                sCommand = @"update Student set IsActive = 'F' where IDStudent ='" + id + "'";
+            }
+            else
+            {
+                sCommand = @"update Teacher set IsActive = 'F' where IDTeacher ='" + id + "'";
+            }
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
 
     }
 }

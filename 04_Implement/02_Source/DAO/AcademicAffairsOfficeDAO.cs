@@ -774,6 +774,36 @@ namespace DAO
                 return false;
             }
         }
+
+        public static int getCurrentStudent(string nameClass, string schoolYear)
+        {
+            string sCommand = string.Format(@"Select Count(Student.IDStudent) from Student_Class join Student on (Student_Class.IDStudent = Student.IDStudent) where nameClass = '{0}' and schoolYear = '{1}' and Student.isActive = 'T'", nameClass, schoolYear);
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return 0;
+            }
+            return int.Parse(dt.Rows[0][0].ToString());
+        }
+
+        public static List<string> getNameClassWithIDStudent(string IDStudent)
+        {
+            string sCommand = string.Format(@"Select nameClass from Student_Class where IDStudent = '{0}'", IDStudent);
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return null;
+            }
+            List<string> result = new List<string>();
+            int n = dt.Rows.Count;
+            for (int i=0;i<n;i++)
+            {
+                result.Add(dt.Rows[i][0].ToString());
+            }
+            return result;
+        }
     }
 
 }

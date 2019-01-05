@@ -40,6 +40,8 @@ namespace GUI
             dispatcherTimerForTip.Start();
 
             InitializeComponent();
+            List<string> listSchoolYear = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
+            Global.schoolYear = AcademicAffairsOfficeBUS.getCurrentSchoolYear(listSchoolYear);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

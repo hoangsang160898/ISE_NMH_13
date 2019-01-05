@@ -66,6 +66,50 @@ namespace DAO
             }
         }
 
+        public static List<MarkDTO> loadMark(string idStudent, string nameClass, string semester)
+        {
+            string sCommand = @"select* from dbo.Mark where IDStudent = '" + idStudent + "' and nameClass = '" + nameClass + "' and semester = " + int.Parse(semester);
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            List<MarkDTO> result = new List<MarkDTO>();
+            if (dt.Rows.Count <= 0)
+            {
+                return null;
+            }
+            else
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    MarkDTO temp = new MarkDTO();
+                    temp.IDStudent = dt.Rows[i]["IDStudent"].ToString();
+                    //   temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
+                    temp.NameClass = dt.Rows[i]["nameClass"].ToString();
+                    temp.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
+                    temp.Subject.IdSubject = dt.Rows[i]["IDSubject"].ToString();
+                    temp.Subject.NameSubject = SubjectDTO.getNameSubject(temp.Subject.IdSubject);
+                    temp.Semester = int.Parse(dt.Rows[i]["Semester"].ToString());
+                    if (dt.Rows[i]["FirstFifteenMinutes"].ToString() != "")
+                        temp.FirstFifteenMinutesMark = double.Parse(dt.Rows[i]["FirstFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFifteenMinutes"].ToString() != "")
+                        temp.SecondFifteenMinutesMark = double.Parse(dt.Rows[i]["SecondFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFifteenMinutes"].ToString() != "")
+                        temp.ThirdFifteenMinutesMark = double.Parse(dt.Rows[i]["ThirdFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["FirstFortyFiveMinutes"].ToString() != "")
+                        temp.FirstFortyFiveMinutesMark = double.Parse(dt.Rows[i]["FirstFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFortyFiveMinutes"].ToString() != "")
+                        temp.SecondFortyFiveMinutesMark = double.Parse(dt.Rows[i]["SecondFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFortyFiveMinutes"].ToString() != "")
+                        temp.ThirdFortyFiveMinutesMark = double.Parse(dt.Rows[i]["ThirdFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SemesterMark"].ToString() != "")
+                        temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
+                    result.Add(temp);
+                }
+                return result;
+            }
+        }
+
+
+
         public static List<MarkDTO> loadMark(string idStudent, string nameClass, string schoolYear, string semester, string nameSubject)
         {
             string sCommand = @"select* from dbo.Mark where IDStudent = '" + idStudent + "' and nameClass = '" + nameClass + "' and schoolYear = '" + schoolYear + "' and semester = " + int.Parse(semester) + "and IDSubject = '" + SubjectDTO.getIDSubject(nameSubject) + "'";
@@ -84,6 +128,51 @@ namespace DAO
                     MarkDTO temp = new MarkDTO();
                     temp.IDStudent = dt.Rows[i]["IDStudent"].ToString();
                  //   temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
+                    temp.NameClass = dt.Rows[i]["nameClass"].ToString();
+                    temp.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
+                    temp.Subject.IdSubject = dt.Rows[i]["IDSubject"].ToString();
+                    temp.Subject.NameSubject = SubjectDTO.getNameSubject(temp.Subject.IdSubject);
+                    temp.Semester = int.Parse(dt.Rows[i]["Semester"].ToString());
+                    if (dt.Rows[i]["FirstFifteenMinutes"].ToString() != "")
+                        temp.FirstFifteenMinutesMark = double.Parse(dt.Rows[i]["FirstFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFifteenMinutes"].ToString() != "")
+                        temp.SecondFifteenMinutesMark = double.Parse(dt.Rows[i]["SecondFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFifteenMinutes"].ToString() != "")
+                        temp.ThirdFifteenMinutesMark = double.Parse(dt.Rows[i]["ThirdFifteenMinutes"].ToString());
+                    if (dt.Rows[i]["FirstFortyFiveMinutes"].ToString() != "")
+                        temp.FirstFortyFiveMinutesMark = double.Parse(dt.Rows[i]["FirstFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SecondFortyFiveMinutes"].ToString() != "")
+                        temp.SecondFortyFiveMinutesMark = double.Parse(dt.Rows[i]["SecondFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["ThirdFortyFiveMinutes"].ToString() != "")
+                        temp.ThirdFortyFiveMinutesMark = double.Parse(dt.Rows[i]["ThirdFortyFiveMinutes"].ToString());
+                    if (dt.Rows[i]["SemesterMark"].ToString() != "")
+                        temp.SemesterScore = double.Parse(dt.Rows[i]["SemesterMark"].ToString());
+                    result.Add(temp);
+                }
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+        }
+
+
+        public static List<MarkDTO> loadMarkByNameWithoutSchoolYear(string idStudent, string nameClass, string semester, string nameSubject)
+        {
+            string sCommand = @"select* from dbo.Mark where IDStudent = '" + idStudent + "' and nameClass = '" + nameClass + "' and semester = " + int.Parse(semester) + "and IDSubject = '" + SubjectDTO.getIDSubject(nameSubject) + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            List<MarkDTO> result = new List<MarkDTO>();
+            if (dt.Rows.Count <= 0)
+            {
+                DataProvider.CloseConnection(con);
+                return null;
+            }
+            else
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    MarkDTO temp = new MarkDTO();
+                    temp.IDStudent = dt.Rows[i]["IDStudent"].ToString();
+                    //   temp.IdTeacher = dt.Rows[i]["IDTeacher"].ToString();
                     temp.NameClass = dt.Rows[i]["nameClass"].ToString();
                     temp.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
                     temp.Subject.IdSubject = dt.Rows[i]["IDSubject"].ToString();

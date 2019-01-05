@@ -101,7 +101,7 @@ namespace GUI
         private void ComboBox_Years_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
-            combo.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
+            combo.ItemsSource = new List<string> { Global.schoolYear };
             combo.SelectedIndex = 0;
         }
     }

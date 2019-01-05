@@ -71,7 +71,7 @@ namespace GUI
             namesubjects.IsReadOnly = true;
 
 
-            if (!AcademicAffairsOfficeBUS.updateRole(int.Parse(minage.Text), int.Parse(maxage.Text), int.Parse(passscore.Text), int.Parse(totalofclass.Text))) 
+            if (!AcademicAffairsOfficeBUS.updateRole(int.Parse(minage.Text), int.Parse(maxage.Text), double.Parse(passscore.Text), int.Parse(totalofclass.Text))) 
             {
                 MessageBox.Show("Change role failed");
             }

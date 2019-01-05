@@ -23,6 +23,8 @@ namespace GUI
     {
         private List<StudentDTO> users = new List<StudentDTO>();
         private List<StudentDTO> users2 = new List<StudentDTO>();
+        int count1 = 0;
+        int count2 = 0;
         public TeacherManageClasses()
         {
             users.Add(new StudentDTO { Id ="1612556",NameClass="12C1",SchoolYear="2018-2019",Name="Nguyen Hoang Sang", Type="Student", Status="Active",DateofBith="16/8/1998",Gender="Male",Email="test@gmail.com",Password="123",Phone="0123456789"});
@@ -46,23 +48,28 @@ namespace GUI
 
         private void Window_Loaded_Student(object sender, RoutedEventArgs e)
         {
+            lbl_Max1.Content = lbl_Max2.Content = AcademicAffairsOfficeBUS.getTotalStudent();
+           
             if (rb_add.IsChecked == true)
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass("2018-2019");
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass(Global.schoolYear);
 
-                chooseClass2.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+                chooseClass2.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
                 chooseClass2.SelectedIndex = 0;
 
+                lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
 
-
-                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
+                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
             }
             else if (rb_trans.IsChecked == true)
             {
-                chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+                chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
                 chooseClass.SelectedIndex = 0;
 
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+                lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
+
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
             }
         }
 
@@ -88,11 +95,11 @@ namespace GUI
             {
                 if (rb_add.IsChecked == true)
                 {
-                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass("2018-2019");
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass(Global.schoolYear);
                 }
                 else
                 {
-                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
                 }
             }
         }
@@ -103,14 +110,14 @@ namespace GUI
             controlLeft.Visibility = Visibility.Collapsed;
             btn_rtl.Visibility = Visibility.Collapsed;
 
-            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass("2018-2019");
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass(Global.schoolYear);
 
-            chooseClass2.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+            chooseClass2.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
             chooseClass2.SelectedIndex = 0;
 
 
 
-            listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
+            listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
 
         }
 
@@ -120,21 +127,21 @@ namespace GUI
             controlLeft.Visibility = Visibility.Visible;
             btn_rtl.Visibility = Visibility.Visible;
 
-            chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+            chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
             chooseClass.SelectedIndex = 0;
 
-            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
         }
 
         private void Btn_Search1_Click(object sender, RoutedEventArgs e)
         {
             if (rb_add.IsChecked == true)
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudentNotInClass(searchUser1.Text, "2018-2019");
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudentNotInClass(searchUser1.Text, Global.schoolYear);
             }
             else
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser1.Text, chooseClass.SelectedValue.ToString(), "2018-2019");
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser1.Text, chooseClass.SelectedValue.ToString(), Global.schoolYear);
             }
         }
 
@@ -142,7 +149,9 @@ namespace GUI
         {
             if (chooseStatus2.SelectedValue != null && chooseClass2.SelectedValue != null)
             {
-                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
+               // lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
+                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
             }
         }
 
@@ -150,20 +159,20 @@ namespace GUI
         {
             if (chooseStatus2.SelectedValue != null && chooseClass2.SelectedValue != null)
             {
-                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
+                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
             }
         }
 
         private void Btn_Search2_Click(object sender, RoutedEventArgs e)
         {
-            listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser2.Text, chooseClass2.SelectedValue.ToString(), "2018-2019");
+            listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser2.Text, chooseClass2.SelectedValue.ToString(), Global.schoolYear);
         }
 
         private void SearchUser2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(searchUser2.Text))
             {
-                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
+                listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
             }
         }
 
@@ -176,9 +185,17 @@ namespace GUI
                     if (Global.listStudent != null)
                     {
                         int n = Global.listStudent.Count;
+                        if (n + AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear) > AcademicAffairsOfficeBUS.getTotalStudent())
+                        {
+                            MessageBox.Show("Total students of class is added is higher than max number student in each class. Please check again");
+                            return;
+                        }
+
+                      
+
                         for (int i = 0; i < n; i++)
                         {
-                            if (AcademicAffairsOfficeBUS.InsertStudentToClass(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), "2018-2019"))
+                            if (AcademicAffairsOfficeBUS.InsertStudentToClass(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), Global.schoolYear))
                             {
 
                             }
@@ -187,7 +204,10 @@ namespace GUI
                                 MessageBox.Show("Add student has ID = " + Global.listStudent[i].Id + " failed");
                             }
                         }
-                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass("2018-2019");
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass(Global.schoolYear);
+                        listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
+                        lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                        lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
                     }
                 }
             }
@@ -198,10 +218,22 @@ namespace GUI
                     if (Global.listStudent != null)
                     {
                         int n = Global.listStudent.Count;
+                        if (n + AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear) > AcademicAffairsOfficeBUS.getTotalStudent())
+                        {
+                            MessageBox.Show("Total students of class is added is higher than max number student in each class. Please check again");
+                            return;
+                        }
+
+                        if (chooseClass.SelectedValue.ToString() == chooseClass2.SelectedValue.ToString())
+                        {
+                            MessageBox.Show("Transfer students between two classes must be different");
+                            return;
+                        }
+
                         List<MarkDTO> result = new List<MarkDTO>();
                         for (int i = 0; i < n; i++)
                         {
-                            List<MarkDTO> tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), "2018-2019", "1");
+                            List<MarkDTO> tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), Global.schoolYear, "1");
                             for (int j=0;j<tempList.Count;j++)
                             {
                                 result.Add(tempList[j]);
@@ -209,14 +241,14 @@ namespace GUI
 
                             tempList.Clear();
 
-                            tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), "2018-2019", "2");
+                            tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), Global.schoolYear, "2");
                             for (int j = 0; j < tempList.Count; j++)
                             {
                                 result.Add(tempList[j]);
                             }
 
-                            MarkBUS.removeMark(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), "2018-2019");
-                            AcademicAffairsOfficeBUS.updateClass(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), "2018-2019");
+                            MarkBUS.removeMark(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                            AcademicAffairsOfficeBUS.updateClass(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), Global.schoolYear);
 
                         }
                   
@@ -227,9 +259,10 @@ namespace GUI
                         }
 
 
-                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
-                        listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
-
+                        listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
+                        listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
+                        lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                        lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
                         // listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass("2018-2019");
                     }
                 }
@@ -276,7 +309,9 @@ namespace GUI
         {
             if (chooseStatus.SelectedValue != null && chooseClass.SelectedValue != null)
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+                lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+             //   lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
             }
         }
 
@@ -284,7 +319,7 @@ namespace GUI
         {
             if (chooseStatus.SelectedValue != null && chooseClass.SelectedValue != null)
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
             }
         }
 
@@ -295,10 +330,22 @@ namespace GUI
                 if (Global.listStudent != null)
                 {
                     int n = Global.listStudent.Count;
+                    if (n + AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear) > AcademicAffairsOfficeBUS.getTotalStudent())
+                    {
+                        MessageBox.Show("Total students of class is added is higher than max number student in each class. Please check again");
+                        return;
+                    }
+
+                    if (chooseClass.SelectedValue.ToString() == chooseClass2.SelectedValue.ToString())
+                    {
+                        MessageBox.Show("Transfer students between two classes must be different");
+                        return;
+                    }
+
                     List<MarkDTO> result = new List<MarkDTO>();
                     for (int i = 0; i < n; i++)
                     {
-                        List<MarkDTO> tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), "2018-2019", "1");
+                        List<MarkDTO> tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), Global.schoolYear, "1");
                         for (int j = 0; j < tempList.Count; j++)
                         {
                             result.Add(tempList[j]);
@@ -306,14 +353,14 @@ namespace GUI
 
                         tempList.Clear();
 
-                        tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), "2018-2019", "2");
+                        tempList = MarkBUS.loadMark(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), Global.schoolYear, "2");
                         for (int j = 0; j < tempList.Count; j++)
                         {
                             result.Add(tempList[j]);
                         }
 
-                        MarkBUS.removeMark(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), "2018-2019");
-                        AcademicAffairsOfficeBUS.updateClass(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), "2018-2019");
+                        MarkBUS.removeMark(Global.listStudent[i].Id, chooseClass2.SelectedValue.ToString(), Global.schoolYear);
+                        AcademicAffairsOfficeBUS.updateClass(Global.listStudent[i].Id, chooseClass.SelectedValue.ToString(), Global.schoolYear);
 
                     }
 
@@ -325,9 +372,10 @@ namespace GUI
                     }
 
 
-                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
-                    listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), "2018-2019", chooseStatus2.SelectedValue.ToString());
-
+                    listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
+                    listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
+                    lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                    lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
                     // listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass("2018-2019");
                 }
             }

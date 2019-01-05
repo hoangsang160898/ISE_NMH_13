@@ -26,7 +26,7 @@ namespace DAO
         // Login va load thong tin
         public static TeacherDTO Login(string id, string pw)
         {
-            string sTruyVan = @"select * from Teacher where IDTeacher= '" + id + @"' and PassWord = '" + pw + "'";
+            string sTruyVan = @"select * from Teacher where isActive ='T' and IDTeacher= '" + id + @"' and PassWord = '" + pw + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if (dt.Rows.Count == 0)

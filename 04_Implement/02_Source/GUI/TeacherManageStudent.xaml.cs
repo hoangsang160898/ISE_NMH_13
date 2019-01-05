@@ -41,10 +41,10 @@ namespace GUI
         {
 
 
-            chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox("2018-2019");
+            chooseClass.ItemsSource = AcademicAffairsOfficeBUS.loadListClassToComboBox(Global.schoolYear);
             chooseClass.SelectedIndex = 0;
 
-            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace GUI
             {
                 MessageBox.Show("Deactive Faidled");
             }
-            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
         
 
 
@@ -117,7 +117,7 @@ namespace GUI
             {
                 MessageBox.Show("Active Faidled");
             }
-            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+            listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
             btnDelete.Visibility = Visibility.Visible;
             btnActive.Visibility = Visibility.Collapsed;
         }
@@ -186,7 +186,7 @@ namespace GUI
         {
             if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
             }
         }
 
@@ -194,20 +194,20 @@ namespace GUI
         {
             if (chooseClass.SelectedValue != null && chooseStatus.SelectedValue != null)
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), "2018-2019", chooseStatus.SelectedValue.ToString());
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
             }
         }
 
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
-            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedValue.ToString(), "2018-2019");
+            listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedValue.ToString(), Global.schoolYear);
         }
 
         private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(searchUser.Text))
             {
-                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedValue.ToString(), "2018-2019");
+                listviewUser.ItemsSource = AcademicAffairsOfficeBUS.searchStudent(searchUser.Text, chooseClass.SelectedValue.ToString(), Global.schoolYear);
             }
         }
     }

@@ -37,6 +37,31 @@ namespace BUS
             return AcademicAffairsOfficeDAO.loadSchoolYearToComboBox();
         }
 
+        public static string getCurrentSchoolYear(List<string> listSchoolYear)
+        {
+            string tempYear = "";
+            string result = "";
+            List<string> temp = new List<string>();
+            int n = listSchoolYear.Count;
+            for (int i=0;i<n;i++)
+            {
+                string year = listSchoolYear[i][0].ToString() + listSchoolYear[i][1].ToString() + listSchoolYear[i][2].ToString() + listSchoolYear[i][3].ToString();
+                temp.Add(year);
+            }
+            n = temp.Count;
+            tempYear = temp[0];
+            result = listSchoolYear[0];
+            for (int i=1;i<n;i++)
+            {
+                if (int.Parse(temp[i]) > int.Parse(tempYear))
+                {
+                    tempYear = temp[i];
+                    result = listSchoolYear[i];
+                }
+            }
+            return result;
+        }
+
         public static List<StudentDTO> loadListStudent(string nameClass, string SchoolYear)
         {
             var result = AcademicAffairsOfficeDAO.LoadStudent(nameClass, SchoolYear);
@@ -166,7 +191,7 @@ namespace BUS
                     {
                         result[i].NamePosition = "Academic Affair Offfice Staff";
                     }
-                    else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id, "2018-2019"))
+                    else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id, Global.schoolYear))
                     {
                         result[i].NamePosition = "Homeroom Teacher";
                     }
@@ -254,7 +279,7 @@ namespace BUS
                         {
                             result[i].NamePosition = "Academic Affair Offfice Staff";
                         }
-                        else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id, "2018-2019"))
+                        else if (AcademicAffairsOfficeDAO.isMaster(result[i].Id, Global.schoolYear))
                         {
                             result[i].NamePosition = "Homeroom Teacher";
                         }
@@ -283,7 +308,7 @@ namespace BUS
             List<MarkDTO> mark = MarkBUS.loadMark(idStudent, nameClass, schoolYear, semester, subject);
 
             double average = mark[0].AverageMark;
-            return (average >= 5);
+            return (average >= AcademicAffairsOfficeBUS.getPassScore());
         }
 
         public static int getSumStudentPass(string nameClass, string schoolYear, string subject, string semester)
@@ -353,7 +378,7 @@ namespace BUS
             }
             sum = sum / n;
             sum = Math.Round(sum, 2);
-            return (sum >= 5);
+            return (sum >= AcademicAffairsOfficeBUS.getPassScore());
         }
 
         public static List<Report> loadReport(string semester, string schoolYear, List<string> listSubject, List<string> listNameClass)
@@ -428,7 +453,37 @@ namespace BUS
         }
         public static bool updateRole(int minAge, int maxAge, double passScore, int totalStudent)
         {
-            return updateRole(minAge, maxAge, passScore, totalStudent);
+            if (totalStudent < getMaxCurrentStudent(Global.schoolYear))
+            {
+                return false;
+            }
+            return AcademicAffairsOfficeDAO.updateRole(minAge, maxAge, passScore, totalStudent);
+        }
+
+        public static int getCurrentStudent(string nameClass, string schoolYear)
+        {
+            return AcademicAffairsOfficeDAO.getCurrentStudent(nameClass, schoolYear);
+        }
+
+        public static int getMaxCurrentStudent(string schoolYear)
+        {
+            List<string> listNameClass = AcademicAffairsOfficeBUS.loadListClassToComboBox(schoolYear);
+            int max = getCurrentStudent(listNameClass[0], schoolYear);
+            int n = listNameClass.Count;
+            for (int i=1;i<n;i++)
+            {
+                int temp = getCurrentStudent(listNameClass[i], schoolYear);
+                if (temp > max)
+                {
+                    max = temp;
+                }
+            }
+            return max;
+        }
+
+        public static List<string> getNameClassWithIDStudent(string IDStudent)
+        {
+            return AcademicAffairsOfficeDAO.getNameClassWithIDStudent(IDStudent);
         }
     }
 }

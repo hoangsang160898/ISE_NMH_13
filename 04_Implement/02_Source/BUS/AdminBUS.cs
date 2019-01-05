@@ -122,5 +122,15 @@ namespace BUS
         {
             return AdminDAO.resetPassword(ID, newPassWord, type);
         }
+
+        public static bool ActiveUser(string id, string type)
+        {
+            return AdminDAO.ActiveUser(id, type);
+        }
+
+        public static bool DeActiveUser(string id, string type)
+        {
+            return AdminDAO.DeActiveUser(id, type);
+        }
     }
 }
