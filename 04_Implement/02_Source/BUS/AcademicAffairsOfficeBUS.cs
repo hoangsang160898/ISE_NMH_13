@@ -409,5 +409,26 @@ namespace BUS
             }
             return result;
         }
+
+        public static int getMinAge()
+        {
+            return AcademicAffairsOfficeDAO.getMinAge();
+        }
+        public static int getMaxAge()
+        {
+            return AcademicAffairsOfficeDAO.getMaxAge();
+        }
+        public static int getPassScore()
+        {
+            return AcademicAffairsOfficeDAO.getPassScore();
+        }
+        public static int getTotalStudent()
+        {
+            return AcademicAffairsOfficeDAO.getTotalStudent();
+        }
+        public static bool updateRole(int minAge, int maxAge, double passScore, int totalStudent)
+        {
+            return updateRole(minAge, maxAge, passScore, totalStudent);
+        }
     }
 }

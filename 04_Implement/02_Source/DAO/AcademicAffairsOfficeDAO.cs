@@ -25,7 +25,7 @@ namespace DAO
         }
         public static List<StudentDTO> LoadStudent(string className, string SchoolYear)
         {
-            string sTruyVan = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + className + @"' and SC.schoolYear = '" + SchoolYear+"'";
+            string sTruyVan = @"Select * from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where SC.nameClass = '" + className + @"' and SC.schoolYear = '" + SchoolYear + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if (dt.Rows.Count == 0)
@@ -33,7 +33,7 @@ namespace DAO
                 return null;
             }
             List<StudentDTO> result = new List<StudentDTO>();
-            for (int i=0;i<dt.Rows.Count;i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 StudentDTO student = new StudentDTO();
                 student.Id = dt.Rows[i]["IDStudent"].ToString();
@@ -55,7 +55,7 @@ namespace DAO
         {
             string sCommand = @"Select Student.IDStudent, Student.Name, Mark.FirstFifteenMinutes, Mark.SecondFifteenMinutes, Mark.ThirdFifteenMinutes, Mark.FirstFortyFiveMinutes, Mark.SecondFortyFiveMinutes, Mark.ThirdFortyFiveMinutes, Mark.SemesterMark
                                 from Mark join Student on Mark.IDStudent = Student.IDStudent join Subject on Mark.IDSubject = Subject.IDSubject 
-                                where Mark.nameClass = '" + className + @"'and Mark.schoolYear = '" + schoolYear + @"'and Subject.NameSubject = N'" + nameSubject + @"'and Mark.Semester = '"+Semester+"'";
+                                where Mark.nameClass = '" + className + @"'and Mark.schoolYear = '" + schoolYear + @"'and Subject.NameSubject = N'" + nameSubject + @"'and Mark.Semester = '" + Semester + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             DataProvider.CloseConnection(con);
@@ -74,7 +74,7 @@ namespace DAO
             }
             List<string> result = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
-            {   
+            {
                 string id = dt.Rows[0][0].ToString();
                 result.Add(id);
             }
@@ -119,12 +119,12 @@ namespace DAO
         }
 
         // Hàm phục vụ cho việc tìm kiếm sinh viên lúc đang xem điểm (theo tên)
-        public static DataTable FindStudentByNameWhenGetListMark(string nameStudent,string className, string nameSubject, string schoolYear, string Semester)
+        public static DataTable FindStudentByNameWhenGetListMark(string nameStudent, string className, string nameSubject, string schoolYear, string Semester)
         {
             List<string> listID = FindStudentByName(nameStudent);
             string endCommand = "(N'";
             int n = listID.Count;
-            for (int i = 0; i< n;i++)
+            for (int i = 0; i < n; i++)
             {
                 if (i != n - 1)
                 {
@@ -136,10 +136,10 @@ namespace DAO
                 }
 
             }
-            
+
             string sCommand = @"Select Student.IDStudent, Student.Name, Mark.FirstFifteenMinutes, Mark.SecondFifteenMinutes, Mark.ThirdFifteenMinutes, Mark.FirstFortyFiveMinutes, Mark.SecondFortyFiveMinutes, Mark.ThirdFortyFiveMinutes, Mark.SemesterMark
                                 from Mark join Student on Mark.IDStudent = Student.IDStudent join Subject on Mark.IDSubject = Subject.IDSubject 
-                                where Mark.nameClass = '" + className + @"'and Mark.schoolYear = '" + schoolYear + @"'and Subject.NameSubject = N'" + nameSubject + @"'and Mark.Semester = '" + Semester + "' and Student.IDStudent in " + endCommand ;
+                                where Mark.nameClass = '" + className + @"'and Mark.schoolYear = '" + schoolYear + @"'and Subject.NameSubject = N'" + nameSubject + @"'and Mark.Semester = '" + Semester + "' and Student.IDStudent in " + endCommand;
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             DataProvider.CloseConnection(con);
@@ -152,7 +152,7 @@ namespace DAO
             string ID = FindStudentByID(id);
             string sCommand = @"Select Student.IDStudent, Student.Name, Mark.FirstFifteenMinutes, Mark.SecondFifteenMinutes, Mark.ThirdFifteenMinutes, Mark.FirstFortyFiveMinutes, Mark.SecondFortyFiveMinutes, Mark.ThirdFortyFiveMinutes, Mark.SemesterMark
                                 from Mark join Student on Mark.IDStudent = Student.IDStudent join Subject on Mark.IDSubject = Subject.IDSubject 
-                                where Mark.nameClass = '" + className + @"'and Mark.schoolYear = '" + schoolYear + @"'and Subject.NameSubject = N'" + nameSubject + @"'and Mark.Semester = '" + Semester + "' and Student.IDStudent = '" + ID+"'";
+                                where Mark.nameClass = '" + className + @"'and Mark.schoolYear = '" + schoolYear + @"'and Subject.NameSubject = N'" + nameSubject + @"'and Mark.Semester = '" + Semester + "' and Student.IDStudent = '" + ID + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             DataProvider.CloseConnection(con);
@@ -162,11 +162,11 @@ namespace DAO
         // Thêm học sinh mới
         public static bool AddNewStudent(StudentDTO student)
         {
-            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord, isActive) values ('{0}',N'{1}','{2}','{3}','{4}','{5}','{6}','{7}')",student.Id,student.Name,student.Gender,student.Email,student.Phone,student.DateofBith,student.Password,student.IsActive);
+            string sCommand = string.Format(@"Insert into Student(IDStudent,Name,Gender,Email,Phone,BirthDay,PassWord, isActive) values ('{0}',N'{1}','{2}','{3}','{4}','{5}','{6}','{7}')", student.Id, student.Name, student.Gender, student.Email, student.Phone, student.DateofBith, student.Password, student.IsActive);
             con = DataProvider.OpenConnection();
             try
             {
-                bool result  = DataProvider.ExecuteQuery(sCommand, con);
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
                 DataProvider.CloseConnection(con);
                 return result;
             }
@@ -175,7 +175,7 @@ namespace DAO
                 DataProvider.CloseConnection(con);
                 return false;
             }
-           
+
         }
 
         public static List<string> loadListClassToComboBox()
@@ -183,7 +183,7 @@ namespace DAO
             var temp = classDAO.loadListClass();
             int n = temp.Count;
             List<string> result = new List<string>();
-            for (int i=0; i<n;i++)
+            for (int i = 0; i < n; i++)
             {
                 string class_ = temp[i].Name;
                 result.Add(class_);
@@ -213,7 +213,7 @@ namespace DAO
 
         public static List<StudentDTO> searchStudent(string textToSearch, string nameClass, string schoolYear)
         {
-            string sCommand = @"Select* from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where ((S.Name like N'%" + textToSearch + "%') or (SC.IDStudent like '%"+textToSearch+"%')) and SC.nameClass = '" + nameClass + "' and SC.schoolYear = '" + schoolYear+"'";
+            string sCommand = @"Select* from Student S join Student_Class SC on (S.IDStudent = SC.IDStudent) where ((S.Name like N'%" + textToSearch + "%') or (SC.IDStudent like '%" + textToSearch + "%')) and SC.nameClass = '" + nameClass + "' and SC.schoolYear = '" + schoolYear + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             if (dt.Rows.Count == 0)
@@ -232,7 +232,7 @@ namespace DAO
                 student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
                 student.NameClass = dt.Rows[i]["nameClass"].ToString();
                 student.SchoolYear = dt.Rows[i]["schoolYear"].ToString();
-                if (dt.Rows[i]["isActive"].ToString()=="T")
+                if (dt.Rows[i]["isActive"].ToString() == "T")
                 {
                     student.IsActive = "Active";
                 }
@@ -254,14 +254,14 @@ namespace DAO
                                 where S.IDStudent in (select IDStudent from Student) and S.IDStudent not in (select IDStudent from Student_Class) and SC.schoolYear ='" + schoolYear + "'";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
-            if (dt.Rows.Count <=0)
+            if (dt.Rows.Count <= 0)
             {
                 DataProvider.CloseConnection(con);
                 return null;
             }
             int n = dt.Rows.Count;
             List<StudentDTO> result = new List<StudentDTO>();
-            for (int i=0;i<n;i++)
+            for (int i = 0; i < n; i++)
             {
                 StudentDTO student = new StudentDTO();
                 student.Id = dt.Rows[i]["IDStudent"].ToString();
@@ -270,7 +270,7 @@ namespace DAO
                 student.Email = dt.Rows[i]["Email"].ToString();
                 student.Phone = dt.Rows[i]["Phone"].ToString();
                 student.DateofBith = dt.Rows[i]["BirthDay"].ToString();
-                
+
                 if (dt.Rows[i]["isActive"].ToString() == "T")
                 {
                     student.Status = "Active";
@@ -379,7 +379,7 @@ namespace DAO
             con = DataProvider.OpenConnection();
             try
             {
-               bool result = DataProvider.ExecuteQuery(sCommand, con);
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
                 DataProvider.CloseConnection(con);
                 return result;
             }
@@ -416,7 +416,7 @@ namespace DAO
             {
                 result = DataProvider.ExecuteQuery(sCommand, con);
                 DataProvider.CloseConnection(con);
-                
+
             }
             catch (Exception ex)
             {
@@ -430,7 +430,7 @@ namespace DAO
             string[] idSubjects = { "MATH", "NV", "AV", "SH", "CN", "LS", "DL", "GDCD", "GDQP", "TH" };
 
             int n = idSubjects.Length;
-            for (int i=0;i<n;i++)
+            for (int i = 0; i < n; i++)
             {
                 initMark(1, nameClass, schoolYear, idSubjects[i], IDStudent);
                 initMark(2, nameClass, schoolYear, idSubjects[i], IDStudent);
@@ -441,7 +441,7 @@ namespace DAO
 
         public static bool updateInfoStudent(StudentDTO student)
         {
-            string sCommand = string.Format(@"Update student set Name = N'{0}', BirthDay = '{1}', Email = '{2}', Gender = '{3}', Phone = '{4}' where IDStudent = '{5}'",student.Name,student.DateofBith,student.Email,student.Gender,student.Phone,student.Id);
+            string sCommand = string.Format(@"Update student set Name = N'{0}', BirthDay = '{1}', Email = '{2}', Gender = '{3}', Phone = '{4}' where IDStudent = '{5}'", student.Name, student.DateofBith, student.Email, student.Gender, student.Phone, student.Id);
             con = DataProvider.OpenConnection();
             try
             {
@@ -520,7 +520,7 @@ namespace DAO
             {
                 List<TeacherDTO> result = new List<TeacherDTO>();
                 int n = dt.Rows.Count;
-                for (int i=0;i<n;i++)
+                for (int i = 0; i < n; i++)
                 {
                     TeacherDTO teacher = new TeacherDTO();
                     teacher.Id = dt.Rows[i]["IDTeacher"].ToString();
@@ -569,7 +569,7 @@ namespace DAO
                 return result;
             }
         }
-        
+
         public static List<TeacherDTO> loadListAAOS()
         {
             string sCommand = @"Select* from Teacher where TypeTeacher = 'PDT'";
@@ -604,7 +604,7 @@ namespace DAO
 
         public static List<TeacherDTO> loadListSubjectTeacher(string schoolYear)
         {
-            string sCommand = "Select * from Teacher where IDTeacher in (select IDTeacher from Assign where schoolYear = '" + schoolYear+"')";
+            string sCommand = "Select * from Teacher where IDTeacher in (select IDTeacher from Assign where schoolYear = '" + schoolYear + "')";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sCommand, con);
             if (dt.Rows.Count <= 0)
@@ -631,7 +631,7 @@ namespace DAO
                 }
                 DataProvider.CloseConnection(con);
 
-                
+
 
                 return result;
             }
@@ -640,10 +640,10 @@ namespace DAO
         public static List<TeacherDTO> searchTeacher(string textToSearch, string schoolYear, string position)
         {
             string sCommand = "";
-            
+
             if (position == "System.Windows.Controls.ComboBoxItem: Academic Affair Office Staff")
             {
-               sCommand = @"Select* from Teacher where TypeTeacher = 'PDT' and ((Name like N'%"+textToSearch+"%') or (IDTeacher like '%+"+textToSearch+"%'))";
+                sCommand = @"Select* from Teacher where TypeTeacher = 'PDT' and ((Name like N'%" + textToSearch + "%') or (IDTeacher like '%+" + textToSearch + "%'))";
             }
             else if (position == "System.Windows.Controls.ComboBoxItem: Homeroom Teacher")
             {
@@ -691,7 +691,7 @@ namespace DAO
                     }
 
 
-                     result.Add(teacher);
+                    result.Add(teacher);
                 }
                 DataProvider.CloseConnection(con);
 
@@ -710,8 +710,70 @@ namespace DAO
             return dt.Rows.Count;
         }
 
-        
+        public static int getMinAge()
+        {
+            string sCommand = @"Select minAge from Role";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return 0;
+            }
+            return int.Parse(dt.Rows[0]["minAge"].ToString());
+        }
+
+        public static int getMaxAge()
+        {
+            string sCommand = @"Select maxAge from Role";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return 0;
+            }
+            return int.Parse(dt.Rows[0]["maxAge"].ToString());
+        }
+
+        public static int getPassScore()
+        {
+            string sCommand = @"Select passScore from Role";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return 0;
+            }
+            return int.Parse(dt.Rows[0]["passScore"].ToString());
+        }
+
+        public static int getTotalStudent()
+        {
+            string sCommand = @"Select totalStudent from Role";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sCommand, con);
+            if (dt.Rows.Count <= 0)
+            {
+                return 0;
+            }
+            return int.Parse(dt.Rows[0]["totalStudent"].ToString());
+        }
+
+        public static bool updateRole(int minAge, int maxAge, double passScore, int totalStudent)
+        {
+            string sCommand = string.Format(@"update Role set minAge = {0}, maxAge = {1}, passScore = {2}, totalStudent = {3}", minAge, maxAge, passScore, totalStudent);
+            con = DataProvider.OpenConnection();
+            try
+            {
+                bool result = DataProvider.ExecuteQuery(sCommand, con);
+                DataProvider.CloseConnection(con);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
     }
 
-   
 }

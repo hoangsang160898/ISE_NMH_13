@@ -15,5 +15,6 @@ namespace BUS
         public static List<SubjectDTO> listSubject;
         public static MarkDTO Mark;
         public static AdminDTO Admin;
+        public static string schoolYear;
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using BUS;
 namespace GUI
 {
     /// <summary>
@@ -28,7 +29,16 @@ namespace GUI
 
         private void Window_Loaded_Role(object sender, RoutedEventArgs e)
         {
-              
+            minage.Text = AcademicAffairsOfficeBUS.getMinAge().ToString();
+            maxage.Text = AcademicAffairsOfficeBUS.getMaxAge().ToString();
+            passscore.Text = AcademicAffairsOfficeBUS.getPassScore().ToString();
+            totalofclass.Text = AcademicAffairsOfficeBUS.getTotalStudent().ToString();
+            totalofclass10.Text = totalofclass11.Text = totalofclass12.Text = "3";
+            nameclasses10.Text = "10A1, 10A2, 10A3";
+            nameclasses11.Text = "11A1, 11A2, 11A3";
+            nameclasses12.Text = "12A1, 12A2, 12A3";
+            totalofsubject.Text = "10";
+            namesubjects.Text = "Math, Literature, English, Biology, Technology, History, Geography, Information Technology, Civic Education, Defense Education";
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -37,16 +47,10 @@ namespace GUI
             minage.IsReadOnly = false;
             maxage.IsReadOnly = false;
             passscore.IsReadOnly = false;
-            totalofclass.IsReadOnly = false;
-            totalofclass10.IsReadOnly = false;
-            totalofclass11.IsReadOnly = false;
-            totalofclass12.IsReadOnly = false;
-            totalofsubject.IsReadOnly = false;
-            nameclasses10.IsReadOnly = false;
-            nameclasses11.IsReadOnly = false;
-            nameclasses12.IsReadOnly = false;
-            namesubjects.IsReadOnly = false;
-          
+            totalofclass.IsReadOnly = false; 
+
+
+
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
@@ -65,6 +69,16 @@ namespace GUI
             nameclasses11.IsReadOnly = true;
             nameclasses12.IsReadOnly = true;
             namesubjects.IsReadOnly = true;
+
+
+            if (!AcademicAffairsOfficeBUS.updateRole(int.Parse(minage.Text), int.Parse(maxage.Text), int.Parse(passscore.Text), int.Parse(totalofclass.Text))) 
+            {
+                MessageBox.Show("Change role failed");
+            }
+            else
+            {
+                MessageBox.Show("Change role successfully");
+            }
         }
     }
 }
