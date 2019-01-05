@@ -124,7 +124,7 @@ namespace GUI
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-            if (listviewUser.SelectedItems[0] != null)
+            if (listviewUser.SelectedItems.Count > 0)
             {
                 StudentDTO item = (StudentDTO)listviewUser.SelectedItems[0];
                 fullname_st_infor.Text = item.Name;

@@ -22,6 +22,13 @@ namespace BUS
             }
         }
 
+        public static string getYear(string birthDay)
+        {
+            string result = "";
+            result = birthDay[0].ToString() + birthDay[1].ToString() + birthDay[2].ToString() + birthDay[3].ToString();
+            return result;
+        }
+
         public static List<string> loadListClassToComboBox()
         {
             return AcademicAffairsOfficeDAO.loadListClassToComboBox();
@@ -106,9 +113,20 @@ namespace BUS
             if (!TeacherBUS.marchEmail(student.Email))
                 return false;
 
+
+
             string birthDay = student.DateofBith;
             TeacherBUS.StandalizedBirthDayToDatabase(ref birthDay);
             student.DateofBith = birthDay;
+
+            string currentYear = DateTime.Now.Year.ToString();
+            string year = getYear(birthDay);
+            int age = int.Parse(currentYear) - int.Parse(year);
+            if (age< getMinAge() || age > getMaxAge())
+            {
+                return false;
+            }
+
             return AcademicAffairsOfficeDAO.AddNewStudent(student);
         }
 

@@ -206,7 +206,7 @@ namespace GUI
                         }
                         listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadStudentNotInClass(Global.schoolYear);
                         listviewUser2.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear, chooseStatus2.SelectedValue.ToString());
-                        lbl_Current1.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear);
+                       
                         lbl_Current2.Content = AcademicAffairsOfficeBUS.getCurrentStudent(chooseClass2.SelectedValue.ToString(), Global.schoolYear);
                     }
                 }

@@ -136,39 +136,42 @@ namespace GUI
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-           TeacherDTO item = (TeacherDTO)listviewUser.SelectedItems[0];
-            fullname_tc_infor.Text = item.Name;
-            birthofday_tc_infor.Text = item.DateofBith;
-            email_tc_infor.Text = item.Email;
-            id_tc_infor.Text = item.Id;
-            if (item.Gender == "Male")
+            if (listviewUser.SelectedItems.Count > 0)
             {
-                gender_tc_infor.SelectedIndex = 1;
-            }
-            else if (item.Gender == "Female")
-            {
-                gender_tc_infor.SelectedIndex = 2;
-            }
-            else
-            {
-                gender_tc_infor.SelectedIndex = 0;
-            }
-            phone_tc_infor.Text = item.Phone;
-            if(item.NamePosition == "Master")
-            {
-                position_tc_infor.SelectedIndex = 2;
-            }
-            else if(item.NamePosition == "Subject Teacher")
-            {
-                position_tc_infor.SelectedIndex = 0;
-            }
-            else if (item.NamePosition == "Homeroom Teacher")
-            {
-                position_tc_infor.SelectedIndex = 1;
-            }
-            else
-            {
-                position_tc_infor.SelectedIndex = 3;
+                TeacherDTO item = (TeacherDTO)listviewUser.SelectedItems[0];
+                fullname_tc_infor.Text = item.Name;
+                birthofday_tc_infor.Text = item.DateofBith;
+                email_tc_infor.Text = item.Email;
+                id_tc_infor.Text = item.Id;
+                if (item.Gender == "Male")
+                {
+                    gender_tc_infor.SelectedIndex = 1;
+                }
+                else if (item.Gender == "Female")
+                {
+                    gender_tc_infor.SelectedIndex = 2;
+                }
+                else
+                {
+                    gender_tc_infor.SelectedIndex = 0;
+                }
+                phone_tc_infor.Text = item.Phone;
+                if (item.NamePosition == "Master")
+                {
+                    position_tc_infor.SelectedIndex = 2;
+                }
+                else if (item.NamePosition == "Subject Teacher")
+                {
+                    position_tc_infor.SelectedIndex = 0;
+                }
+                else if (item.NamePosition == "Homeroom Teacher")
+                {
+                    position_tc_infor.SelectedIndex = 1;
+                }
+                else
+                {
+                    position_tc_infor.SelectedIndex = 3;
+                }
             }
         }
 

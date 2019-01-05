@@ -96,7 +96,7 @@ namespace GUI
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-            if (listviewStudent.SelectedItems[0] != null)
+            if (listviewStudent.SelectedItems.Count > 0)
             {
                 StudentDTO item = (StudentDTO)listviewStudent.SelectedItems[0];
                 fullname_st_infor.Content = item.Name;
@@ -164,7 +164,7 @@ namespace GUI
 
         private void ChooseClass_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (chooseClass.SelectedItem != null && chooseYear.SelectedItem != null)
+            if (chooseClass.SelectedValue != null && chooseYear.SelectedValue != null)
             {
                 Global.listStudent = AcademicAffairsOfficeBUS.loadListStudent(chooseClass.SelectedItem.ToString(), chooseYear.SelectedItem.ToString());
                 listviewStudent.ItemsSource = Global.listStudent;
@@ -173,7 +173,7 @@ namespace GUI
 
         private void ChooseYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (chooseClass.SelectedItem != null && chooseYear.SelectedItem != null)
+            if (chooseClass.SelectedValue != null && chooseYear.SelectedValue != null)
             {
                 if (Global.Teacher.Type == "PDT")
                 {

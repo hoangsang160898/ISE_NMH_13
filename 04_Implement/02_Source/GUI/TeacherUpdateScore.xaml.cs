@@ -175,7 +175,7 @@ namespace GUI
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
         {
-            if (listviewUser.SelectedItems[0] != null)
+            if (listviewUser.SelectedItems.Count > 0)
             {
                 MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
                 //subject_st_infor.Text = item.IdSubject;
