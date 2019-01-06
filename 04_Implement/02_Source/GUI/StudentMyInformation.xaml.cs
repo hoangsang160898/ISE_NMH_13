@@ -48,6 +48,7 @@ namespace GUI
             gender_st_infor.IsEnabled = false;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Collapsed;
 
             string idStudent = id_st_infor.Text;
             string Name = Global.Student.Name;

@@ -40,6 +40,7 @@ namespace GUI
 
         private void Window_Loaded_User(object sender, RoutedEventArgs e)
         {
+
             isLoaded = true;
             // listviewUser.ItemsSource = users;    
            if (chooseAuthor.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Student")
@@ -59,7 +60,7 @@ namespace GUI
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             btnDoneOfEdit.Visibility = Visibility.Visible;
-
+            btnCancel.Visibility = Visibility.Visible;
             password_user_infor.IsEnabled = true;
         }
 
@@ -72,10 +73,10 @@ namespace GUI
                 return;
             }
 
-
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             password_user_infor.IsEnabled = false;
+            btnCancel.Visibility = Visibility.Collapsed;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -99,7 +100,8 @@ namespace GUI
             }
 
             btnDelete.Visibility = Visibility.Collapsed;
-            btnActive.Visibility = Visibility.Visible;
+            btnActive.Visibility = Visibility.Collapsed;
+            btnEdit.IsEnabled = false;
         }
 
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -128,8 +130,9 @@ namespace GUI
             }
 
 
-            btnDelete.Visibility = Visibility.Visible;
+            btnDelete.Visibility = Visibility.Collapsed;
             btnActive.Visibility = Visibility.Collapsed;
+            btnEdit.IsEnabled = false;
         }
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
@@ -234,6 +237,18 @@ namespace GUI
                     listviewUser.ItemsSource = AdminBUS.loadListUser(chooseStatus.SelectedValue.ToString());
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            btnEdit.Visibility = Visibility.Visible;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            password_user_infor.IsEnabled = false;
+            btnCancel.Visibility = Visibility.Collapsed;
+            btnActive.Visibility = Visibility.Collapsed;
+            btnDelete.Visibility = Visibility.Collapsed;
+            btnEdit.IsEnabled = false;
+            Window_Loaded_User(sender, e);
         }
     }
 }

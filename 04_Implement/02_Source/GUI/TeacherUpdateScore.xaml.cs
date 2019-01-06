@@ -112,12 +112,15 @@ namespace GUI
 
 
             }
+            btnEdit.IsEnabled = false;
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            btnEdit.Visibility = Visibility.Collapsed;
+            btnEdit.IsEnabled = false;
+
             btnDoneOfEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Visible;
             m15st_st_infor.IsReadOnly = false;
             m15nd_st_infor.IsReadOnly = false;
             m15rd_st_infor.IsReadOnly = false;
@@ -129,8 +132,8 @@ namespace GUI
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
         {
-            btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnEdit.IsEnabled = false;
             m15st_st_infor.IsReadOnly = true;
             m15nd_st_infor.IsReadOnly = true;
             m15rd_st_infor.IsReadOnly = true;
@@ -138,6 +141,7 @@ namespace GUI
             m45nd_st_infor.IsReadOnly = true;
             m45rd_st_infor.IsReadOnly = true;
             semester_st_infor.IsReadOnly = true;
+            btnCancel.Visibility = Visibility.Collapsed;
             MarkDTO item = (MarkDTO)listviewUser.SelectedItems[0];
             MarkDTO mark = new MarkDTO();
             mark.FirstFifteenMinutesMark = double.Parse(m15st_st_infor.Text);
@@ -299,6 +303,22 @@ namespace GUI
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
             listviewUser.ItemsSource = MarkBUS.searchStudent_Mark(searchUser.Text, chooseSubject.SelectedValue.ToString(), chooseClass.SelectedValue.ToString(), Global.schoolYear, semester);
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            btnEdit.IsEnabled = false;
+
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            m15st_st_infor.IsReadOnly = true;
+            m15nd_st_infor.IsReadOnly = true;
+            m15rd_st_infor.IsReadOnly = true;
+            m45st_st_infor.IsReadOnly = true;
+            m45nd_st_infor.IsReadOnly = true;
+            m45rd_st_infor.IsReadOnly = true;
+            semester_st_infor.IsReadOnly = true;
+            btnCancel.Visibility = Visibility.Collapsed;
+            Window_Loaded_User(sender, e);
         }
     }
 }

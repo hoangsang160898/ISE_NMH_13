@@ -47,6 +47,7 @@ namespace GUI
             gender_ad_infor.IsEnabled = false;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Collapsed;
 
             string idAdmin = id_ad_infor.Text;
             string Name = Global.Admin.Name;

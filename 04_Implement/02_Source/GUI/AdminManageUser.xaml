@@ -82,13 +82,19 @@
                     <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Edit"/></TextBlock>
                 </StackPanel>
             </Button>
-            <Button Padding="0" Name="btnDelete" HorizontalAlignment="Left" Margin="826,549,0,0" Background="#E74C3C" BorderThickness="0" VerticalAlignment="Top" Width="90" Click="btnDelete_Click" Visibility="Collapsed">
+            <Button  Visibility="Collapsed" Padding="0" Name="btnDelete" HorizontalAlignment="Left" Margin="596,549,0,0" Background="#E74C3C" BorderThickness="0" VerticalAlignment="Top" Width="90" Click="btnDelete_Click" >
                 <StackPanel Orientation="Horizontal">
                     <Image Source="img/icons/remove_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
                     <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Deactive"/></TextBlock>
                 </StackPanel>
             </Button>
-            <Button Padding="0" Name="btnActive" HorizontalAlignment="Left" Margin="826,549,0,0" Background="#039866" BorderThickness="0" VerticalAlignment="Top" Width="90" Click="btnActive_Click" Visibility="Collapsed">
+            <Button  Visibility="Collapsed" Padding="0" Name="btnCancel" HorizontalAlignment="Left" Margin="833,549,0,0" Background="#E74C3C" BorderThickness="0" VerticalAlignment="Top" Width="90" Click="btnCancel_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="img/icons/remove_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
+                    <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Cancel"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Padding="0" Name="btnActive" HorizontalAlignment="Left" Margin="596,549,0,0" Background="#039866" BorderThickness="0" VerticalAlignment="Top" Width="90" Click="btnActive_Click" Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="img/icons/done_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
                     <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Active"/></TextBlock>

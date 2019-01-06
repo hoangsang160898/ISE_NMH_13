@@ -104,5 +104,18 @@ namespace GUI
             combo.ItemsSource = new List<string> { Global.schoolYear };
             combo.SelectedIndex = 0;
         }
+
+        private void btnCancel_click(object sender, RoutedEventArgs e)
+        {
+            id_addstudent.Text = "";
+            email_addstudent.Text = "";
+            birthofday_addstudent.Text = "";
+            phone_addstudent.Text = "";
+            fname_addstudent.Text = "";
+            chooseYear.SelectedIndex = 0;
+            gender_addstudent.Text = "";
+            password_addstudent.Clear();
+            passwordconfirm_addstudent.Clear();
+        }
     }
 }

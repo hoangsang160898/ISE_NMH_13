@@ -33,6 +33,12 @@
                     <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Done"/></TextBlock>
                 </StackPanel>
             </Button>
+            <Button Padding="0" x:Name="btnCancel" HorizontalAlignment="Left" Margin="868,545,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_click" Background="#FFF32121" BorderBrush="#FFF32121">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="img/icons/remove_btn.png" Margin="-2,0,0,0" Height="25" Width="25"/>
+                    <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Cancel"/></TextBlock>
+                </StackPanel>
+            </Button>
             <Label Content="Add student"  HorizontalAlignment="Left" Margin="365,80,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Width="232" Height="51"/>
             <Label Content="to continue to system" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"  HorizontalAlignment="Left" Margin="365,126,0,0" VerticalAlignment="Top" FontSize="18" Width="198" Height="35"/>
             <Label Content="Password"  HorizontalAlignment="Left" Margin="365,279,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>

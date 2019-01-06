@@ -84,6 +84,7 @@ namespace GUI
             gender_adduser.Text = "";
             password_adduser.Clear();
             passwordconfirm_adduser.Clear();
+
         }
 
         private void ComboBox_Classes_Loaded(object sender, RoutedEventArgs e)

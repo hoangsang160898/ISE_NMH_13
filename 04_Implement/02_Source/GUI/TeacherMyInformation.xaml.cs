@@ -38,6 +38,7 @@ namespace GUI
 
             btnEdit.Visibility = Visibility.Collapsed;
             btnDoneOfEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Visible;
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
@@ -49,7 +50,7 @@ namespace GUI
             gender_tc_infor.IsReadOnly = true;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
-
+            btnCancel.Visibility = Visibility.Collapsed;
             string idTeacher = id_tc_infor.Text;
             string Name = fullname_tc_infor.Text;
             string Gender = gender_tc_infor.Text;
@@ -149,6 +150,19 @@ namespace GUI
             {
                 gender_tc_infor.SelectedIndex = 0;
             }
+        }
+
+        private void btnCancel_click(object sender, RoutedEventArgs e)
+        {
+            phone_tc_infor.IsReadOnly = true;
+            email_tc_infor.IsReadOnly = true;
+            birthofday_tc_infor.IsReadOnly = true;
+            gender_tc_infor.IsReadOnly = true;
+            gender_tc_infor.IsEnabled = false;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Collapsed;
+            Window_Loaded_AdminInformation(sender, e);
         }
     }
 }
