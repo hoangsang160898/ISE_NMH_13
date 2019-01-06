@@ -42,6 +42,7 @@ namespace GUI
         {
             isLoaded = true;
             listviewUser.ItemsSource = AcademicAffairsOfficeBUS.loadListTeacher();
+            btnEdit.IsEnabled = false;
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -54,6 +55,7 @@ namespace GUI
             gender_tc_infor.IsEnabled = true;
             phone_tc_infor.IsReadOnly = false;
             position_tc_infor.IsEnabled = true;
+            btnCancel.Visibility = Visibility.Visible;
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
@@ -63,9 +65,11 @@ namespace GUI
             email_tc_infor.IsReadOnly = true;
             birthofday_tc_infor.IsReadOnly = true;
             gender_tc_infor.IsReadOnly = true;
+            position_tc_infor.IsEnabled = false;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             btnEdit.Visibility = Visibility.Visible;
-
+            btnEdit.IsEnabled = false;
+            btnCancel.Visibility = Visibility.Collapsed;
             string idTeacher = id_tc_infor.Text;
             string Name = fullname_tc_infor.Text;
             string Gender = gender_tc_infor.Text;
@@ -148,7 +152,6 @@ namespace GUI
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             btnEdit.IsEnabled = true;
-
         }
 
         private void SelectItem(object sender, MouseButtonEventArgs e)
@@ -173,7 +176,7 @@ namespace GUI
                     gender_tc_infor.SelectedIndex = 0;
                 }
                 phone_tc_infor.Text = item.Phone;
-                if (item.NamePosition == "Master")
+                if (item.NamePosition == "AAO Staff")
                 {
                     position_tc_infor.SelectedIndex = 2;
                 }
@@ -252,6 +255,20 @@ namespace GUI
                     }
                 }
             }
+        }
+
+        private void btnCancel_click(object sender, RoutedEventArgs e)
+        {
+            gender_tc_infor.IsEnabled = false;
+            phone_tc_infor.IsReadOnly = true;
+            email_tc_infor.IsReadOnly = true;
+            birthofday_tc_infor.IsReadOnly = true;
+            gender_tc_infor.IsReadOnly = true;
+            position_tc_infor.IsEnabled = false;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+
+            btnCancel.Visibility = Visibility.Collapsed;
+            Window_Loaded_Teacher(sender, e);
         }
     }
 }

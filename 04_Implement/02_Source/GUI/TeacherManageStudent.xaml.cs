@@ -75,6 +75,7 @@ namespace GUI
             }
             listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
 
+            btnEdit.IsEnabled = false;
             btnEdit.Visibility = Visibility.Visible;
             btnDoneOfEdit.Visibility = Visibility.Collapsed;
             gender_st_infor.IsEnabled = false ;
@@ -82,10 +83,10 @@ namespace GUI
             birthofday_st_infor.IsReadOnly = true;
             email_st_infor.IsReadOnly = true;
             phone_st_infor.IsReadOnly = true;
-
+            btnDelete.Visibility = Visibility.Collapsed;
+            btnActive.Visibility = Visibility.Collapsed;
+            btnViewScore.IsEnabled = false;
             schoolyear_st_infor.IsReadOnly = true;
-
-
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -99,12 +100,11 @@ namespace GUI
                 }
                 listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
 
-
-
                 btnDelete.Visibility = Visibility.Collapsed;
-                btnActive.Visibility = Visibility.Visible;
+                btnActive.Visibility = Visibility.Collapsed;
+                btnEdit.IsEnabled = false;
+                btnViewScore.IsEnabled = false;
             }
-
         }
 
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -123,8 +123,10 @@ namespace GUI
                     MessageBox.Show("Active Faidled");
                 }
                 listviewUser.ItemsSource = listviewUser.ItemsSource = AcademicAffairsOfficeBUS.LoadStudent(chooseClass.SelectedValue.ToString(), Global.schoolYear, chooseStatus.SelectedValue.ToString());
-                btnDelete.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Collapsed;
                 btnActive.Visibility = Visibility.Collapsed;
+                btnEdit.IsEnabled = false;
+                btnViewScore.IsEnabled = false;
             }
         }
 
