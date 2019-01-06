@@ -64,9 +64,7 @@ namespace GUI
                 MessageBox.Show("Password and Confirm Password does not match");
                 return;
             }
-
-
-
+            
             if (AcademicAffairsOfficeBUS.addNewStudent(temp) == false)
             {
                 MessageBox.Show("Add student failed");
@@ -100,6 +98,19 @@ namespace GUI
             var combo = sender as ComboBox;
             combo.ItemsSource = AcademicAffairsOfficeBUS.loadListSchoolYearToComboBox();
             combo.SelectedIndex = 0;
+        }
+
+        private void btnCancel_click(object sender, RoutedEventArgs e)
+        {
+            id_adduser.Text = "";
+            email_adduser.Text = "";
+            birthofday_adduser.Text = "";
+            phone_adduser.Text = "";
+            fname_adduser.Text = "";
+            chooseYear.SelectedIndex = 0;
+            gender_adduser.Text = "";
+            password_adduser.Clear();
+            passwordconfirm_adduser.Clear();
         }
     }
 }

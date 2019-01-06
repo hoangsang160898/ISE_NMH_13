@@ -207,7 +207,14 @@ namespace GUI
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
             listviewUser.ItemsSource = AdminBUS.searchUser(chooseAuthor.SelectedValue.ToString(), chooseStatus.SelectedValue.ToString(), searchUser.Text);
-
+            if (AdminBUS.searchUser(chooseAuthor.SelectedValue.ToString(), chooseStatus.SelectedValue.ToString(), searchUser.Text).Count() == 0)
+            {
+                listviewUser.IsEnabled = false;
+            }
+            else
+            {
+                listviewUser.IsEnabled = true;
+            }
         }
 
         private void SearchUser_TextChanged(object sender, TextChangedEventArgs e)

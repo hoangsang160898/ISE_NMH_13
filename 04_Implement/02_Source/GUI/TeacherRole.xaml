@@ -114,6 +114,12 @@
             <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="totalofsubject" HorizontalAlignment="Left" Margin="153,483,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
             <Label Panel.ZIndex="3" Content="Name subjects:"  HorizontalAlignment="Left" Margin="61,516,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="145" Height="34" RenderTransformOrigin="-3.114,-4.912"/>
             <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="namesubjects" HorizontalAlignment="Left" Margin="211,519,0,0" VerticalAlignment="Top" FontSize="17" Width="748"/>
+            <Button Visibility="Collapsed" Padding="0" x:Name="btnCancel" HorizontalAlignment="Left" Margin="801,28,0,0" VerticalAlignment="Top" Width="90" Click="btnCancel_Click" BorderBrush="Red" Background="#FFF32121">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="img/icons/remove_btn.png" Margin="-2,0,0,0" Height="25" Width="25"/>
+                    <TextBlock Margin="2,0,0,0" Height="20"><Run Text="Cancel"/></TextBlock>
+                </StackPanel>
+            </Button>
 
         </Grid>
     </materialDesign:TransitioningContent>

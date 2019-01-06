@@ -35,6 +35,7 @@ namespace GUI
             gender_st_infor.IsReadOnly = false;
             btnEdit.Visibility = Visibility.Collapsed;
             btnDoneOfEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Visible;
             gender_st_infor.IsEnabled = true;
         }
 
@@ -131,6 +132,19 @@ namespace GUI
             {
                 gender_st_infor.SelectedIndex = 0;
             }
+        }
+
+        private void btnCancel_click(object sender, RoutedEventArgs e)
+        {
+            phone_st_infor.IsReadOnly = true;
+            email_st_infor.IsReadOnly = true;
+            birthofday_st_infor.IsReadOnly = true;
+            gender_st_infor.IsReadOnly = true;
+            gender_st_infor.IsEnabled = false;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Collapsed;
+            Window_Loaded_StudentInformation(sender, e);
         }
     }
 }

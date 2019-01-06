@@ -47,10 +47,8 @@ namespace GUI
             minage.IsReadOnly = false;
             maxage.IsReadOnly = false;
             passscore.IsReadOnly = false;
-            totalofclass.IsReadOnly = false; 
-
-
-
+            totalofclass.IsReadOnly = false;
+            btnCancel.Visibility = Visibility.Visible;
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
@@ -79,6 +77,18 @@ namespace GUI
             {
                 MessageBox.Show("Change role successfully");
             }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            minage.IsReadOnly = true;
+            maxage.IsReadOnly = true;
+            passscore.IsReadOnly = true;
+            totalofclass.IsReadOnly = true;
+            btnCancel.Visibility = Visibility.Collapsed;
+            btnEdit.Visibility = Visibility.Visible;
+            Window_Loaded_Role(sender,e);
         }
     }
 }

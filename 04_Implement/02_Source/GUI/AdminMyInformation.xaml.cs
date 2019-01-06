@@ -29,6 +29,7 @@ namespace GUI
 
         private void btnEdit_click(object sender, RoutedEventArgs e)
         {
+            btnCancel.Visibility = Visibility.Visible;
             phone_ad_infor.IsReadOnly = false;
             email_ad_infor.IsReadOnly = false;
             birthofday_ad_infor.IsReadOnly = false;
@@ -130,6 +131,19 @@ namespace GUI
             {
                 gender_ad_infor.SelectedIndex = 0;
             }
+        }
+
+        private void btnCancel_click(object sender, RoutedEventArgs e)
+        {
+            phone_ad_infor.IsReadOnly = true;
+            email_ad_infor.IsReadOnly = true;
+            birthofday_ad_infor.IsReadOnly = true;
+            gender_ad_infor.IsReadOnly = true;
+            gender_ad_infor.IsEnabled = false;
+            btnDoneOfEdit.Visibility = Visibility.Collapsed;
+            btnEdit.Visibility = Visibility.Visible;
+            btnCancel.Visibility = Visibility.Collapsed;
+            Window_Loaded_AdminInformation(sender, e);
         }
     }
 }
