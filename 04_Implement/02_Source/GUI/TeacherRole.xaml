@@ -46,7 +46,7 @@
             <Border Panel.ZIndex="2" Margin="60,28,827,523" CornerRadius="20" Background="Orange">
                 <Label Foreground="#fff" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="85" FontSize="14">Age</Label>
             </Border>
-            <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="minage" HorizontalAlignment="Left" Margin="111,88,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="minage" HorizontalAlignment="Left" Margin="111,88,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
             <Button Padding="0" Name="btnEdit" HorizontalAlignment="Left" Margin="907,28,0,0" VerticalAlignment="Top" Width="90" Click="btnEdit_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="img/icons/edit_btn.png" Margin="-2,0,0,0" Height="25" Width="25"></Image>
@@ -60,7 +60,7 @@
                 </StackPanel>
             </Button>
             <Label Panel.ZIndex="3" Content="Max:"  HorizontalAlignment="Left" Margin="57,123,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="49" Height="34" RenderTransformOrigin="-3.114,-4.912"/>
-            <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="maxage" HorizontalAlignment="Left" Margin="111,124,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="maxage" HorizontalAlignment="Left" Margin="111,124,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
             <Border BorderBrush="Orange" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="32,220,0,0" VerticalAlignment="Top" Width="969" RenderTransformOrigin="0.5,0.5">
                 <Border.RenderTransform>
                     <TransformGroup>
@@ -82,9 +82,9 @@
                 </Border.RenderTransform>
             </Border>
             <Label Panel.ZIndex="3" Content="Pass:"  HorizontalAlignment="Left" Margin="295,75,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="53" Height="34" RenderTransformOrigin="-3.114,-4.912"/>
-            <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="passscore" HorizontalAlignment="Left" Margin="348,76,0,0" VerticalAlignment="Top" FontSize="17" Width="88"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="passscore" HorizontalAlignment="Left" Margin="348,76,0,0" VerticalAlignment="Top" FontSize="17" Width="88"/>
             <Label Panel.ZIndex="3" Content="Total:"  HorizontalAlignment="Left" Margin="59,257,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="89" Height="34" RenderTransformOrigin="-3.114,-4.912"/>
-            <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="totalofclass" HorizontalAlignment="Left" Margin="153,260,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="totalofclass" HorizontalAlignment="Left" Margin="153,260,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
             <Label Panel.ZIndex="3" Content="Grade 10:"  HorizontalAlignment="Left" Margin="59,291,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="89" Height="34" RenderTransformOrigin="-3.114,-4.912"/>
             <TextBox Panel.ZIndex="3" materialDesign:HintAssist.Hint="Enter here" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="totalofclass10" HorizontalAlignment="Left" Margin="153,294,0,0" VerticalAlignment="Top" FontSize="17" Width="90"/>
             <Label Panel.ZIndex="3" Content="Grade 11:"  HorizontalAlignment="Left" Margin="59,327,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Width="89" Height="34" RenderTransformOrigin="-3.114,-4.912"/>

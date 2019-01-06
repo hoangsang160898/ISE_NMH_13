@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
 using BUS;
+using System.Text.RegularExpressions;
+
 namespace GUI
 {
     /// <summary>
@@ -21,6 +23,10 @@ namespace GUI
     /// </summary>
     public sealed partial class TeacherRole : Page
     {
+        string tempMinage = "";
+        string tempMaxage = "";
+        string tempTotal = "";
+        string tempPassScore = "";
         public TeacherRole()
         {
 
@@ -34,6 +40,12 @@ namespace GUI
             passscore.Text = AcademicAffairsOfficeBUS.getPassScore().ToString();
             totalofclass.Text = AcademicAffairsOfficeBUS.getTotalStudent().ToString();
             totalofclass10.Text = totalofclass11.Text = totalofclass12.Text = "3";
+
+            tempMinage = minage.Text;
+            tempMaxage = maxage.Text;
+            tempTotal = totalofclass.Text;
+            tempPassScore = passscore.Text;
+
             nameclasses10.Text = "10A1, 10A2, 10A3";
             nameclasses11.Text = "11A1, 11A2, 11A3";
             nameclasses12.Text = "12A1, 12A2, 12A3";
@@ -41,14 +53,28 @@ namespace GUI
             namesubjects.Text = "Math, Literature, English, Biology, Technology, History, Geography, Information Technology, Civic Education, Defense Education";
         }
 
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9.-]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+
+
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+           /* string tempMinage = minage.Text;
+            string tempMaxage = maxage.Text;
+            string tempTotal = totalofclass.Text;
+            string tempPassScore = passscore.Text;*/
+
             btnDoneOfEdit.Visibility = Visibility.Visible;
             minage.IsReadOnly = false;
             maxage.IsReadOnly = false;
             passscore.IsReadOnly = false;
             totalofclass.IsReadOnly = false;
             btnCancel.Visibility = Visibility.Visible;
+         
         }
 
         private void btnDoneofEdit_click(object sender, RoutedEventArgs e)
@@ -67,16 +93,26 @@ namespace GUI
             nameclasses11.IsReadOnly = true;
             nameclasses12.IsReadOnly = true;
             namesubjects.IsReadOnly = true;
+            btnCancel.Visibility = Visibility.Collapsed;
 
 
+           /* string tempMinage = minage.Text;
+            string tempMaxage = maxage.Text;
+            string tempTotal = totalofclass.Text;
+            string tempPassScore = passscore.Text;*/
             if (!AcademicAffairsOfficeBUS.updateRole(int.Parse(minage.Text), int.Parse(maxage.Text), double.Parse(passscore.Text), int.Parse(totalofclass.Text))) 
             {
                 MessageBox.Show("Change role failed");
+                minage.Text = tempMinage;
+                maxage.Text = tempMaxage;
+                totalofclass.Text = tempTotal;
+                passscore.Text = tempPassScore;
             }
             else
             {
                 MessageBox.Show("Change role successfully");
             }
+        
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

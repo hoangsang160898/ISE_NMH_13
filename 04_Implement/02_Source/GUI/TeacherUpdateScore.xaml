@@ -68,7 +68,7 @@
             <TextBox materialDesign:HintAssist.Hint="Select student to continue" CharacterCasing="Upper" BorderThickness="0" IsReadOnly="True"  x:Name="fullname_st_infor" HorizontalAlignment="Left" Margin="745,222,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
             <TextBox materialDesign:HintAssist.Hint="Select student to continue" BorderThickness="0" IsReadOnly="True"  x:Name="id_st_infor" HorizontalAlignment="Left" Margin="745,262,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
             <TextBox materialDesign:HintAssist.Hint="Select student to continue" BorderThickness="0" IsReadOnly="True" x:Name="class_st_infor"  HorizontalAlignment="Left" Margin="745,306,0,0" VerticalAlignment="Top" FontSize="17" Width="255"/>
-            <TextBox materialDesign:HintAssist.Hint="final" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="semester_st_infor" Margin="745,434,0,0" VerticalAlignment="Top" FontSize="17" Width="51"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" materialDesign:HintAssist.Hint="final" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="semester_st_infor" Margin="745,434,0,0" VerticalAlignment="Top" FontSize="17" Width="51"/>
 
             <Button Padding="0" Name="btnEdit" HorizontalAlignment="Left" Margin="910,491,0,0" VerticalAlignment="Top" Width="90" Click="btnEdit_Click" IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
@@ -84,12 +84,12 @@
                 </StackPanel>
             </Button>
             <Label Content="15 mintues:"  HorizontalAlignment="Left" Margin="600,347,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
-            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="st" BorderThickness="0" x:Name="m15st_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="745,347,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
-            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="nd" BorderThickness="0" x:Name="m15nd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="804,347,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
-            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="rd" BorderThickness="0" x:Name="m15rd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="863,348,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
-            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="st" BorderThickness="0" x:Name="m45st_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="745,391,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
-            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="nd" BorderThickness="0" x:Name="m45nd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="804,391,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
-            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="rd" BorderThickness="0" x:Name="m45rd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="863,392,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" IsReadOnly="True" materialDesign:HintAssist.Hint="st" BorderThickness="0" x:Name="m15st_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="745,347,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" IsReadOnly="True" materialDesign:HintAssist.Hint="nd" BorderThickness="0" x:Name="m15nd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="804,347,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" IsReadOnly="True" materialDesign:HintAssist.Hint="rd" BorderThickness="0" x:Name="m15rd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="863,348,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" IsReadOnly="True" materialDesign:HintAssist.Hint="st" BorderThickness="0" x:Name="m45st_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="745,391,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" IsReadOnly="True" materialDesign:HintAssist.Hint="nd" BorderThickness="0" x:Name="m45nd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="804,391,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" IsReadOnly="True" materialDesign:HintAssist.Hint="rd" BorderThickness="0" x:Name="m45rd_st_infor" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="863,392,0,0" VerticalAlignment="Top" FontSize="17" Width="54"/>
             <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="786,32,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Search_Click"/>
             <Button Visibility="Collapsed" Padding="0" x:Name="btnCancel" HorizontalAlignment="Left" Margin="815,491,0,0" VerticalAlignment="Top" Width="90" Click="btnCancel_Click" Background="#FFF32121" BorderBrush="#FFF32121">
                 <StackPanel Orientation="Horizontal">

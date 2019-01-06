@@ -13,8 +13,8 @@ namespace DAO
         public static SqlConnection OpenConnection()
         {
             // Chú ý Data Source
-            //string sConection = @"Data Source=DESKTOP-FMNAUEE\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
-            string sConection = @"Data Source=leooonguyennnnn\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
+          // string sConection = @"Data Source=(192.168.43.56),1433;Network Library=DBMSSOCN;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
+           string sConection = @"Data Source=LEOOONGUYENNNNN\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Integrated Security=True";
             SqlConnection con = new SqlConnection(sConection);
             con.Open();
             return con;

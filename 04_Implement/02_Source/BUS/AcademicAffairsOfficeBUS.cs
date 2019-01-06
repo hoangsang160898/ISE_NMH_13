@@ -475,6 +475,11 @@ namespace BUS
             {
                 return false;
             }
+
+            if (minAge < 0 || maxAge < 0 || passScore < 0 || totalStudent < 0)
+                return false;
+            if (passScore > 10)
+                return false;
             return AcademicAffairsOfficeDAO.updateRole(minAge, maxAge, passScore, totalStudent);
         }
 

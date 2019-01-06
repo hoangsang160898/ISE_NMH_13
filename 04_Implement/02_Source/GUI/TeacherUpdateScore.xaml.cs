@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
 using BUS;
+using System.Text.RegularExpressions;
+
 namespace GUI
 {
     /// <summary>
@@ -171,7 +173,13 @@ namespace GUI
             }
             
         }
-        
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9.-]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             btnEdit.IsEnabled = true;
