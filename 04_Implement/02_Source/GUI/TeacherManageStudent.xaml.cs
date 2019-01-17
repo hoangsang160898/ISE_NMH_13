@@ -107,11 +107,7 @@ namespace GUI
             }
         }
 
-        private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            btnEdit.IsEnabled = true;
-            btnViewScore.IsEnabled = true;
-        }
+
 
         private void btnActive_Click(object sender, RoutedEventArgs e)
         {
